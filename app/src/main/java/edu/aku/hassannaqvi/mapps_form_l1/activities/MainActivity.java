@@ -3,42 +3,26 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.aku.hassannaqvi.mapps_form_l1.FormsList;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
-import edu.aku.hassannaqvi.mapps_form_l1.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
-import edu.aku.hassannaqvi.mapps_form_l1.get.GetMembers;
-import edu.aku.hassannaqvi.mapps_form_l1.sync.SyncCensus;
-import edu.aku.hassannaqvi.mapps_form_l1.sync.SyncDeceased;
-import edu.aku.hassannaqvi.mapps_form_l1.sync.SyncForms;
-import edu.aku.hassannaqvi.mapps_form_l1.sync.SyncIM;
 
 public class MainActivity extends Activity {
 
@@ -118,14 +102,14 @@ public class MainActivity extends Activity {
 
 
         DatabaseHelper db = new DatabaseHelper(this);
-        Collection<FormsContract> todaysForms = db.getTodayForms();
-        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
+       /* Collection<FormsContract> todaysForms = db.getTodayForms();
+        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();*/
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
 
         rSumText += "=======================\r\n";
         rSumText += "\r\n";
-        rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
+       /* rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
         rSumText += "\r\n";
         if (todaysForms.size() > 0) {
             rSumText += "\tFORMS' LIST: \r\n";
@@ -160,14 +144,14 @@ public class MainActivity extends Activity {
 
                 rSumText += " " + iStatus + " ";
 
-                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");
+                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");*/
                 rSumText += "\r\n";
                 rSumText += "--------------------------------------------------\r\n";
             }
-        }
+    //    }
 
 
-        if (MainApp.admin) {
+       /* if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
@@ -182,7 +166,7 @@ public class MainActivity extends Activity {
         recordSummary.setText(rSumText);
 
 
-    }
+    }*/
 
     public void openForm(View v) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
@@ -240,16 +224,16 @@ public class MainActivity extends Activity {
 
     public void testGPS(View v) {
 
-        SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+       /* SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
         Log.d("MAP", "testGPS: " + sharedPref.getAll().toString());
         Map<String, ?> allEntries = sharedPref.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
+            Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());*/
         }
 
-    }
+    // }
 
-    public void openDB(View v) {
+   /* public void openDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);
         startActivity(dbmanager);
     }
@@ -259,9 +243,9 @@ public class MainActivity extends Activity {
         cluster_list.putExtra("dssid", MainApp.regionDss);
         startActivity(cluster_list);
 
-    }
+    }*/
 
-    public void syncSg(View view) {
+  /*  public void syncSg(View view) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -271,17 +255,17 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this, false).execute();
 
-/*            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
+*//*            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
             new SyncCensus(this).execute();
 
             Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
-            new SyncDeceased(this).execute();*/
+            new SyncDeceased(this).execute();*//*
 
 //            Toast.makeText(getApplicationContext(), "Syncing Mother", Toast.LENGTH_SHORT).show();
 //            new SyncMother(this).execute();
 
-/*            Toast.makeText(getApplicationContext(), "Syncing IM", Toast.LENGTH_SHORT).show();
-            new SyncIM(this).execute();*/
+*//*            Toast.makeText(getApplicationContext(), "Syncing IM", Toast.LENGTH_SHORT).show();
+            new SyncIM(this).execute();*//*
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();
@@ -299,7 +283,7 @@ public class MainActivity extends Activity {
     public void syncServer(View view) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
-        ConnectivityManager connMgr = (ConnectivityManager)
+      *//*  ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -327,7 +311,7 @@ public class MainActivity extends Activity {
 
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
-        }
+        }*//*
 
     }
 
@@ -339,9 +323,9 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Users
-           /* BackgroundDrawable bg = new BackgroundDrawable();
+           *//* BackgroundDrawable bg = new BackgroundDrawable();
             syncDevice.setBackground(bg);
-            bg.start();*/
+            bg.start();*//*
             new GetMembers(this).execute();
             //bg.stop();
 
@@ -375,7 +359,7 @@ public class MainActivity extends Activity {
             }, 3 * 1000);
 
         }
-    }
+    }*/
 
     /*
      * Additional methods like onPreGet() or onFailure() can be added with default implementations.

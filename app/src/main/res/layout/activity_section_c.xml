@@ -241,6 +241,15 @@
 
         </RadioGroup>
 
+        <EditText
+            android:id="@+id/mpl1bb001fx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/day"
+            android:inputType="number"
+            android:maxLength="3"
+            android:visibility="gone" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -273,6 +282,15 @@
                 android:text="@string/no" />
 
         </RadioGroup>
+
+        <EditText
+            android:id="@+id/mpl1bb001gx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/day"
+            android:inputType="number"
+            android:maxLength="3"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="match_parent"
@@ -439,6 +457,15 @@
 
         </RadioGroup>
 
+        <EditText
+            android:id="@+id/mpl1bb001lx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/day"
+            android:inputType="number"
+            android:maxLength="3"
+            android:visibility="gone" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -472,6 +499,15 @@
 
         </RadioGroup>
 
+        <EditText
+            android:id="@+id/mpl1bb001mx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/day"
+            android:inputType="number"
+            android:maxLength="3"
+            android:visibility="gone" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -504,6 +540,15 @@
                 android:text="@string/no" />
 
         </RadioGroup>
+
+        <EditText
+            android:id="@+id/mpl1bb001nx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/day"
+            android:inputType="number"
+            android:maxLength="3"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="match_parent"
@@ -572,6 +617,15 @@
 
         </RadioGroup>
 
+        <EditText
+            android:id="@+id/mpl1bb001px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/day"
+            android:inputType="number"
+            android:maxLength="3"
+            android:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/fldGrp001p"
             android:layout_width="match_parent"
@@ -608,7 +662,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bb001p1c"
+                    android:id="@+id/mpl1bb001p199"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -645,7 +699,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bb001p2c"
+                    android:id="@+id/mpl1bb001p299"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -682,7 +736,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bb001p3c"
+                    android:id="@+id/mpl1bb001p399"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -719,7 +773,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bb001p4c"
+                    android:id="@+id/mpl1bb001p499"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"

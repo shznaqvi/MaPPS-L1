@@ -3,8 +3,10 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -59,12 +61,16 @@ public class SectionCActivity extends Activity {
     RadioButton mpl1bb001fa;
     @BindView(R.id.mpl1bb001fb)
     RadioButton mpl1bb001fb;
+    @BindView(R.id.mpl1bb001fx)
+    EditText mpl1bb001fx;
     @BindView(R.id.mpl1bb001g)
     RadioGroup mpl1bb001g;
     @BindView(R.id.mpl1bb001ga)
     RadioButton mpl1bb001ga;
     @BindView(R.id.mpl1bb001gb)
     RadioButton mpl1bb001gb;
+    @BindView(R.id.mpl1bb001gx)
+    EditText mpl1bb001gx;
     @BindView(R.id.mpl1bb001h)
     RadioGroup mpl1bb001h;
     @BindView(R.id.mpl1bb001ha)
@@ -95,18 +101,24 @@ public class SectionCActivity extends Activity {
     RadioButton mpl1bb001la;
     @BindView(R.id.mpl1bb001lb)
     RadioButton mpl1bb001lb;
+    @BindView(R.id.mpl1bb001lx)
+    EditText mpl1bb001lx;
     @BindView(R.id.mpl1bb001m)
     RadioGroup mpl1bb001m;
     @BindView(R.id.mpl1bb001ma)
     RadioButton mpl1bb001ma;
     @BindView(R.id.mpl1bb001mb)
     RadioButton mpl1bb001mb;
+    @BindView(R.id.mpl1bb001mx)
+    EditText mpl1bb001mx;
     @BindView(R.id.mpl1bb001n)
     RadioGroup mpl1bb001n;
     @BindView(R.id.mpl1bb001na)
     RadioButton mpl1bb001na;
     @BindView(R.id.mpl1bb001nb)
     RadioButton mpl1bb001nb;
+    @BindView(R.id.mpl1bb001nx)
+    EditText mpl1bb001nx;
     @BindView(R.id.mpl1bb001o)
     RadioGroup mpl1bb001o;
     @BindView(R.id.mpl1bb001oa)
@@ -119,6 +131,8 @@ public class SectionCActivity extends Activity {
     RadioButton mpl1bb001pa;
     @BindView(R.id.mpl1bb001pb)
     RadioButton mpl1bb001pb;
+    @BindView(R.id.mpl1bb001px)
+    EditText mpl1bb001px;
     @BindView(R.id.fldGrp001p)
     LinearLayout fldGrp001p;
     @BindView(R.id.mpl1bb001p1)
@@ -127,32 +141,32 @@ public class SectionCActivity extends Activity {
     RadioButton mpl1bb001p1a;
     @BindView(R.id.mpl1bb001p1b)
     RadioButton mpl1bb001p1b;
-    @BindView(R.id.mpl1bb001p1c)
-    RadioButton mpl1bb001p1c;
+    @BindView(R.id.mpl1bb001p199)
+    RadioButton mpl1bb001p199;
     @BindView(R.id.mpl1bb001p2)
     RadioGroup mpl1bb001p2;
     @BindView(R.id.mpl1bb001p2a)
     RadioButton mpl1bb001p2a;
     @BindView(R.id.mpl1bb001p2b)
     RadioButton mpl1bb001p2b;
-    @BindView(R.id.mpl1bb001p2c)
-    RadioButton mpl1bb001p2c;
+    @BindView(R.id.mpl1bb001p299)
+    RadioButton mpl1bb001p299;
     @BindView(R.id.mpl1bb001p3)
     RadioGroup mpl1bb001p3;
     @BindView(R.id.mpl1bb001p3a)
     RadioButton mpl1bb001p3a;
     @BindView(R.id.mpl1bb001p3b)
     RadioButton mpl1bb001p3b;
-    @BindView(R.id.mpl1bb001p3c)
-    RadioButton mpl1bb001p3c;
+    @BindView(R.id.mpl1bb001p399)
+    RadioButton mpl1bb001p399;
     @BindView(R.id.mpl1bb001p4)
     RadioGroup mpl1bb001p4;
     @BindView(R.id.mpl1bb001p4a)
     RadioButton mpl1bb001p4a;
     @BindView(R.id.mpl1bb001p4b)
     RadioButton mpl1bb001p4b;
-    @BindView(R.id.mpl1bb001p4c)
-    RadioButton mpl1bb001p4c;
+    @BindView(R.id.mpl1bb001p499)
+    RadioButton mpl1bb001p499;
     @BindView(R.id.mpl1bb001q)
     RadioGroup mpl1bb001q;
     @BindView(R.id.mpl1bb001qa)
@@ -340,13 +354,13 @@ public class SectionCActivity extends Activity {
         setContentView(R.layout.activity_section_c);
         ButterKnife.bind(this);
 
-        mpl1bb001pb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mpl1bb001pa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    fldGrp001p.setVisibility(View.GONE);
-                } else {
                     fldGrp001p.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrp001p.setVisibility(View.GONE);
                     mpl1bb001p1.clearCheck();
                     mpl1bb001p2.clearCheck();
                     mpl1bb001p3.clearCheck();
@@ -355,6 +369,78 @@ public class SectionCActivity extends Activity {
                 }
             }
         });
+
+        mpl1bb001fa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bb001fx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bb001fx.setVisibility(View.GONE);
+                    mpl1bb001fx.setText(null);
+                }
+            }
+        });
+
+        mpl1bb001ga.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bb001gx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bb001gx.setVisibility(View.GONE);
+                    mpl1bb001gx.setText(null);
+                }
+            }
+        });
+
+        mpl1bb001la.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bb001lx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bb001lx.setVisibility(View.GONE);
+                    mpl1bb001lx.setText(null);
+                }
+            }
+        });
+
+        mpl1bb001ma.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bb001mx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bb001mx.setVisibility(View.GONE);
+                    mpl1bb001mx.setText(null);
+                }
+            }
+        });
+        mpl1bb001na.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bb001nx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bb001nx.setVisibility(View.GONE);
+                    mpl1bb001nx.setText(null);
+                }
+            }
+        });
+
+        mpl1bb001pa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bb001px.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bb001px.setVisibility(View.GONE);
+                    mpl1bb001px.setText(null);
+                }
+            }
+        });
+
 
     }
 
@@ -371,7 +457,7 @@ public class SectionCActivity extends Activity {
             if (UpdateDB()) {
                 finish();
                 Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, MainActivity.class);
+                Intent endSec = new Intent(this, EndingActivity.class);
                 startActivity(endSec);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -394,7 +480,7 @@ public class SectionCActivity extends Activity {
                 finish();
 
 
-                startActivity(new Intent(this, SectionDActivity.class));
+                startActivity(new Intent(this, SectionEActivity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -435,16 +521,622 @@ public class SectionCActivity extends Activity {
                 Settings.Secure.ANDROID_ID));
         AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
         AppMain.fc.setTagId(sharedPref.getString("tagName", ""));*/
-        JSONObject sa = new JSONObject();
+        JSONObject sc = new JSONObject();
+
+        sc.put("mpl1bb001a", mpl1bb001aa.isChecked() ? "1" : mpl1bb001ab.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001b", mpl1bb001ba.isChecked() ? "1" : mpl1bb001bb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001c", mpl1bb001ca.isChecked() ? "1" : mpl1bb001cb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001d", mpl1bb001da.isChecked() ? "1" : mpl1bb001db.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001e", mpl1bb001ea.isChecked() ? "1" : mpl1bb001eb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001f", mpl1bb001fa.isChecked() ? "1" : mpl1bb001fb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001fx", mpl1bb001fx.getText().toString());
+        sc.put("mpl1bb001g", mpl1bb001ga.isChecked() ? "1" : mpl1bb001gb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001gx", mpl1bb001gx.getText().toString());
+        sc.put("mpl1bb001h", mpl1bb001ha.isChecked() ? "1" : mpl1bb001hb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001i", mpl1bb001ia.isChecked() ? "1" : mpl1bb001ib.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001j", mpl1bb001ja.isChecked() ? "1" : mpl1bb001jb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001k", mpl1bb001ka.isChecked() ? "1" : mpl1bb001kb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001l", mpl1bb001la.isChecked() ? "1" : mpl1bb001lb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001lx", mpl1bb001lx.getText().toString());
+        sc.put("mpl1bb001m", mpl1bb001ma.isChecked() ? "1" : mpl1bb001mb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001mx", mpl1bb001mx.getText().toString());
+        sc.put("mpl1bb001n", mpl1bb001na.isChecked() ? "1" : mpl1bb001nb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001nx", mpl1bb001nx.getText().toString());
+        sc.put("mpl1bb001o", mpl1bb001oa.isChecked() ? "1" : mpl1bb001ob.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001p", mpl1bb001pa.isChecked() ? "1" : mpl1bb001pb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb001px", mpl1bb001px.getText().toString());
+        sc.put("mpl1bb001p1", mpl1bb001p1a.isChecked() ? "1" : mpl1bb001p1b.isChecked() ? "2" : mpl1bb001p199.isChecked() ? "99" : "0");
+        sc.put("mpl1bb001p2", mpl1bb001p2a.isChecked() ? "1" : mpl1bb001p2b.isChecked() ? "2" : mpl1bb001p299.isChecked() ? "99" : "0");
+        sc.put("mpl1bb001p3", mpl1bb001p3a.isChecked() ? "1" : mpl1bb001p3b.isChecked() ? "2" : mpl1bb001p399.isChecked() ? "99" : "0");
+        sc.put("mpl1bb001p4", mpl1bb001p4a.isChecked() ? "1" : mpl1bb001p4b.isChecked() ? "2" : mpl1bb001p499.isChecked() ? "99" : "0");
+        sc.put("mpl1bb001q", mpl1bb001qa.isChecked() ? "1" : mpl1bb001qb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002a", mpl1bb002aa.isChecked() ? "1" : mpl1bb002ab.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002b", mpl1bb002ba.isChecked() ? "1" : mpl1bb002bb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002c", mpl1bb002ca.isChecked() ? "1" : mpl1bb002cb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002d", mpl1bb002da.isChecked() ? "1" : mpl1bb002db.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002e", mpl1bb002ea.isChecked() ? "1" : mpl1bb002eb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002f", mpl1bb002fa.isChecked() ? "1" : mpl1bb002fb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002g", mpl1bb002ga.isChecked() ? "1" : mpl1bb002gb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002h", mpl1bb002ha.isChecked() ? "1" : mpl1bb002hb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002i", mpl1bb002ia.isChecked() ? "1" : mpl1bb002ib.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002j", mpl1bb002ja.isChecked() ? "1" : mpl1bb002jb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002k", mpl1bb002ka.isChecked() ? "1" : mpl1bb002kb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002l", mpl1bb002la.isChecked() ? "1" : mpl1bb002lb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002m", mpl1bb002ma.isChecked() ? "1" : mpl1bb002mb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002n", mpl1bb002na.isChecked() ? "1" : mpl1bb002nb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002o", mpl1bb002oa.isChecked() ? "1" : mpl1bb002ob.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002p", mpl1bb002pa.isChecked() ? "1" : mpl1bb002pb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002q", mpl1bb002qa.isChecked() ? "1" : mpl1bb002qb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002r", mpl1bb002ra.isChecked() ? "1" : mpl1bb002rb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002s", mpl1bb002sa.isChecked() ? "1" : mpl1bb002sb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002t", mpl1bb002ta.isChecked() ? "1" : mpl1bb002tb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002u", mpl1bb002ua.isChecked() ? "1" : mpl1bb002ub.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002v", mpl1bb002va.isChecked() ? "1" : mpl1bb002vb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002w", mpl1bb002wa.isChecked() ? "1" : mpl1bb002wb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002x", mpl1bb002xa.isChecked() ? "1" : mpl1bb002xb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002y", mpl1bb002ya.isChecked() ? "1" : mpl1bb002yb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002z", mpl1bb002za.isChecked() ? "1" : mpl1bb002zb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002aa", mpl1bb002aaaa.isChecked() ? "1" : mpl1bb002aaab.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002bb", mpl1bb002bbba.isChecked() ? "1" : mpl1bb002bbbb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002cc", mpl1bb002ccca.isChecked() ? "1" : mpl1bb002cccb.isChecked() ? "2" : "0");
+
 
        /* setGPS();
 
-        AppMain.fc.setsA(String.valueOf(sa));*/
+        AppMain.fc.setsC(String.valueOf(sc));*/
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
     public boolean ValidateForm() {
+
+        //=================== mpl1bb001a ==============
+        if (mpl1bb001a.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001a), Toast.LENGTH_SHORT).show();
+            mpl1bb001ab.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001a: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001ab.setError(null);
+        }
+
+        //=================== mpl1bb001b ==============
+        if (mpl1bb001b.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001b), Toast.LENGTH_SHORT).show();
+            mpl1bb001bb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001b: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001bb.setError(null);
+        }
+
+        //=================== mpl1bb001c ==============
+        if (mpl1bb001c.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001c), Toast.LENGTH_SHORT).show();
+            mpl1bb001cb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001c: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001cb.setError(null);
+        }
+
+        //=================== mpl1bb001d ==============
+        if (mpl1bb001d.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001d), Toast.LENGTH_SHORT).show();
+            mpl1bb001db.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001d: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001db.setError(null);
+        }
+
+        //=================== mpl1bb001e ==============
+        if (mpl1bb001e.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001e), Toast.LENGTH_SHORT).show();
+            mpl1bb001eb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001e: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001eb.setError(null);
+        }
+
+        //=================== mpl1bb001f ==============
+        if (mpl1bb001f.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001f), Toast.LENGTH_SHORT).show();
+            mpl1bb001fb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001f: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001fb.setError(null);
+        }
+
+        if (mpl1bb001fa.isChecked() && mpl1bb001fx.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001f) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+            mpl1bb001fx.setError("This data is required");
+            Log.d(TAG, " mpl1bb001fx :empty ");
+            return false;
+        } else {
+            mpl1bb001fx.setError(null);
+        }
+
+        //=================== mpl1bb001g ==============
+        if (mpl1bb001g.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001g), Toast.LENGTH_SHORT).show();
+            mpl1bb001gb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001g: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001gb.setError(null);
+        }
+
+        if (mpl1bb001ga.isChecked() && mpl1bb001gx.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001g) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+            mpl1bb001gx.setError("This data is required");
+            Log.d(TAG, " mpl1bb001gx :empty ");
+            return false;
+        } else {
+            mpl1bb001gx.setError(null);
+        }
+
+        //=================== mpl1bb001h ==============
+        if (mpl1bb001h.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001h), Toast.LENGTH_SHORT).show();
+            mpl1bb001hb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001h: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001hb.setError(null);
+        }
+
+        //=================== mpl1bb001i ==============
+        if (mpl1bb001i.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001i), Toast.LENGTH_SHORT).show();
+            mpl1bb001ib.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001i: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001ib.setError(null);
+        }
+
+        //=================== mpl1bb001j ==============
+        if (mpl1bb001j.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001j), Toast.LENGTH_SHORT).show();
+            mpl1bb001jb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001j: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001jb.setError(null);
+        }
+
+        //=================== mpl1bb001k ==============
+        if (mpl1bb001k.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001k), Toast.LENGTH_SHORT).show();
+            mpl1bb001kb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001k: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001kb.setError(null);
+        }
+
+        //=================== mpl1bb001l ==============
+        if (mpl1bb001l.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001l), Toast.LENGTH_SHORT).show();
+            mpl1bb001lb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001l: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001lb.setError(null);
+        }
+
+        if (mpl1bb001la.isChecked() && mpl1bb001lx.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001l) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+            mpl1bb001lx.setError("This data is required");
+            Log.d(TAG, " mpl1bb001lx :empty ");
+            return false;
+        } else {
+            mpl1bb001lx.setError(null);
+        }
+
+        //=================== mpl1bb001m ==============
+        if (mpl1bb001m.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001m), Toast.LENGTH_SHORT).show();
+            mpl1bb001mb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001m: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001mb.setError(null);
+        }
+
+        if (mpl1bb001ma.isChecked() && mpl1bb001mx.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001m) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+            mpl1bb001mx.setError("This data is required");
+            Log.d(TAG, " mpl1bb001mx :empty ");
+            return false;
+        } else {
+            mpl1bb001mx.setError(null);
+        }
+
+        //=================== mpl1bb001n ==============
+        if (mpl1bb001n.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001n), Toast.LENGTH_SHORT).show();
+            mpl1bb001nb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001n: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001nb.setError(null);
+        }
+
+        if (mpl1bb001na.isChecked() && mpl1bb001nx.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001n) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+            mpl1bb001nx.setError("This data is required");
+            Log.d(TAG, " mpl1bb001nx :empty ");
+            return false;
+        } else {
+            mpl1bb001nx.setError(null);
+        }
+
+        //=================== mpl1bb001o ==============
+        if (mpl1bb001o.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001o), Toast.LENGTH_SHORT).show();
+            mpl1bb001ob.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001o: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001ob.setError(null);
+        }
+
+        //=================== mpl1bb001p ==============
+        if (mpl1bb001p.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p), Toast.LENGTH_SHORT).show();
+            mpl1bb001pb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb001p: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb001pb.setError(null);
+        }
+
+        if (mpl1bb001pa.isChecked() && mpl1bb001px.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+            mpl1bb001px.setError("This data is required");
+            Log.d(TAG, " mpl1bb001px :empty ");
+            return false;
+        } else {
+            mpl1bb001px.setError(null);
+        }
+
+        if (mpl1bb001pa.isChecked()) {
+            //=================== mpl1bb001p1 ==============
+            if (mpl1bb001p1.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p1), Toast.LENGTH_SHORT).show();
+                mpl1bb001p199.setError("This data is Required!");
+                Log.i(TAG, "mpl1bb001p1: This Data is Required!");
+                return false;
+            } else {
+                mpl1bb001p199.setError(null);
+            }
+
+            //=================== mpl1bb001p2 ==============
+            if (mpl1bb001p2.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p2), Toast.LENGTH_SHORT).show();
+                mpl1bb001p299.setError("This data is Required!");
+                Log.i(TAG, "mpl1bb001p2: This Data is Required!");
+                return false;
+            } else {
+                mpl1bb001p299.setError(null);
+            }
+
+            //=================== mpl1bb001p3 ==============
+            if (mpl1bb001p3.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p3), Toast.LENGTH_SHORT).show();
+                mpl1bb001p399.setError("This data is Required!");
+                Log.i(TAG, "mpl1bb001p3: This Data is Required!");
+                return false;
+            } else {
+                mpl1bb001p399.setError(null);
+            }
+
+            //=================== mpl1bb001p4 ==============
+            if (mpl1bb001p4.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p4), Toast.LENGTH_SHORT).show();
+                mpl1bb001p499.setError("This data is Required!");
+                Log.i(TAG, "mpl1bb001p4: This Data is Required!");
+                return false;
+            } else {
+                mpl1bb001p499.setError(null);
+            }
+
+            //=================== mpl1bb001q ==============
+            if (mpl1bb001q.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001q), Toast.LENGTH_SHORT).show();
+                mpl1bb001qb.setError("This data is Required!");
+                Log.i(TAG, "mpl1bb001q: This Data is Required!");
+                return false;
+            } else {
+                mpl1bb001qb.setError(null);
+            }
+        }
+
+        //=================== mpl1bb002a ==============
+        if (mpl1bb002a.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002a), Toast.LENGTH_SHORT).show();
+            mpl1bb002ab.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002a: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002ab.setError(null);
+        }
+
+        //=================== mpl1bb002b ==============
+        if (mpl1bb002b.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002b), Toast.LENGTH_SHORT).show();
+            mpl1bb002bb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002b: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002bb.setError(null);
+        }
+
+        //=================== mpl1bb002c ==============
+        if (mpl1bb002c.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002c), Toast.LENGTH_SHORT).show();
+            mpl1bb002cb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002c: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002cb.setError(null);
+        }
+
+        //=================== mpl1bb002d ==============
+        if (mpl1bb002d.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002d), Toast.LENGTH_SHORT).show();
+            mpl1bb002db.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002d: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002db.setError(null);
+        }
+
+        //=================== mpl1bb002e ==============
+        if (mpl1bb002e.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002e), Toast.LENGTH_SHORT).show();
+            mpl1bb002eb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002e: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002eb.setError(null);
+        }
+
+        //=================== mpl1bb002f ==============
+        if (mpl1bb002f.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002f), Toast.LENGTH_SHORT).show();
+            mpl1bb002fb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002f: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002fb.setError(null);
+        }
+
+        //=================== mpl1bb002g ==============
+        if (mpl1bb002g.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002g), Toast.LENGTH_SHORT).show();
+            mpl1bb002gb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002g: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002gb.setError(null);
+        }
+
+        //=================== mpl1bb002h ==============
+        if (mpl1bb002h.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002h), Toast.LENGTH_SHORT).show();
+            mpl1bb002hb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002h: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002hb.setError(null);
+        }
+
+        //=================== mpl1bb002i ==============
+        if (mpl1bb002i.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002i), Toast.LENGTH_SHORT).show();
+            mpl1bb002ib.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002i: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002ib.setError(null);
+        }
+
+        //=================== mpl1bb002j ==============
+        if (mpl1bb002j.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002j), Toast.LENGTH_SHORT).show();
+            mpl1bb002jb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002j: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002jb.setError(null);
+        }
+
+        //=================== mpl1bb002k ==============
+        if (mpl1bb002k.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002k), Toast.LENGTH_SHORT).show();
+            mpl1bb002kb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002k: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002kb.setError(null);
+        }
+
+        //=================== mpl1bb002l ==============
+        if (mpl1bb002l.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002l), Toast.LENGTH_SHORT).show();
+            mpl1bb002lb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002l: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002lb.setError(null);
+        }
+
+        //=================== mpl1bb002m ==============
+        if (mpl1bb002m.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002m), Toast.LENGTH_SHORT).show();
+            mpl1bb002mb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002m: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002mb.setError(null);
+        }
+
+        //=================== mpl1bb002n ==============
+        if (mpl1bb002n.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002n), Toast.LENGTH_SHORT).show();
+            mpl1bb002nb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002n: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002nb.setError(null);
+        }
+
+        //=================== mpl1bb002o ==============
+        if (mpl1bb002o.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002o), Toast.LENGTH_SHORT).show();
+            mpl1bb002ob.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002o: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002ob.setError(null);
+        }
+
+        //=================== mpl1bb002p ==============
+        if (mpl1bb002p.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002p), Toast.LENGTH_SHORT).show();
+            mpl1bb002pb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002p: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002pb.setError(null);
+        }
+
+        //=================== mpl1bb002q ==============
+        if (mpl1bb002q.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002q), Toast.LENGTH_SHORT).show();
+            mpl1bb002qb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002q: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002qb.setError(null);
+        }
+
+        //=================== mpl1bb002r ==============
+        if (mpl1bb002r.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002r), Toast.LENGTH_SHORT).show();
+            mpl1bb002rb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002r: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002rb.setError(null);
+        }
+
+        //=================== mpl1bb002s ==============
+        if (mpl1bb002s.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002s), Toast.LENGTH_SHORT).show();
+            mpl1bb002sb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002s: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002sb.setError(null);
+        }
+
+        //=================== mpl1bb002u ==============
+        if (mpl1bb002u.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002u), Toast.LENGTH_SHORT).show();
+            mpl1bb002ub.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002u: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002ub.setError(null);
+        }
+
+        //=================== mpl1bb002v ==============
+        if (mpl1bb002v.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002v), Toast.LENGTH_SHORT).show();
+            mpl1bb002vb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002v: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002vb.setError(null);
+        }
+
+        //=================== mpl1bb002a ==============
+        if (mpl1bb002w.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002w), Toast.LENGTH_SHORT).show();
+            mpl1bb002wb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002w: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002wb.setError(null);
+        }
+
+        //=================== mpl1bb002x ==============
+        if (mpl1bb002x.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002x), Toast.LENGTH_SHORT).show();
+            mpl1bb002xb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002x: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002xb.setError(null);
+        }
+
+        //=================== mpl1bb002y ==============
+        if (mpl1bb002y.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002y), Toast.LENGTH_SHORT).show();
+            mpl1bb002yb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002y: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002yb.setError(null);
+        }
+
+        //=================== mpl1bb002z ==============
+        if (mpl1bb002z.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002z), Toast.LENGTH_SHORT).show();
+            mpl1bb002zb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002z: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002zb.setError(null);
+        }
+
+        //=================== mpl1bb002aaa ==============
+        if (mpl1bb002aaa.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002aaa), Toast.LENGTH_SHORT).show();
+            mpl1bb002aaab.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002aaa: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002aaab.setError(null);
+        }
+
+        //=================== mpl1bb002bbb ==============
+        if (mpl1bb002bbb.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002bbb), Toast.LENGTH_SHORT).show();
+            mpl1bb002bbbb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002bbb: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002bbbb.setError(null);
+        }
+
+        //=================== mpl1bb002ccc ==============
+        if (mpl1bb002ccc.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002ccc), Toast.LENGTH_SHORT).show();
+            mpl1bb002cccb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002ccc: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002cccb.setError(null);
+        }
+
+
 
         return true;
 

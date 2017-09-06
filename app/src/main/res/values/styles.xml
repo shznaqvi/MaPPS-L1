@@ -8,6 +8,7 @@
         <item name="android:buttonStyle">@style/buttons</item>
         <item name="android:checkboxStyle">@style/checkbox</item>
         <item name="android:radioButtonStyle">@style/radiobutton</item>
+
         <!-- Customize your theme here. -->
     </style>
 
@@ -22,7 +23,7 @@
 
     <style name="SpinnerItemText">
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
     </style>
 
     <style name="ActionBarTheme" parent="Widget.AppCompat.Light.ActionBar">
@@ -41,7 +42,7 @@
 
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:paddingTop">16dp</item>
         <item name="android:elevation">1dp</item>
         <item name="android:paddingStart">8dp</item>
@@ -55,7 +56,7 @@
         <item name="android:background">@android:color/darker_gray</item>
         <item name="android:textColor">#000000</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:padding">4dp</item>
     </style>
 
@@ -67,7 +68,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">#ff1e1e</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:visibility">invisible</item>
         <item name="android:padding">16dp</item>
     </style>
@@ -80,7 +81,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">#ef6d6d</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:visibility">invisible</item>
         <item name="android:padding">16dp</item>
         <item name="android:textStyle">italic</item>
@@ -102,7 +103,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:textColor">#ff0000</item>
         <item name="android:background">#d6d6d6</item>
         <item name="android:padding">16dp</item>
@@ -113,14 +114,14 @@
     <style name="spinnerItemStyle">
         <item name="android:padding">10dp</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="spinnerDropDownItemStyle">
         <item name="android:padding">20dp</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
@@ -133,7 +134,7 @@
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:background">#d6d6d6</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:padding">16dp</item>
 
     </style>
@@ -144,7 +145,7 @@
         <item name="android:button">@null</item>
         <item name="android:drawableRight">@android:drawable/btn_radio</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:background">#d6d6d6</item>
         <item name="android:padding">4dp</item>
     </style>
@@ -152,7 +153,6 @@
     <style name="buttons" parent="android:Widget.Material.Light.Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:padding">16dp</item>
         <item name="android:radius">2dp</item>
@@ -166,7 +166,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:typeface">serif</item>
+
         <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
         <item name="android:background">#d6d6d6</item>
         <item name="android:padding">4dp</item>

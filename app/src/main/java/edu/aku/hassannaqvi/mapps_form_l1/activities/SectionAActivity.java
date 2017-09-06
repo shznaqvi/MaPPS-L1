@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -114,8 +115,16 @@ public class SectionAActivity extends Activity {
 
                 finish();
 
+                if (mpl1a004a.isChecked()) {
+                    startActivity(new Intent(this, SectionBActivity.class));
 
-                startActivity(new Intent(this, MainActivity.class));
+                } else if (mpl1a004b.isChecked()) {
+
+                    startActivity(new Intent(this, SectionCActivity.class));
+
+                } else {
+                    startActivity(new Intent(this, SectionDActivity.class));
+                }
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -160,6 +169,16 @@ public class SectionAActivity extends Activity {
         AppMain.fc.setTagId(sharedPref.getString("tagName", ""));*/
         JSONObject sa = new JSONObject();
 
+        sa.put("mpl1a001", mpl1a001.getText().toString());
+        sa.put("mpl1a002", mpl1a002.getText().toString());
+        sa.put("mpl1a003", mpl1a003.getText().toString());
+        sa.put("mpl1a004", mpl1a004a.isChecked() ? "1" : mpl1a004b.isChecked() ? "2" : mpl1a004c.isChecked() ? "3" : "0");
+        sa.put("mpl1a005", mpl1a005.getText().toString());
+        sa.put("mpl1a006", mpl1a006.getText().toString());
+        sa.put("mpl1a007", mpl1a007.getText().toString());
+        sa.put("mpl1a008", mpl1a008.getText().toString());
+        sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
+
        /* setGPS();
 
         AppMain.fc.setsA(String.valueOf(sa));*/
@@ -168,6 +187,126 @@ public class SectionAActivity extends Activity {
     }
 
     public boolean ValidateForm() {
+
+        // =================== mpl1a001 ====================
+        if (mpl1a001.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a001), Toast.LENGTH_SHORT).show();
+            mpl1a001.setError("This data is required");
+            Log.d(TAG, " mpl1a001 :empty ");
+            return false;
+        } else {
+            mpl1a001.setError(null);
+        }
+
+        if (Integer.valueOf(mpl1a001.getText().toString()) == 0) {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a001), Toast.LENGTH_SHORT).show();
+            mpl1a001.setError("Invalid: Data cannot be Zero");
+            Log.i(TAG, "mpl1a001: Invalid data is 0");
+            return false;
+        } else {
+            mpl1a001.setError(null);
+        }
+
+        // =================== mpl1a002 ====================
+        if (mpl1a002.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
+            mpl1a002.setError("This data is required");
+            Log.d(TAG, " mpl1a002 :empty ");
+            return false;
+        } else {
+            mpl1a002.setError(null);
+        }
+
+        if (Integer.valueOf(mpl1a002.getText().toString()) == 0) {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
+            mpl1a002.setError("Invalid: Data cannot be Zero");
+            Log.i(TAG, "mpl1a002: Invalid data is 0");
+            return false;
+        } else {
+            mpl1a002.setError(null);
+        }
+
+        // =================== mpl1a003 ====================
+        if (mpl1a003.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
+            mpl1a003.setError("This data is required");
+            Log.d(TAG, " mpl1a003 :empty ");
+            return false;
+        } else {
+            mpl1a003.setError(null);
+        }
+
+        //=================== mpl1a004 ==============
+        if (mpl1a004.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a004), Toast.LENGTH_SHORT).show();
+            mpl1a004c.setError("This data is Required!");
+            Log.i(TAG, "mpl1a004: This Data is Required!");
+            return false;
+        } else {
+            mpl1a004c.setError(null);
+        }
+
+        if (mpl1a004c.isChecked()) {
+            // =================== mpl1a005 ====================
+            if (mpl1a005.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a005), Toast.LENGTH_SHORT).show();
+                mpl1a005.setError("This data is required");
+                Log.d(TAG, " mpl1a005 :empty ");
+                return false;
+            } else {
+                mpl1a005.setError(null);
+            }
+
+            if (Integer.valueOf(mpl1a005.getText().toString()) == 0) {
+                Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a005), Toast.LENGTH_SHORT).show();
+                mpl1a005.setError("Invalid: Data cannot be Zero");
+                Log.i(TAG, "mpl1a005: Invalid data is 0");
+                return false;
+            } else {
+                mpl1a005.setError(null);
+            }
+        }
+
+        // =================== mpl1a006 ====================
+        if (mpl1a006.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a006), Toast.LENGTH_SHORT).show();
+            mpl1a006.setError("This data is required");
+            Log.d(TAG, " mpl1a006 :empty ");
+            return false;
+        } else {
+            mpl1a006.setError(null);
+        }
+
+        // =================== mpl1a007 ====================
+        if (mpl1a007.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a007), Toast.LENGTH_SHORT).show();
+            mpl1a007.setError("This data is required");
+            Log.d(TAG, " mpl1a007 :empty ");
+            return false;
+        } else {
+            mpl1a007.setError(null);
+        }
+
+        // =================== mpl1a008 ====================
+        if (mpl1a008.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a008), Toast.LENGTH_SHORT).show();
+            mpl1a008.setError("This data is required");
+            Log.d(TAG, " mpl1a008 :empty ");
+            return false;
+        } else {
+            mpl1a008.setError(null);
+        }
+
+        //=================== mpl1a009 ==============
+        if (mpl1a009.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a009), Toast.LENGTH_SHORT).show();
+            mpl1a009c.setError("This data is Required!");
+            Log.i(TAG, "mpl1a009: This Data is Required!");
+            return false;
+        } else {
+            mpl1a009c.setError(null);
+        }
+
 
         return true;
 
@@ -205,5 +344,6 @@ public class SectionAActivity extends Activity {
         }
 
     }*/
-   
+
+
 }
