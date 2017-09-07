@@ -76,7 +76,7 @@ public class GetMembers extends AsyncTask<Void, Void, String> {
         try {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
-            db.syncMembers(json);
+            // db.syncMembers(json);
             Toast.makeText(mContext, "Successfully Synced " + json.length() + " Members", Toast.LENGTH_SHORT).show();
 
             pd.setMessage(json.length() + " Members synced.");
@@ -123,11 +123,11 @@ public class GetMembers extends AsyncTask<Void, Void, String> {
             JSONArray jsonSync = new JSONArray();
             DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
             JSONObject json = new JSONObject();
-            try {
-                json.put("area", MainApp.regionDss);
+         /*   try {
+             //   json.put("area", MainApp.regionDss);
             } catch (JSONException e1) {
                 e1.printStackTrace();
-            }
+            }*/
             Log.d(TAG, "downloadUrl: " + json.toString());
             wr.writeBytes(json.toString());
             longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");

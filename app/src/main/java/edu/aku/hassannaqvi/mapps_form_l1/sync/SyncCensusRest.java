@@ -9,21 +9,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Collection;
 
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract.censusMember;
-import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
 /**
@@ -81,12 +69,12 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
     }
 
     private String downloadUrl(String myurl) throws IOException {
-        String line = "No Response";
+       /* String line = "No Response";
         // Only display the first 500 characters of the retrieved
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<CensusContract> Census = db.getUnsyncedCensus();
+       // Collection<CensusContract> Census = db.getUnsyncedCensus();
         Log.d(TAG, String.valueOf(Census.size()));
         if (Census.size() > 0) {
             try {
@@ -99,8 +87,8 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
 
                     conn = (HttpURLConnection) url.openConnection();
 
-                    conn.setReadTimeout(20000 /* milliseconds */);
-                    conn.setConnectTimeout(30000 /* milliseconds */);
+                    conn.setReadTimeout(20000 *//* milliseconds *//*);
+                    conn.setConnectTimeout(30000 *//* milliseconds *//*);
                     conn.setRequestMethod("POST");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
@@ -128,7 +116,7 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
                         e.printStackTrace();
                     }
 
-/*===================================================================*/
+*//*===================================================================*//*
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
@@ -154,8 +142,8 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
             }
         } else {
             return "No new records to sync";
-        }
-        return line;
+        }*/
+        return mRestUrl;
             /*===================================================================*/
 
     }

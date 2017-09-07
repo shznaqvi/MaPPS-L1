@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
+import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
 public class SectionBActivity extends Activity {
 
@@ -326,36 +327,20 @@ public class SectionBActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-       /* long updcount = db.addForm(AppMain.fc);
+        int updcount = db.updateSB();
 
-        AppMain.fc.setID(String.valueOf(updcount));
-
-        if (updcount != 0) {
+        if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-
-            AppMain.fc.setUID(
-                    (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
-            db.updateFormID();
+            return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-        }*/
-        return true;
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for this Section", Toast.LENGTH_SHORT).show();
 
-//        AppMain.VillageName = cravillage.getText().toString();
-
-       /* SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
-
-        AppMain.fc = new FormsContract();
-
-        AppMain.fc.setUserName(AppMain.username);
-        AppMain.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
-                Settings.Secure.ANDROID_ID));
-        AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
-        AppMain.fc.setTagId(sharedPref.getString("tagName", ""));*/
         JSONObject sb = new JSONObject();
 
         sb.put("mpl1ba001", mpl1ba001a.isChecked() ? "1" : mpl1ba001b.isChecked() ? "2" : "0");
@@ -392,10 +377,7 @@ public class SectionBActivity extends Activity {
         sb.put("mpl1ba007o", mpl1ba007oa.isChecked() ? "1" : mpl1ba007ob.isChecked() ? "2" : "0");
 
 
-
-       /* setGPS();
-
-        AppMain.fc.setsB(String.valueOf(sb));*/
+        MainApp.fc.setsB(String.valueOf(sb));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

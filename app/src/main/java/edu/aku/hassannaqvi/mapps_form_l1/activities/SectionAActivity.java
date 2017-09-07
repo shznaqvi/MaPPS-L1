@@ -1,8 +1,12 @@
 package edu.aku.hassannaqvi.mapps_form_l1.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -15,11 +19,15 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
+import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
 public class SectionAActivity extends Activity {
 
@@ -137,19 +145,19 @@ public class SectionAActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-       /* long updcount = db.addForm(AppMain.fc);
+        long updcount = db.addForm(MainApp.fc);
 
-        AppMain.fc.setID(String.valueOf(updcount));
+        MainApp.fc.set_ID(String.valueOf(updcount));
 
         if (updcount != 0) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
-            AppMain.fc.setUID(
-                    (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
-            db.updateFormID();
+            MainApp.fc.set_UID(
+                    (MainApp.fc.getDeviceID() + MainApp.fc.get_ID()));
+            db.updateFormsUID();
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-        }*/
+        }
         return true;
     }
 
@@ -158,15 +166,15 @@ public class SectionAActivity extends Activity {
 
 //        AppMain.VillageName = cravillage.getText().toString();
 
-       /* SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
-        AppMain.fc = new FormsContract();
+        MainApp.fc = new FormsContract();
 
-        AppMain.fc.setUserName(AppMain.username);
-        AppMain.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
+        MainApp.fc.setUser(MainApp.username);
+        MainApp.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
-        AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
-        AppMain.fc.setTagId(sharedPref.getString("tagName", ""));*/
+        MainApp.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
+        MainApp.fc.setTagId(sharedPref.getString("tagName", ""));
         JSONObject sa = new JSONObject();
 
         sa.put("mpl1a001", mpl1a001.getText().toString());
@@ -179,9 +187,9 @@ public class SectionAActivity extends Activity {
         sa.put("mpl1a008", mpl1a008.getText().toString());
         sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
 
-       /* setGPS();
+        setGPS();
 
-        AppMain.fc.setsA(String.valueOf(sa));*/
+        MainApp.fc.setsA(String.valueOf(sa));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -312,7 +320,7 @@ public class SectionAActivity extends Activity {
 
     }
 
-   /* public void setGPS() {
+    public void setGPS() {
         SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
 
 //        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
@@ -331,11 +339,11 @@ public class SectionAActivity extends Activity {
 
             String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
 
-            AppMain.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
-            AppMain.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
-            AppMain.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
+            MainApp.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
+            MainApp.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
+            MainApp.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
 //            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
-            AppMain.fc.setGpsTime(date); // Timestamp is converted to date above
+            MainApp.fc.setGpsTime(date); // Timestamp is converted to date above
 
             Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
 
@@ -343,7 +351,7 @@ public class SectionAActivity extends Activity {
             Log.e(TAG, "setGPS: " + e.getMessage());
         }
 
-    }*/
+    }
 
 
 }

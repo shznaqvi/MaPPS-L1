@@ -14,16 +14,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Collection;
 
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract.censusMember;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
@@ -84,7 +76,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1") && jsonObject.getString("error").equals("0")) {
-                    db.updateCensus(jsonObject.getString("id"));
+                    //      db.updateCensus(jsonObject.getString("id"));
                     sSynced++;
                 } else {
                     sSyncedError += "\nError: " + jsonObject.getString("message").toString();
@@ -111,7 +103,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<CensusContract> Census = db.getUnsyncedCensus();
+       /* Collection<CensusContract> Census = db.getUnsyncedCensus();
         Log.d(TAG, String.valueOf(Census.size()));
         if (Census.size() > 0) {
             try {
@@ -124,8 +116,8 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
 
                     conn = (HttpURLConnection) url.openConnection();
 
-                    conn.setReadTimeout(20000 /* milliseconds */);
-                    conn.setConnectTimeout(30000 /* milliseconds */);
+                    conn.setReadTimeout(20000 *//* milliseconds *//*);
+                    conn.setConnectTimeout(30000 *//* milliseconds *//*);
                     conn.setRequestMethod("POST");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
@@ -153,7 +145,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
                         e.printStackTrace();
                     }
 
-/*===================================================================*/
+*//*===================================================================*//*
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
@@ -179,7 +171,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
             }
         } else {
             return "No new records to sync";
-        }
+        }*/
         return line;
             /*===================================================================*/
 

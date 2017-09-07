@@ -3,11 +3,13 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +19,12 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
+import edu.aku.hassannaqvi.mapps_form_l1.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
@@ -53,7 +57,7 @@ public class MainActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '" + MainApp.userName);
+        lblheader.setText("Welcome! You're assigned to block ' " + " '" + MainApp.username);
 
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
@@ -169,7 +173,7 @@ public class MainActivity extends Activity {
     }*/
 
     public void openForm(View v) {
-        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
+        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.username.equals("0000")) {
             Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
             startActivity(oF);
         } else {
@@ -192,7 +196,7 @@ public class MainActivity extends Activity {
                         editor.putString("tagName", m_Text);
                         editor.commit();
 
-                        if (!MainApp.userName.equals("0000")) {
+                        if (!MainApp.username.equals("0000")) {
                             Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
                             startActivity(oF);
                         }
@@ -224,21 +228,21 @@ public class MainActivity extends Activity {
 
     public void testGPS(View v) {
 
-       /* SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
         Log.d("MAP", "testGPS: " + sharedPref.getAll().toString());
         Map<String, ?> allEntries = sharedPref.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());*/
+            Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
         }
 
-    // }
+    }
 
-   /* public void openDB(View v) {
+    public void openDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);
         startActivity(dbmanager);
     }
 
-    public void CheckCluster(View v) {
+    /*public void CheckCluster(View v) {
         Intent cluster_list = new Intent(getApplicationContext(), FormsList.class);
         cluster_list.putExtra("dssid", MainApp.regionDss);
         startActivity(cluster_list);

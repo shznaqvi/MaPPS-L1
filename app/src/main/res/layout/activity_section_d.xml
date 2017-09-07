@@ -244,9 +244,9 @@
             android:id="@+id/mpl1bc001fx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:hint="@string/day"
-            android:inputType="textCapWords"
+            android:inputType="number"
+            android:maxLength="3"
             android:visibility="gone" />
 
         <TextView
@@ -352,9 +352,9 @@
             android:id="@+id/mpl1bc001ix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:hint="@string/day"
-            android:inputType="textCapWords"
+            android:inputType="number"
+            android:maxLength="3"
             android:visibility="gone" />
 
         <TextView
@@ -1036,7 +1036,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bc001r1c"
+                    android:id="@+id/mpl1bc001r199"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -1073,7 +1073,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bc001r2c"
+                    android:id="@+id/mpl1bc001r299"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -1110,7 +1110,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bc001r3c"
+                    android:id="@+id/mpl1bc001r399"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -1147,7 +1147,7 @@
                     android:text="@string/no" />
 
                 <RadioButton
-                    android:id="@+id/mpl1bc001r4c"
+                    android:id="@+id/mpl1bc001r499"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"

@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -20,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
+import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
 public class SectionCActivity extends Activity {
 
@@ -354,18 +356,19 @@ public class SectionCActivity extends Activity {
         setContentView(R.layout.activity_section_c);
         ButterKnife.bind(this);
 
-        mpl1bb001pa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mpl1bb001p.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1bb001pa.isChecked()) {
                     fldGrp001p.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001p.setVisibility(View.GONE);
+                    mpl1bb001px.setText(null);
                     mpl1bb001p1.clearCheck();
                     mpl1bb001p2.clearCheck();
                     mpl1bb001p3.clearCheck();
                     mpl1bb001p4.clearCheck();
-                    mpl1bb001q.clearCheck();
+
                 }
             }
         });
@@ -491,36 +494,21 @@ public class SectionCActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-       /* long updcount = db.addForm(AppMain.fc);
+        int updcount = db.updateSC();
 
-        AppMain.fc.setID(String.valueOf(updcount));
-
-        if (updcount != 0) {
+        if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-
-            AppMain.fc.setUID(
-                    (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
-            db.updateFormID();
+            return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-        }*/
-        return true;
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for this Section", Toast.LENGTH_SHORT).show();
 
-//        AppMain.VillageName = cravillage.getText().toString();
 
-       /* SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
-
-        AppMain.fc = new FormsContract();
-
-        AppMain.fc.setUserName(AppMain.username);
-        AppMain.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
-                Settings.Secure.ANDROID_ID));
-        AppMain.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
-        AppMain.fc.setTagId(sharedPref.getString("tagName", ""));*/
         JSONObject sc = new JSONObject();
 
         sc.put("mpl1bb001a", mpl1bb001aa.isChecked() ? "1" : mpl1bb001ab.isChecked() ? "2" : "0");
@@ -581,9 +569,7 @@ public class SectionCActivity extends Activity {
         sc.put("mpl1bb002cc", mpl1bb002ccca.isChecked() ? "1" : mpl1bb002cccb.isChecked() ? "2" : "0");
 
 
-       /* setGPS();
-
-        AppMain.fc.setsC(String.valueOf(sc));*/
+        MainApp.fc.setsC(String.valueOf(sc));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

@@ -14,19 +14,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import edu.aku.hassannaqvi.mapps_form_l1.activities.EndingActivity;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.MembersContract;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.MotherContract;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.SectionKIMContract;
-import edu.aku.hassannaqvi.mapps_form_l1.otherClasses.MothersLst;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -36,7 +28,11 @@ public class MainApp extends Application {
 
     public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/api/";
+    public static final String _PROJECT_FOLDER = "mapps/formL1/api/";
+    public static final String _HOST_URL =
+            "http://" + _IP
+                    + ":" + _PORT
+                    + "/" + _PROJECT_FOLDER;
 
     /*
         public static final String _IP = "43.245.131.159"; // Test server
@@ -59,54 +55,31 @@ public class MainApp extends Application {
     public static final long MILLISECONDS_IN_MONTH = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_MONTH;
     //public static final long MILLISECONDS_IN_100_YEAR = MILLISECONDS_IN_YEAR * 100;
 
+    private static final String TAG = MainApp.class.getSimpleName();
+    public static int NoMembers = 7;
     public static String deviceId;
-
     public static Boolean admin = false;
     public static String interviewerCode;
-    public static int loginFieldArea = -1;
     public static String child_name = "TEST";
     public static FormsContract fc;
-    public static String userName = "0000";
-    public static String areaCode;
-    //    Total No of members got from Section A
-    public static int NoMembersCount = 0;
-    public static int NoMaleCount = 0;
-    public static int NoFemaleCount = 0;
-    public static int NoBoyCount = 0;
-    public static int NoGirlCount = 0;
 
-    public static int TotalMembersCount = 0;
-    public static int TotalMaleCount = 0;
-    public static int TotalFemaleCount = 0;
-    public static int TotalBoyCount = 0;
-    public static int TotalGirlCount = 0;
-
-    //    Total No of Alive members got from Section B
-    public static int currentStatusCount = 0;
-    public static int currentDeceasedCheck = 0;
-    public static int currentMotherCheck = 0;
-    public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
+    public static SharedPreferences sharedPref;
+    public static String enrollDate;
     //    Ali
-    public static String regionDss = "";
-    public static List<MembersContract> familyMembersList;
-    public static CensusContract cc;
-    public static DeceasedContract dc;
-    public static MotherContract mc;
-    public static SectionKIMContract ims;
-    public static int mm = 1;
-    public static int totalChild = 0;
-    public static int memFlag = 0;
-    public static List<Integer> memClicked;
-    public static ArrayList<MothersLst> lstMothers;
-    public static int position = 0;
-    public static double selectedCHILD = 24;
-    public static int selectedPos = -1;
-    public static int selectedCh = -1;
-    public static List<String> insertMem;
-    public static int randID = 1;
-    public static Boolean isRsvp = false;
-    public static Boolean isHead = false;
-    protected static LocationManager locationManager;
+    public static String tehsilCode;
+    public static String hfCode = "0000";  //hf code
+    public static String lhwCode;   //LHW code
+    public static Boolean UCsCodeFlag = true;
+    public static int UCsCode;
+    public static Boolean VillageCodeFlag = true;
+    public static String VillageName;
+    public static String username = "";
+    public static String studyID = "";
+    public static long installedOn;
+    public static Integer versionCode;
+    public static String versionName;
+    protected LocationManager locationManager;
+    //    Login Members Array
     Location location;
 
     public static int monthsBetweenDates(Date startDate, Date endDate) {
