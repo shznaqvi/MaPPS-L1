@@ -28,10 +28,10 @@ public class FormsContract {
     private String sE = "";
     private String sF = "";
 
-   /* private String clustercode = "0000"; // Area Code
+    private String clustercode = "0000"; // Area Code
     private String villageacode = ""; // Sub-Area Code
     private String household = ""; // Household number
-    private String lhwCode = ""; // lhwcode*/
+    private String lhwCode = ""; // lhwcode
 
     private String gpsLat = "";
     private String gpsLng = "";
@@ -61,10 +61,10 @@ public class FormsContract {
         this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
         this.sF = jsonObject.getString(FormsTable.COLUMN_SF);
 
-        /*this.clustercode = jsonObject.getString(FormsTable.COLUMN_CLUSTERCODE);
+        this.clustercode = jsonObject.getString(FormsTable.COLUMN_CLUSTERCODE);
         this.villageacode = jsonObject.getString(FormsTable.COLUMN_VILLAGEACODE);
         this.household = jsonObject.getString(FormsTable.COLUMN_HOUSEHOLD);
-        this.lhwCode = jsonObject.getString(FormsTable.COLUMN_LHWCODE);*/
+        this.lhwCode = jsonObject.getString(FormsTable.COLUMN_LHWCODE);
 
         this.tagId = jsonObject.getString(FormsTable.COLUMN_DEVICETAGID);
         this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
@@ -94,10 +94,10 @@ public class FormsContract {
         this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
         this.sF = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SF));
 
-      /*  this.clustercode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CLUSTERCODE));
+        this.clustercode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CLUSTERCODE));
         this.villageacode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_VILLAGEACODE));
         this.household = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HOUSEHOLD));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_LHWCODE));*/
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_LHWCODE));
 
         this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
@@ -174,10 +174,10 @@ public class FormsContract {
 
         }
 
-       /* json.put(FormsTable.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
+        json.put(FormsTable.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
         json.put(FormsTable.COLUMN_VILLAGEACODE, this.villageacode == null ? JSONObject.NULL : this.villageacode);
         json.put(FormsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
-        json.put(FormsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);*/
+        json.put(FormsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
 
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
@@ -217,9 +217,9 @@ public class FormsContract {
 
     public void setISNEW(String ISNEW) {
         this.ISNEW = ISNEW;
-    }*/
+    }
 
-  /*  public String getDSSID() {
+    public String getDSSID() {
         return DSSID;
     }
 
@@ -251,7 +251,7 @@ public class FormsContract {
         this.istatus = istatus;
     }
 
-    /*public String getClustercode() {
+    public String getClustercode() {
         return clustercode;
     }
 
@@ -281,7 +281,7 @@ public class FormsContract {
 
     public void setLhwCode(String lhwCode) {
         this.lhwCode = lhwCode;
-    }*/
+    }
 
     public String getsA() {
         return sA;
@@ -407,8 +407,8 @@ public class FormsContract {
         public static final String COLUMN_PROJECT_NAME = "projectname";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_IS_NEW = "isnew";
-        public static final String COLUMN_DSSID = "dssid";
+        /* public static final String COLUMN_IS_NEW = "isnew";
+         public static final String COLUMN_DSSID = "dssid";*/
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_ISTATUS = "istatus";
@@ -419,10 +419,10 @@ public class FormsContract {
         public static final String COLUMN_SE = "se";
         public static final String COLUMN_SF = "sf";
 
-      /*  public static final String COLUMN_CLUSTERCODE = "clustercode";
+        public static final String COLUMN_CLUSTERCODE = "clustercode";
         public static final String COLUMN_VILLAGEACODE = "villageacode";
         public static final String COLUMN_HOUSEHOLD = "household";
-        public static final String COLUMN_LHWCODE = "lhwcode";*/
+        public static final String COLUMN_LHWCODE = "lhwcode";
 
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";

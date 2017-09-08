@@ -59,7 +59,8 @@ import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
-import edu.aku.hassannaqvi.mapps_form_l1.get.GetUsers;
+import edu.aku.hassannaqvi.mapps_form_l1.get.GetClusters;
+import edu.aku.hassannaqvi.mapps_form_l1.get.GetLHWs;
 
 
 /**
@@ -562,14 +563,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
                 @Override
                 public void run() {
-                    Toast.makeText(LoginActivity.this, "Sync User", Toast.LENGTH_LONG).show();
-                    new GetUsers(mContext).execute();
+                    Toast.makeText(getApplicationContext(), "Getting Clusters", Toast.LENGTH_SHORT).show();
+                    new GetClusters(mContext).execute();
+                    /*Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+                    new GetUsers(mContext).execute();*/
+                    Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
+                    new GetLHWs(mContext).execute();
                 }
             });
 
 
             return null;
         }
+
 
         @Override
         protected void onPostExecute(String s) {

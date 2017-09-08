@@ -194,9 +194,9 @@
                 android:id="@+id/mpl1d006x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/day"
-                android:inputType="textCapWords"
+                android:inputType="number"
+                android:maxLength="3"
                 android:visibility="gone" />
 
             <LinearLayout

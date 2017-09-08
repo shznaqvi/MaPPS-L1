@@ -5,25 +5,18 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 
 public class FormsList extends Activity {
 
-    @BindView(R.id.totalForms)
-    TextView totalForms;
-    @BindView(R.id.completeForms)
-    TextView completeForms;
-    @BindView(R.id.psuNoTxt)
-    TextView psuNoTxt;
-    @BindView(R.id.FormsList)
-    RecyclerView formsList;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -32,21 +25,35 @@ public class FormsList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forms_list);
-        ButterKnife.bind(this);
-        String dssid = getIntent().getStringExtra("dssid");
+
+        String areacode = getIntent().getStringExtra("areaCode");
+       /* TextView cNo = (TextView) findViewById(R.id.clusterNo);*/
+        TextView tf = (TextView) findViewById(R.id.totalForms);
+        TextView cf = (TextView) findViewById(R.id.completeForms);
         int fTotal = 0;
         int fComplete = 0;
-        psuNoTxt.setText("Forms for Block: " + dssid);
+        /*cNo.setText("Forms for Cluster: " + areacode);*/
+        Log.d("TAG:Cluster", areacode);
         DatabaseHelper db = new DatabaseHelper(getApplicationContext());
-        List<FormsContract> forms = db.getFormsByDSS(dssid);
+        List<FormsContract> forms = db.getFormsByCluster(areacode);
+
+//        Sample Testing
+//        List<FormsContract> forms = new ArrayList<>();
+//        forms.add(new FormsContract("1","1","Ali"));
+//        forms.add(new FormsContract("2","2","Ali"));
+//        forms.add(new FormsContract("3","3","Ali"));
+//        forms.add(new FormsContract("4","2","Ali"));
+//        forms.add(new FormsContract("5","1","Ali"));
+
+
         for (FormsContract fc : forms) {
             fTotal++;
             if (fc.getIstatus().contains("1")) {
                 fComplete++;
             }
         }
-        totalForms.setText("Total Forms: " + fTotal);
-        completeForms.setText("Complete Forms: " + fComplete);
+        tf.setText("Total Forms: " + fTotal);
+        cf.setText("Complete Forms: " + fComplete);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.FormsList);
 
@@ -64,6 +71,10 @@ public class FormsList extends Activity {
         itemAnimator.setRemoveDuration(5000);
         mRecyclerView.setItemAnimator(itemAnimator);
 
+    }
 
+    public void toast(View v) {
+        v.getId();
+        Toast.makeText(FormsList.this, String.valueOf(v.getId()), Toast.LENGTH_SHORT).show();
     }
 }

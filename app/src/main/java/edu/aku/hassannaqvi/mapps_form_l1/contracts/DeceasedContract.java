@@ -1,18 +1,12 @@
 package edu.aku.hassannaqvi.mapps_form_l1.contracts;
 
-import android.database.Cursor;
-import android.provider.BaseColumns;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by gul.sanober on 4/20/2017.
  */
 
 public class DeceasedContract {
 
-    private final String projectName = "DSS Census";
+   /* private final String projectName = "DSS Census";
     private String _ID = "";
     private String _UID = "";
     private String _UUID = "";
@@ -405,5 +399,5 @@ public class DeceasedContract {
 
         public static String _URL = "deceased.php";
     }
-
+*/
 }

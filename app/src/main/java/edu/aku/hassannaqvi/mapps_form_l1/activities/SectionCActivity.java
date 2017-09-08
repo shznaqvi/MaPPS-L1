@@ -451,21 +451,22 @@ public class SectionCActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
-        if (ValidateForm()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                startActivity(endSec);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        if (ValidateForm()) {
+//            try {
+//                SaveDraft();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            if (UpdateDB()) {
+
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
 
 
@@ -564,9 +565,9 @@ public class SectionCActivity extends Activity {
         sc.put("mpl1bb002x", mpl1bb002xa.isChecked() ? "1" : mpl1bb002xb.isChecked() ? "2" : "0");
         sc.put("mpl1bb002y", mpl1bb002ya.isChecked() ? "1" : mpl1bb002yb.isChecked() ? "2" : "0");
         sc.put("mpl1bb002z", mpl1bb002za.isChecked() ? "1" : mpl1bb002zb.isChecked() ? "2" : "0");
-        sc.put("mpl1bb002aa", mpl1bb002aaaa.isChecked() ? "1" : mpl1bb002aaab.isChecked() ? "2" : "0");
-        sc.put("mpl1bb002bb", mpl1bb002bbba.isChecked() ? "1" : mpl1bb002bbbb.isChecked() ? "2" : "0");
-        sc.put("mpl1bb002cc", mpl1bb002ccca.isChecked() ? "1" : mpl1bb002cccb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002aaa", mpl1bb002aaaa.isChecked() ? "1" : mpl1bb002aaab.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002bbb", mpl1bb002bbba.isChecked() ? "1" : mpl1bb002bbbb.isChecked() ? "2" : "0");
+        sc.put("mpl1bb002ccc", mpl1bb002ccca.isChecked() ? "1" : mpl1bb002cccb.isChecked() ? "2" : "0");
 
 
         MainApp.fc.setsC(String.valueOf(sc));

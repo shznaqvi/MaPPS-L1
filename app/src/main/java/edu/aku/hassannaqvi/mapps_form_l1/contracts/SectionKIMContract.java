@@ -1,18 +1,12 @@
 package edu.aku.hassannaqvi.mapps_form_l1.contracts;
 
-import android.database.Cursor;
-import android.provider.BaseColumns;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by gul.sanober on 5/10/2017.
  */
 
 public class SectionKIMContract {
 
-    private final String projectName = "DSS Census";
+   /* private final String projectName = "DSS Census";
     private String _ID = "";
     private String UID = "";
     private String _UUID = "";
@@ -97,13 +91,13 @@ public class SectionKIMContract {
         this.user = user;
     }
 
-    /*public String getChildID() {
+    *//*public String getChildID() {
         return childID;
     }
 
     public void setChildID(String childID) {
         this.childID = childID;
-    }*/
+    }*//*
 
     public String getDssID() {
         return dssID;
@@ -234,5 +228,5 @@ public class SectionKIMContract {
         public static final String COLUMN_DEVICETAGID = "tagid";
         public static String _URL = "ims.php";
 
-    }
+    }*/
 }

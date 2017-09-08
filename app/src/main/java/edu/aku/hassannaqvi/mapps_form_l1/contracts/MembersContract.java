@@ -1,18 +1,12 @@
 package edu.aku.hassannaqvi.mapps_form_l1.contracts;
 
-import android.database.Cursor;
-import android.provider.BaseColumns;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
 
 public class MembersContract {
 
-    private final String projectName = "DSS Census";
+   /* private final String projectName = "DSS Census";
     private String _ID = "";
     private String _DATE = "";
     private String dss_id_hh = "";
@@ -367,5 +361,5 @@ public class MembersContract {
 
         public static final String _URI = "getfamilymembers.php";
 
-    }
+    }*/
 }

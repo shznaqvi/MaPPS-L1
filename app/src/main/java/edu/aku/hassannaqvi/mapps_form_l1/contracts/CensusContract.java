@@ -1,17 +1,11 @@
 package edu.aku.hassannaqvi.mapps_form_l1.contracts;
 
-import android.database.Cursor;
-import android.provider.BaseColumns;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
 
 public class CensusContract {
-
+/*
     private final String projectName = "DSS Census";
     private String _ID = "";
     private String REF_ID = "";
@@ -613,5 +607,5 @@ public class CensusContract {
         public static final String COLUMN_SERIAL_NO = "serial";
 
         public static String _URL = "census.php";
-    }
+    }*/
 }

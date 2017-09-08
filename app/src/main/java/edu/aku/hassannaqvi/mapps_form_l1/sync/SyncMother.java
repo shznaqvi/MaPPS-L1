@@ -4,26 +4,12 @@ package edu.aku.hassannaqvi.mapps_form_l1.sync;
  * Created by hassan.naqvi on 12/2/2016.
  */
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.MotherContract.MotherTB;
-import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
+/*import edu.aku.hassannaqvi.mapps_form_l1.contracts.MotherContract.MotherTB;*/
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
-public class SyncMother extends AsyncTask<Void, Void, String> {
+public class SyncMother { /*extends AsyncTask<Void, Void, String> {
 
     private static final String TAG = "SyncMother";
     private Context mContext;
@@ -103,7 +89,7 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-       /* Collection<MotherContract> Mother = db.getUnsyncedMother();
+       *//* Collection<MotherContract> Mother = db.getUnsyncedMother();
         Log.d(TAG, String.valueOf(Mother.size()));
         if (Mother.size() > 0) {
             try {
@@ -116,8 +102,8 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
 
                     conn = (HttpURLConnection) url.openConnection();
 
-                    conn.setReadTimeout(20000 *//* milliseconds *//*);
-                    conn.setConnectTimeout(30000 *//* milliseconds *//*);
+                    conn.setReadTimeout(20000 *//**//* milliseconds *//**//*);
+                    conn.setConnectTimeout(30000 *//**//* milliseconds *//**//*);
                     conn.setRequestMethod("POST");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
@@ -144,7 +130,7 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                   *//*===================================================================*//*
+                   *//**//*===================================================================*//**//*
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
@@ -170,9 +156,9 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
             }
         } else {
             return "No new records to sync";
-        }*/
+        }*//*
         return line;
-                /*===================================================================*/
+                *//*===================================================================*//*
 
-    }
+    }*/
 }

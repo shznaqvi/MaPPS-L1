@@ -1,18 +1,40 @@
 package edu.aku.hassannaqvi.mapps_form_l1.get;
 
-/*import edu.aku.hassannaqvi.mapps_form_l1.contracts.MembersContract.singleMember;*/
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrollContract;
+import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
+import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
 /**
- * Created by hassan.naqvi on 11/30/2016.
+ * Created by sidra.nizam on 9/8/2017.
  */
 
-public class GetMembers {/*extends AsyncTask<Void, Void, String> {
+public class GetEnroll extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "GetMembers";
+    private static final String TAG = "GetEligibles";
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetMembers(Context context) {
+    public GetEnroll(Context context) {
         mContext = context;
     }
 
@@ -28,7 +50,7 @@ public class GetMembers {/*extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Please wait... Processing Members");
+        pd.setTitle("Please wait... Processing Eligibles");
         pd.show();
 
     }
@@ -39,7 +61,7 @@ public class GetMembers {/*extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            return downloadUrl(MainApp._HOST_URL + singleMember._URI);
+            return downloadUrl(MainApp._HOST_URL + EnrollContract.EnrollTable._URIGET);
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
@@ -54,19 +76,18 @@ public class GetMembers {/*extends AsyncTask<Void, Void, String> {
         try {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
-            // db.syncMembers(json);
-            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Members", Toast.LENGTH_SHORT).show();
+            db.syncEnroll(json);
+            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Eligibles", Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(json.length() + " Members synced.");
-            pd.setTitle("Members: Done");
+            pd.setMessage(json.length() + " eligibles synced.");
+            pd.setTitle("Eligibles: Done");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
-
             pd.setMessage(result);
-            pd.setTitle("Members Sync Failed");
+            pd.setTitle("Eligibles Sync Failed");
             pd.show();
 
         }
@@ -87,8 +108,8 @@ public class GetMembers {/*extends AsyncTask<Void, Void, String> {
             URL url = new URL(myurl);
             Log.d(TAG, "downloadUrl: " + myurl);
             conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(10000 *//* milliseconds *//*);
-            conn.setConnectTimeout(15000 *//* milliseconds *//*);
+            conn.setReadTimeout(10000 /* milliseconds */);
+            conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -100,12 +121,20 @@ public class GetMembers {/*extends AsyncTask<Void, Void, String> {
             conn.connect();
             JSONArray jsonSync = new JSONArray();
             DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+            DatabaseHelper db = new DatabaseHelper(mContext);
+                /*ollection<EligiblesContract> eligibles = db.getAllEligibles();
+                Log.d(TAG, String.valueOf(eligibles.size()));
+                for (EligiblesContract fc : eligibles) {
+
+                    jsonSync.put(fc.toJSONObject());
+
+                }*/
             JSONObject json = new JSONObject();
-         *//*   try {
-             //   json.put("area", MainApp.regionDss);
+            try {
+                json.put("cluster", MainApp.curCluster);
             } catch (JSONException e1) {
                 e1.printStackTrace();
-            }*//*
+            }
             Log.d(TAG, "downloadUrl: " + json.toString());
             wr.writeBytes(json.toString());
             longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
@@ -146,5 +175,5 @@ public class GetMembers {/*extends AsyncTask<Void, Void, String> {
         char[] buffer = new char[len];
         reader.read(buffer);
         return new String(buffer);
-    }*/
+    }
 }

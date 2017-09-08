@@ -4,28 +4,14 @@ package edu.aku.hassannaqvi.mapps_form_l1.sync;
  * Created by hassan.naqvi on 12/2/2016.
  */
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract.censusMember;
-import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
-import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
+/*import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract.censusMember;*/
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
-public class SyncCensus extends AsyncTask<Void, Void, String> {
+public class SyncCensus {/*extends AsyncTask<Void, Void, String> {*/
 
-    private static final String TAG = "SyncCensus";
+   /* private static final String TAG = "SyncCensus";
     private Context mContext;
     private ProgressDialog pd;
 
@@ -103,7 +89,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-       /* Collection<CensusContract> Census = db.getUnsyncedCensus();
+       *//* Collection<CensusContract> Census = db.getUnsyncedCensus();
         Log.d(TAG, String.valueOf(Census.size()));
         if (Census.size() > 0) {
             try {
@@ -116,8 +102,8 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
 
                     conn = (HttpURLConnection) url.openConnection();
 
-                    conn.setReadTimeout(20000 *//* milliseconds *//*);
-                    conn.setConnectTimeout(30000 *//* milliseconds *//*);
+                    conn.setReadTimeout(20000 *//**//* milliseconds *//**//*);
+                    conn.setConnectTimeout(30000 *//**//* milliseconds *//**//*);
                     conn.setRequestMethod("POST");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
@@ -145,7 +131,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
                         e.printStackTrace();
                     }
 
-*//*===================================================================*//*
+*//**//*===================================================================*//**//*
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
@@ -171,13 +157,13 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
             }
         } else {
             return "No new records to sync";
-        }*/
+        }*//*
         return line;
-            /*===================================================================*/
+            *//*===================================================================*//*
 
     }
 
-   /* public String readIt(InputStream stream) throws IOException {
+   *//* public String readIt(InputStream stream) throws IOException {
         Reader reader = null;
         reader = new InputStreamReader(stream, "UTF-8");
         char[] buffer = new char[len];

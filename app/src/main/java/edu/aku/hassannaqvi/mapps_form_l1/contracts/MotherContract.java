@@ -1,18 +1,12 @@
 package edu.aku.hassannaqvi.mapps_form_l1.contracts;
 
-import android.database.Cursor;
-import android.provider.BaseColumns;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by gul.sanober on 5/9/2017.
  */
 
 public class MotherContract {
 
-    private final String projectName = "DSS Census";
+   /* private final String projectName = "DSS Census";
     private String _ID = "";
     private String UID = "";
     private String _UUID = "";
@@ -113,13 +107,13 @@ public class MotherContract {
         this.sJ = sJ;
     }
 
-   /* public String getsK() {
+   *//* public String getsK() {
         return sK;
     }
 
     public void setsK(String sK) {
         this.sK = sK;
-    }*/
+    }*//*
 
     public String getSynced() {
         return synced;
@@ -291,5 +285,5 @@ public class MotherContract {
 
 
         public static String _URL = "mothers.php";
-    }
+    }*/
 }

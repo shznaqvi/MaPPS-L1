@@ -135,10 +135,11 @@ public class SectionFActivity extends Activity {
             }
         });
 
-        mpl1d006e.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        mpl1d006.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1d006e.isChecked()) {
                     fldGrp006.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp006.setVisibility(View.GONE);
@@ -174,21 +175,22 @@ public class SectionFActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
-        if (ValidateForm()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                startActivity(endSec);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        if (ValidateForm()) {
+//            try {
+//                SaveDraft();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            if (UpdateDB()) {
+
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
 
 
@@ -239,14 +241,15 @@ public class SectionFActivity extends Activity {
         sf.put("mpl1d005", mpl1d005.getText().toString());
         sf.put("mpl1d006", mpl1d006a.isChecked() ? "1" : mpl1d006b.isChecked() ? "2" : mpl1d006c.isChecked() ? "3" : mpl1d006d.isChecked() ? "4" : mpl1d006e.isChecked() ? "5" : "0");
         sf.put("mpl1d006x", mpl1d006x.getText().toString());
-        sf.put("mpl1d008a", mpl1d007a.isChecked() ? "1" : "0");
-        sf.put("mpl1d008b", mpl1d007b.isChecked() ? "2" : "0");
-        sf.put("mpl1d008c", mpl1d007c.isChecked() ? "3" : "0");
-        sf.put("mpl1d008d", mpl1d007d.isChecked() ? "4" : "0");
-        sf.put("mpl1d008e", mpl1d007e.isChecked() ? "5" : "0");
-        sf.put("mpl1d008f", mpl1d007f.isChecked() ? "6" : "0");
-        sf.put("mpl1d008g", mpl1d007g.isChecked() ? "7" : "0");
-        sf.put("mpl1d00888", mpl1d00788.isChecked() ? "88" : "0");
+        sf.put("mpl1d007a", mpl1d007a.isChecked() ? "1" : "0");
+        sf.put("mpl1d007b", mpl1d007b.isChecked() ? "2" : "0");
+        sf.put("mpl1d007c", mpl1d007c.isChecked() ? "3" : "0");
+        sf.put("mpl1d007d", mpl1d007d.isChecked() ? "4" : "0");
+        sf.put("mpl1d007e", mpl1d007e.isChecked() ? "5" : "0");
+        sf.put("mpl1d007f", mpl1d007f.isChecked() ? "6" : "0");
+        sf.put("mpl1d007g", mpl1d007g.isChecked() ? "7" : "0");
+        sf.put("mpl1d00788", mpl1d00788.isChecked() ? "88" : "0");
+        sf.put("mpl1d00788x", mpl1d00788x.getText().toString());
         sf.put("mpl1d008", mpl1d008a.isChecked() ? "1" : mpl1d008b.isChecked() ? "2" : "0");
         sf.put("mpl1d009", mpl1d009.getText().toString());
 

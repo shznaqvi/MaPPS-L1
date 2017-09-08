@@ -4,20 +4,12 @@ package edu.aku.hassannaqvi.mapps_form_l1.sync;
  * Created by hassan.naqvi on 12/2/2016.
  */
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-
-import java.io.IOException;
-
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract.censusMember;
-import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
+/*import edu.aku.hassannaqvi.mapps_form_l1.contracts.CensusContract.censusMember;*/
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
-public class SyncCensusRest extends AsyncTask<String, String, String> {
+public class SyncCensusRest {/* extends AsyncTask<String, String, String> {
 
     private static final String TAG = "SyncCensus";
     private Context mContext;
@@ -53,7 +45,7 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
 
         String line = "No Response";
         try {
-            String url = MainApp._HOST_URL + censusMember._URL;
+          //  String url = MainApp._HOST_URL + censusMember._URL;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {
@@ -69,7 +61,7 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
     }
 
     private String downloadUrl(String myurl) throws IOException {
-       /* String line = "No Response";
+       *//* String line = "No Response";
         // Only display the first 500 characters of the retrieved
         // web page content.
         //int len = 500;
@@ -87,8 +79,8 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
 
                     conn = (HttpURLConnection) url.openConnection();
 
-                    conn.setReadTimeout(20000 *//* milliseconds *//*);
-                    conn.setConnectTimeout(30000 *//* milliseconds *//*);
+                    conn.setReadTimeout(20000 *//**//* milliseconds *//**//*);
+                    conn.setConnectTimeout(30000 *//**//* milliseconds *//**//*);
                     conn.setRequestMethod("POST");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
@@ -116,7 +108,7 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
                         e.printStackTrace();
                     }
 
-*//*===================================================================*//*
+*//**//*===================================================================*//**//*
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
@@ -142,26 +134,26 @@ public class SyncCensusRest extends AsyncTask<String, String, String> {
             }
         } else {
             return "No new records to sync";
-        }*/
+        }*//*
         return mRestUrl;
-            /*===================================================================*/
+            *//*===================================================================*//*
 
     }
 
-   /* public String readIt(InputStream stream) throws IOException {
+   *//* public String readIt(InputStream stream) throws IOException {
         Reader reader = null;
         reader = new InputStreamReader(stream, "UTF-8");
         char[] buffer = new char[len];
         reader.read(buffer);
         return new String(buffer);
-    }*/
+    }*//*
 
     public abstract static class RestTaskCallback {
-        /**
+        *//**
          * Called when the HTTP request completes.
          *
          * @param result The result of the HTTP request.
-         */
+ *//*
         public abstract void onTaskComplete(String result);
-    }
+    }*/
 }

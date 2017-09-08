@@ -65,6 +65,7 @@ public class MainApp extends Application {
 
     public static SharedPreferences sharedPref;
     public static String enrollDate;
+    public static String curCluster;
     //    Ali
     public static String tehsilCode;
     public static String hfCode = "0000";  //hf code
