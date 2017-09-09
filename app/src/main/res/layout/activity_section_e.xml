@@ -24,6 +24,7 @@
             android:text="@string/mpl1c"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <View
@@ -525,9 +526,9 @@
                 android:id="@+id/mpl1c014"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/mpl1c014"
-                android:inputType="number"
-                android:maxLength="3" />
+                android:inputType="textCapWords" />
 
         </LinearLayout>
 

@@ -284,28 +284,6 @@ public class SectionBActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
 
-        if (ValidateForm()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                startActivity(endSec);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-
-    @OnClick(R.id.btn_Continue)
-    void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-
 //        if (ValidateForm()) {
 //            try {
 //                SaveDraft();
@@ -322,6 +300,29 @@ public class SectionBActivity extends Activity {
 //                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 //            }
 //        }
+    }
+
+
+    @OnClick(R.id.btn_Continue)
+    void onBtnContinueClick() {
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+
+                startActivity(new Intent(this, SectionEActivity.class));
+
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private boolean UpdateDB() {

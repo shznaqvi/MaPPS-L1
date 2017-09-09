@@ -24,6 +24,7 @@
             android:text="@string/mpl1d"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <View
@@ -84,7 +85,7 @@
                 android:id="@+id/mpl1d002"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mpl1d003"
+                android:hint="@string/mpl1d002"
                 android:inputType="number"
                 android:maxLength="3" />
 
@@ -328,9 +329,9 @@
                 android:id="@+id/mpl1d009"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/mpl1d009"
-                android:inputType="number"
-                android:maxLength="3" />
+                android:inputType="textCapWords" />
 
         </LinearLayout>
 
