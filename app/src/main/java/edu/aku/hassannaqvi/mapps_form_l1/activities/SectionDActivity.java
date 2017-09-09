@@ -433,6 +433,8 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc003pa;
     @BindView(R.id.mpl1bc003pb)
     RadioButton mpl1bc003pb;
+    @BindView(R.id.mpl1bc003px)
+    EditText mpl1bc003px;
 
     @BindView(R.id.fldGrp001jsub)
     LinearLayout fldGrp001jsub;
@@ -580,6 +582,18 @@ public class SectionDActivity extends Activity {
             }
         });
 
+        mpl1bc003pa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1bc003px.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bc003px.setVisibility(View.GONE);
+                    mpl1bc003px.setText(null);
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_End)
@@ -711,6 +725,7 @@ public class SectionDActivity extends Activity {
         sd.put("mpl1bc003n", mpl1bc003na.isChecked() ? "1" : mpl1bc003nb.isChecked() ? "2" : "0");
         sd.put("mpl1bc003o", mpl1bc003oa.isChecked() ? "1" : mpl1bc003ob.isChecked() ? "2" : "0");
         sd.put("mpl1bc003p", mpl1bc003pa.isChecked() ? "1" : mpl1bc003pb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc003px", mpl1bc003px.getText().toString());
 
         MainApp.fc.setsD(String.valueOf(sd));
 
@@ -1361,7 +1376,7 @@ public class SectionDActivity extends Activity {
             mpl1bc003ob.setError(null);
         }
 
-        //=================== mpl1bc00388 ==============
+        //=================== mpl1bc003p ==============
         if (mpl1bc003p.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.other), Toast.LENGTH_SHORT).show();
             mpl1bc003pb.setError("This data is Required!");
@@ -1370,6 +1385,15 @@ public class SectionDActivity extends Activity {
         } else {
             mpl1bc003pb.setError(null);
         }
+        if (mpl1bc003pa.isChecked() && mpl1bc003px.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.other), Toast.LENGTH_SHORT).show();
+            mpl1bc003px.setError("This data is required");
+            Log.d(TAG, " mpl1bc003px :empty ");
+            return false;
+        } else {
+            mpl1bc003px.setError(null);
+        }
+
 
 
         return true;
