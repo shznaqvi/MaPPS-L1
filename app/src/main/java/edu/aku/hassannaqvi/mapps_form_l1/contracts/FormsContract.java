@@ -29,7 +29,7 @@ public class FormsContract {
     private String sF = "";
 
     private String clustercode = "0000"; // Area Code
-    private String villageacode = ""; // Sub-Area Code
+    //   private String villageacode = ""; // Sub-Area Code
     private String household = ""; // Household number
     private String lhwCode = ""; // lhwcode
 
@@ -62,7 +62,7 @@ public class FormsContract {
         this.sF = jsonObject.getString(FormsTable.COLUMN_SF);
 
         this.clustercode = jsonObject.getString(FormsTable.COLUMN_CLUSTERCODE);
-        this.villageacode = jsonObject.getString(FormsTable.COLUMN_VILLAGEACODE);
+        //  this.villageacode = jsonObject.getString(FormsTable.COLUMN_VILLAGEACODE);
         this.household = jsonObject.getString(FormsTable.COLUMN_HOUSEHOLD);
         this.lhwCode = jsonObject.getString(FormsTable.COLUMN_LHWCODE);
 
@@ -95,7 +95,7 @@ public class FormsContract {
         this.sF = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SF));
 
         this.clustercode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CLUSTERCODE));
-        this.villageacode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_VILLAGEACODE));
+        //  this.villageacode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_VILLAGEACODE));
         this.household = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HOUSEHOLD));
         this.lhwCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_LHWCODE));
 
@@ -175,7 +175,7 @@ public class FormsContract {
         }
 
         json.put(FormsTable.COLUMN_CLUSTERCODE, this.clustercode == null ? JSONObject.NULL : this.clustercode);
-        json.put(FormsTable.COLUMN_VILLAGEACODE, this.villageacode == null ? JSONObject.NULL : this.villageacode);
+        //  json.put(FormsTable.COLUMN_VILLAGEACODE, this.villageacode == null ? JSONObject.NULL : this.villageacode);
         json.put(FormsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(FormsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
 
@@ -259,13 +259,13 @@ public class FormsContract {
         this.clustercode = clustercode;
     }
 
-    public String getVillageacode() {
+   /* public String getVillageacode() {
         return villageacode;
     }
 
     public void setVillageacode(String villageacode) {
         this.villageacode = villageacode;
-    }
+    }*/
 
     public String getHousehold() {
         return household;
@@ -420,7 +420,7 @@ public class FormsContract {
         public static final String COLUMN_SF = "sf";
 
         public static final String COLUMN_CLUSTERCODE = "clustercode";
-        public static final String COLUMN_VILLAGEACODE = "villageacode";
+        //  public static final String COLUMN_VILLAGEACODE = "villageacode";
         public static final String COLUMN_HOUSEHOLD = "household";
         public static final String COLUMN_LHWCODE = "lhwcode";
 

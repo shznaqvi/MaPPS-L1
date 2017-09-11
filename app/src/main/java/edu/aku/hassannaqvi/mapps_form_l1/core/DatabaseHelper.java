@@ -41,8 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.ROW_PASSWORD + " TEXT,"
             + singleUser.FULL_NAME + " TEXT,"
             + singleUser.REGION_DSS + " TEXT );";
-    public static final String DATABASE_NAME = "dss-census.db";
-    public static final String DB_NAME = "dss-census_copy.db";
+    public static final String DATABASE_NAME = "mapps_l2.db";
+    public static final String DB_NAME = "mapps_l2_copy.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
@@ -61,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsContract.FormsTable.COLUMN_SF + " TEXT," +
 
             FormsTable.COLUMN_CLUSTERCODE + " TEXT," +
-            FormsTable.COLUMN_VILLAGEACODE + " TEXT," +
+            //   FormsTable.COLUMN_VILLAGEACODE + " TEXT," +
             FormsTable.COLUMN_HOUSEHOLD + " TEXT," +
             FormsTable.COLUMN_LHWCODE + " TEXT," +
 
@@ -274,7 +274,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         values.put(FormsTable.COLUMN_CLUSTERCODE, fc.getClustercode());
-        values.put(FormsTable.COLUMN_VILLAGEACODE, fc.getVillageacode());
+        //     values.put(FormsTable.COLUMN_VILLAGEACODE, fc.getVillageacode());
         values.put(FormsTable.COLUMN_HOUSEHOLD, fc.getHousehold());
         values.put(FormsTable.COLUMN_LHWCODE, fc.getLhwCode());
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
@@ -432,7 +432,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_USER,
 
                 FormsTable.COLUMN_CLUSTERCODE,
-                FormsTable.COLUMN_VILLAGEACODE,
+                //        FormsTable.COLUMN_VILLAGEACODE,
                 FormsTable.COLUMN_HOUSEHOLD,
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_ISTATUS,
@@ -497,7 +497,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_USER,
 
                 FormsTable.COLUMN_CLUSTERCODE,
-                FormsTable.COLUMN_VILLAGEACODE,
+                //      FormsTable.COLUMN_VILLAGEACODE,
                 FormsTable.COLUMN_HOUSEHOLD,
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_ISTATUS,
