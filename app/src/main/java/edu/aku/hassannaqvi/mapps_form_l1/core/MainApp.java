@@ -72,6 +72,8 @@ public class MainApp extends Application {
     public static String lhwCode;   //LHW code
     public static Boolean UCsCodeFlag = true;
     public static int UCsCode;
+    public static boolean endFlag = false;
+    public static int partiFlag = 0;
     public static Boolean VillageCodeFlag = true;
     public static String VillageName;
     public static String username = "";
@@ -185,7 +187,7 @@ public class MainApp extends Application {
                                                 int id) {
                                 activity.finish();
                                 Intent end_intent = new Intent(context, EndingActivity.class);
-                                end_intent.putExtra("check", false);
+                                end_intent.putExtra("complete", false);
                                 context.startActivity(end_intent);
                             }
                         });

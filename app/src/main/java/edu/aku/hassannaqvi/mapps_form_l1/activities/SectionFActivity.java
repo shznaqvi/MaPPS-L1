@@ -184,13 +184,15 @@ public class SectionFActivity extends Activity {
 //            if (UpdateDB()) {
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
+        /*Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
-        startActivity(endSec);
+        startActivity(endSec);*/
 //            } else {
 //                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 //            }
 //        }
+
+        MainApp.endActivity(this, this);
     }
 
 
@@ -208,7 +210,9 @@ public class SectionFActivity extends Activity {
                 finish();
 
 
-                startActivity(new Intent(this, EndingActivity.class));
+                Intent endSec = new Intent(this, EndingActivity.class);
+                endSec.putExtra("complete", true);
+                startActivity(endSec);
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

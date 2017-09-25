@@ -222,13 +222,13 @@ public class MainActivity extends Activity {
 
 
     public void openA(View v) {
-        Intent iA = new Intent(this, SectionAActivity.class);
-        startActivity(iA);
+       /* Intent iA = new Intent(this, SectionAActivity.class);
+        startActivity(iA);*/
     }
 
     public void openB(View v) {
-        Intent iB = new Intent(this, SectionBActivity.class);
-        startActivity(iB);
+        /*Intent iB = new Intent(this, SectionBActivity.class);
+        startActivity(iB);*/
     }
 
     public void openC(View v) {
