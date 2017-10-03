@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -48,6 +49,12 @@ public class SectionBActivity extends Activity {
     RadioButton mpl1ba003b;
     @BindView(R.id.mpl1ba003c)
     RadioButton mpl1ba003c;
+    @BindView(R.id.mpl1ba003d)
+    RadioButton mpl1ba003d;
+    @BindView(R.id.mpl1ba003e)
+    RadioButton mpl1ba003e;
+    @BindView(R.id.mpl1ba003f)
+    RadioButton mpl1ba003f;
     @BindView(R.id.mpl1ba004)
     RadioGroup mpl1ba004;
     @BindView(R.id.mpl1ba004a)
@@ -251,10 +258,11 @@ public class SectionBActivity extends Activity {
             }
         });
 
-        mpl1ba003a.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mpl1ba003.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1ba003a.isChecked() || mpl1ba003d.isChecked() || mpl1ba003e.isChecked() || mpl1ba003f.isChecked()) {
                     fldGrp003.setVisibility(View.GONE);
                     mpl1ba004.clearCheck();
                     mpl1ba005.clearCheck();
@@ -263,6 +271,7 @@ public class SectionBActivity extends Activity {
                 }
             }
         });
+
 
         mpl1ba004a.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -348,7 +357,9 @@ public class SectionBActivity extends Activity {
 
         sb.put("mpl1ba001", mpl1ba001a.isChecked() ? "1" : mpl1ba001b.isChecked() ? "2" : "0");
         sb.put("mpl1ba002", mpl1ba002a.isChecked() ? "1" : mpl1ba002b.isChecked() ? "2" : "0");
-        sb.put("mpl1ba003", mpl1ba003a.isChecked() ? "1" : mpl1ba003b.isChecked() ? "2" : mpl1ba003c.isChecked() ? "3" : "0");
+        sb.put("mpl1ba003", mpl1ba003a.isChecked() ? "1" : mpl1ba003b.isChecked() ? "2"
+                : mpl1ba003c.isChecked() ? "3" : mpl1ba003d.isChecked() ? "4" : mpl1ba003e.isChecked() ? "5"
+                : mpl1ba003f.isChecked() ? "6" : "0");
         sb.put("mpl1ba004", mpl1ba004a.isChecked() ? "1" : mpl1ba004b.isChecked() ? "2" : "0");
         sb.put("mpl1ba005", mpl1ba005a.isChecked() ? "1" : mpl1ba005b.isChecked() ? "2" : mpl1ba005c.isChecked() ? "3" : "0");
         sb.put("mpl1ba006a", mpl1ba006aa.isChecked() ? "1" : mpl1ba006ab.isChecked() ? "2" : "0");

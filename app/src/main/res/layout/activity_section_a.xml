@@ -202,6 +202,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@color/colorPrimary"
+            android:text="@string/mpl1a008a"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:id="@+id/mpl1a008a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="@string/mpl1a008a"
+            android:inputType="textCapWords"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
             android:text="@string/mpl1a008"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white" />

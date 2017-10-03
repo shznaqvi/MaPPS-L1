@@ -57,6 +57,8 @@ public class SectionAActivity extends Activity {
     EditText mpl1a007;
     @BindView(R.id.mpl1a008)
     EditText mpl1a008;
+    @BindView(R.id.mpl1a008a)
+    EditText mpl1a008a;
     @BindView(R.id.mpl1a009)
     RadioGroup mpl1a009;
     @BindView(R.id.mpl1a009a)
@@ -186,6 +188,7 @@ public class SectionAActivity extends Activity {
         sa.put("mpl1a005", mpl1a005.getText().toString());
         sa.put("mpl1a006", mpl1a006.getText().toString());
         sa.put("mpl1a007", mpl1a007.getText().toString());
+        sa.put("mpl1a008a", mpl1a008a.getText().toString());
         sa.put("mpl1a008", mpl1a008.getText().toString());
         sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
 
@@ -295,6 +298,16 @@ public class SectionAActivity extends Activity {
             return false;
         } else {
             mpl1a007.setError(null);
+        }
+
+        // =================== mpl1a007 ====================
+        if (mpl1a008a.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a008a), Toast.LENGTH_SHORT).show();
+            mpl1a008a.setError("This data is required");
+            Log.d(TAG, " mpl1a008a :empty ");
+            return false;
+        } else {
+            mpl1a008a.setError(null);
         }
 
         // =================== mpl1a008 ====================

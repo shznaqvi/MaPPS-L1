@@ -52,8 +52,9 @@
   <string name="mpl1a004c"> ڇلي جي وقت </string>
   <string name="mpl1a005"> ٻار جي آءِ ڊي </string>
   <string name="mpl1a006"> مڙس يا پيء جو نالو </string>
-  <string name="mpl1a007"> HCF جو نالو </string>
-  <string name="mpl1a008"> LHW جي آءِ ڊي </string>
+  <string name="mpl1a007">  ايڇ سي ايف (HCF) جو نالو</string>
+  <string name="mpl1a008">ايل ايڇ ڊبليو (LHW) جي آءِ ڊي </string>
+  <string name="mpl1a008a"> ايل ايڇ ڊبليو (LHW) جو نالو</string>
   <string name="mpl1a009"> هي دورو ڪيترن ڏينهن کان پوء ڪيو پيو وڃي؟ </string>
   <string name="mpl1a009a"> ٻيو مهينو </string>
   <string name="mpl1a009b"> ٽيون مهينو </string>
@@ -65,6 +66,9 @@
   <string name="mpl1ba003a"> غير شادي شده </string>
   <string name="mpl1ba003b"> شموليت کان وٺي شادي شده </string>
   <string name="mpl1ba003c"> پوئين مهيني ۾ شادي ڪئي آهي </string>
+  <string name="mpl1ba003d">بيوه</string>
+  <string name="mpl1ba003e">طلاقيافته</string>
+  <string name="mpl1ba003f">عليحدگي</string>
   <string name="mpl1ba004"> ڇا توهانکي شڪ آهي ته توهان حمل /پيٽ سان آهيو؟ </string>
   <string name="mpl1ba005"> جيڪڏهن ها ته حمل جي ٽيسٽ ڪريو </string>
   <string name="mpl1ba005a"> حمل سان آهي </string>
@@ -102,7 +106,7 @@
   <string name="mpl1bb"> حمل واري مرحلي ۾ بيماري جي جانچ </string>
   <string name="mpl1bb001"> آخري دوري کان وٺي ڇا توهان کي هيٺ ڏنل ڪا پيچيدگي ٿي هئي ؟ </string>
   <string name="mpl1bb001a"> پيٽ جو سور </string>
-  <string name="mpl1bb001b">  </string>
+  <string name="mpl1bb001b"> نرن ۾ سور </string>
   <string name="mpl1bb001c"> متلي </string>
   <string name="mpl1bb001d"> الٽي </string>
   <string name="mpl1bb001e"> قبضي </string>
@@ -155,7 +159,7 @@
   <string name="mpl1bc"> حمل کان پوءِ واري مرحلي ۾ بيماري جي جانچ </string>
   <string name="mpl1bc001"> آخري دوري کان وٺي ڇا توهان کي هيٺ ڏنل ڪا پيچيدگي ٿي هئي ؟ </string>
   <string name="mpl1bc001a"> پيٽ جو سور </string>
-  <string name="mpl1bc001b">  </string>
+  <string name="mpl1bc001b"> نرن جو سور </string>
   <string name="mpl1bc001c"> متلي </string>
   <string name="mpl1bc001d"> الٽي </string>
   <string name="mpl1bc001e"> قبضي </string>
@@ -254,8 +258,8 @@
   <string name="mpl1c002b"> آئرن اينڊ فولڪ ايسڊ </string>
   <string name="mpl1c002c"> نو سپليمينٽس </string>
   <string name="mpl1c003"> شرڪت ڪندڙ وٽ اضافي غذائي اجزه واريون ڪيتريون گوريون موجودآهن؟ </string>
-  <string name="mpl1c004"> شرڪت ڪندڙکي هن معائني دوران ڪيتريون نيون اضافي غذائي اجزه واريون گوريون مهياڪيون آهن؟ </string>
-  <string name="mpl1c005"> شرڪت ڪندڙ وٽ هن وقت ڪل ڪيتريون اضافي غذائي اجزه واريون گوريون موجود آهن.؟ </string>
+  <string name="mpl1c004"> گذريل مهيني ڇا ايل ايڇ ڊبليو جي طرفان توهان کي طاقت جون ڪي گوريون ڏنيون ويون آهن؟ </string>
+  <string name="mpl1c005"> جيڪڏهن ها ته ڪيتريون ٽڪيون مهيا ڪيون ويون؟ </string>
   <string name="mpl1c006"> آخري دوري کان وٺي ڪيتريون گوريون توهان کاڌيون آهن؟ </string>
   <string name="mpl1c007"> اهي گوريون توهان ڪيئن کائو پيا؟ </string>
   <string name="mpl1c007a"> روزانه </string>
@@ -263,6 +267,8 @@
   <string name="mpl1c007c"> ڏينهن کان پوء </string>
   <string name="mpl1c007d"> هفتي ۾ ٻه دفعه </string>
   <string name="mpl1c007e"> بلڪل به نه کاڌي </string>
+  <string name="mpl1c007f"> مختلف ٽائيم تي، (مهيني ۾ ٻه ٽي چڪر وقفي وقفي سان)</string>
+  <string name="mpl1c007g">شُروع ۾ کاڌي هُئي پر هاڻي هاڻي بند ڪئي آهي </string>
   <string name="mpl1c008"> ڪهڙي ڳالهه جي ڪري صحيح طريقي سان نه کائي رهيا آهيو؟ </string>
   <string name="mpl1c008a"> ذائقو خراب آهي </string>
   <string name="mpl1c008b"> دست ٿيون ڪن </string>
@@ -288,7 +294,7 @@
   <string name="mpl1d"> BEP خوراڪ جي خبر وٺڻ </string>
   <string name="mpl1d001"> ڇا شرڪت ڪندڙ حمل واري مرحلي ۾ آهي ۽ BEP  جي خوراڪ کائي پئي ؟ </string>
   <string name="mpl1d002"> شرڪت ڪندڙ وٽ  BEP  جون پوڙيون ڪيتريون موجود آهن؟</string>
-  <string name="mpl1d003">شرڪت ڪندڙکي هن معائني دوران ڪيتريون BEP  جون نيون پڙيون مهياڪيون آهن؟</string>
+  <string name="mpl1d003">گذريل مهيني  شرڪت ڪندڙکي هن معائني دوران ڪيتريون BEP  جون نيون پڙيون ليڊي هيلٿ ورڪر جي طرفان   مهياڪيون آهن؟</string>
   <string name="mpl1d004">شرڪت ڪندڙ وٽ هن وقت ڪل ڪيتريون BEP  جو پڙيون موجود آهن.؟</string>
   <string name="mpl1d005">آخري دوري کان وٺي ڪيتريون BEP  جو پڙيون استعمال ڪيون آهن؟</string>
   <string name="mpl1d006">اهي BEP  جون پڙيون توهان ڪيئن استعمال ڪريون پيا؟</string>

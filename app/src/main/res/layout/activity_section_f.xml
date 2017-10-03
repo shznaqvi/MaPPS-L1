@@ -106,7 +106,7 @@
                 android:inputType="number"
                 android:maxLength="3" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -122,7 +122,7 @@
                 android:hint="@string/mpl1d004"
                 android:inputType="number"
                 android:maxLength="3" />
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -316,7 +316,13 @@
 
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmpl1d009"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -332,6 +338,8 @@
                 android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/mpl1d009"
                 android:inputType="textCapWords" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

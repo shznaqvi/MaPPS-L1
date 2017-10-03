@@ -128,7 +128,8 @@ public class SectionEActivity extends Activity {
     RadioButton mpl1c013d;
     @BindView(R.id.mpl1c014)
     EditText mpl1c014;
-
+    @BindView(R.id.fldGrp012)
+    LinearLayout fldGrp012;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -262,6 +263,24 @@ public class SectionEActivity extends Activity {
             }
         });
 
+        mpl1c011.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1c011a.isChecked()) {
+                    fldGrp012.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrp012.setVisibility(View.GONE);
+                    mpl1c012a.setChecked(false);
+                    mpl1c012b.setChecked(false);
+                    mpl1c012c.setChecked(false);
+                    mpl1c01288.setChecked(false);
+                    mpl1c01288x.setText(null);
+                    mpl1c013.clearCheck();
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_End)
@@ -303,7 +322,20 @@ public class SectionEActivity extends Activity {
                 finish();
 
 
-                startActivity(new Intent(this, SectionFActivity.class));
+                if (mpl1c001d.isChecked()) {
+                    Intent endSec = new Intent(this, EndingActivity.class);
+                    endSec.putExtra("complete", true);
+                    startActivity(endSec);
+                } else if (mpl1c002c.isChecked()) {
+                    Intent endSec = new Intent(this, EndingActivity.class);
+                    endSec.putExtra("complete", true);
+                    startActivity(endSec);
+                } else {
+                    Intent endSec = new Intent(this, SectionFActivity.class);
+                    startActivity(endSec);
+                }
+
+
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -537,33 +569,35 @@ public class SectionEActivity extends Activity {
                 mpl1c011b.setError(null);
             }
 
-            // ====================== mpl1c012 ===================
-            if (!(mpl1c012a.isChecked() || mpl1c012b.isChecked() || mpl1c012c.isChecked() || mpl1c01288.isChecked())) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mpl1c012), Toast.LENGTH_LONG).show();
-                mpl1c01288.setError("This data is Required!");    // Set Error on last check box
-                Log.i(TAG, "mpl1c012: This data is Required!");
-                return false;
-            } else {
-                mpl1c01288.setError(null);
-            }
+            if (mpl1c011a.isChecked()) {
+                // ====================== mpl1c012 ===================
+                if (!(mpl1c012a.isChecked() || mpl1c012b.isChecked() || mpl1c012c.isChecked() || mpl1c01288.isChecked())) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mpl1c012), Toast.LENGTH_LONG).show();
+                    mpl1c01288.setError("This data is Required!");    // Set Error on last check box
+                    Log.i(TAG, "mpl1c012: This data is Required!");
+                    return false;
+                } else {
+                    mpl1c01288.setError(null);
+                }
 
-            if (mpl1c01288.isChecked() && mpl1c01288x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c012) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
-                mpl1c01288x.setError("This data is required");
-                Log.d(TAG, " mpl1c01288x :empty ");
-                return false;
-            } else {
-                mpl1c01288x.setError(null);
-            }
+                if (mpl1c01288.isChecked() && mpl1c01288x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c012) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
+                    mpl1c01288x.setError("This data is required");
+                    Log.d(TAG, " mpl1c01288x :empty ");
+                    return false;
+                } else {
+                    mpl1c01288x.setError(null);
+                }
 
-            //=================== mpl1c013 ==============
-            if (mpl1c013.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c013), Toast.LENGTH_SHORT).show();
-                mpl1c013d.setError("This data is Required!");
-                Log.i(TAG, "mpl1c013: This Data is Required!");
-                return false;
-            } else {
-                mpl1c013d.setError(null);
+                //=================== mpl1c013 ==============
+                if (mpl1c013.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c013), Toast.LENGTH_SHORT).show();
+                    mpl1c013d.setError("This data is Required!");
+                    Log.i(TAG, "mpl1c013: This Data is Required!");
+                    return false;
+                } else {
+                    mpl1c013d.setError(null);
+                }
             }
 
             //=================== mpl1c014 ==============
