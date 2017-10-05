@@ -153,15 +153,35 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <EditText
+                <RadioGroup
                     android:id="@+id/mpl1c004"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/mpl1c004"
-                    android:inputType="number"
-                    android:maxLength="3" />
+                    android:layout_height="wrap_content">
 
-                <TextView
+                    <RadioButton
+                        android:id="@+id/mpl1c004a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/yes"/>
+
+                    <RadioButton
+                        android:id="@+id/mpl1c004b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/no"/>
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/fldGrp005"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -177,6 +197,8 @@
                     android:hint="@string/mpl1c005"
                     android:inputType="number"
                     android:maxLength="3" />
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
