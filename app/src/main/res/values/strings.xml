@@ -277,6 +277,8 @@
   <string name="mpl1c008e">    جسم تي داڻا ڪن ٿيون </string>
   <string name="mpl1c008f">    ضروري نه آهي </string>
   <string name="mpl1c008g"> لاڳو نه ٿو ٿئي </string>
+  <string name="mpl1c008h"> مٿي کي چڪر </string>
+  <string name="mpl1c008i"> مٿي ۾ سور </string>
   <string name="mpl1c009"> ڇا توهان اضافي غذائي اجزه واريون گوريون ٻين کي به ڏنيون هيون؟ </string>
   <string name="mpl1c010"> سبب بيان ڪريو </string>
   <string name="mpl1c011"> ڇا توهان اهڙيو گريون کاڌيون جن جو تحقيق ۾ جائزو نه ورتو ويو؟ </string>
@@ -310,7 +312,9 @@
   <string name="mpl1d007d">4پيٽ جو سور ڪن ٿيون</string>
   <string name="mpl1d007e">5جسم تي داڻا ڪن ٿيون</string>
   <string name="mpl1d007f">6ضروري نه آهي</string>
-  <string name="mpl1d007g">.  ٻي ڪا نه ٿو ٿئي لاڳو7</string>
+  <string name="mpl1d007g">لاڳو نه ٿو ٿئي</string>
+  <string name="mpl1d007h">مٿي کي چڪر</string>
+  <string name="mpl1d007i">مٿي ۾ سور ٿيڻ</string>
   <string name="mpl1d008">ڇا توهان  اهي BEP   جون پڙيون ٻين کي به ڏنيون هيون؟</string>
   <string name="mpl1d009">سبب بيان ڪريو</string>
 

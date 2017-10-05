@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -246,10 +245,11 @@ public class SectionBActivity extends Activity {
         ButterKnife.bind(this);
 
 
-        mpl1ba001a.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mpl1ba001.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1ba001a.isChecked()) {
                     fldGrp001.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001.setVisibility(View.GONE);
@@ -272,11 +272,11 @@ public class SectionBActivity extends Activity {
             }
         });
 
-
-        mpl1ba004a.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mpl1ba004.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1ba004a.isChecked()) {
                     fldGrp004.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp004.setVisibility(View.GONE);

@@ -88,6 +88,10 @@ public class SectionEActivity extends Activity {
     CheckBox mpl1c008f;
     @BindView(R.id.mpl1c008g)
     CheckBox mpl1c008g;
+    @BindView(R.id.mpl1c008h)
+    CheckBox mpl1c008h;
+    @BindView(R.id.mpl1c008i)
+    CheckBox mpl1c008i;
     @BindView(R.id.mpl1c00888)
     CheckBox mpl1c00888;
     @BindView(R.id.mpl1c00888x)
@@ -130,6 +134,9 @@ public class SectionEActivity extends Activity {
     EditText mpl1c014;
     @BindView(R.id.fldGrp012)
     LinearLayout fldGrp012;
+    @BindView(R.id.fldGrpmpl1c010)
+    LinearLayout fldGrpmpl1c010;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,6 +162,8 @@ public class SectionEActivity extends Activity {
                     mpl1c008e.setChecked(false);
                     mpl1c008f.setChecked(false);
                     mpl1c008g.setChecked(false);
+                    mpl1c008h.setChecked(false);
+                    mpl1c008i.setChecked(false);
                     mpl1c00888.setChecked(false);
                     mpl1c00888x.setText(null);
                     mpl1c009.clearCheck();
@@ -193,6 +202,8 @@ public class SectionEActivity extends Activity {
                     mpl1c008e.setChecked(false);
                     mpl1c008f.setChecked(false);
                     mpl1c008g.setChecked(false);
+                    mpl1c008h.setChecked(false);
+                    mpl1c008i.setChecked(false);
                     mpl1c00888.setChecked(false);
                     mpl1c00888x.setText(null);
                     mpl1c009.clearCheck();
@@ -218,7 +229,7 @@ public class SectionEActivity extends Activity {
         });
 
 
-        mpl1c007.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*mpl1c007.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mpl1c007e.isChecked()) {
@@ -237,7 +248,7 @@ public class SectionEActivity extends Activity {
                     mpl1c00888x.setText(null);
                 }
             }
-        });
+        });*/
 
         mpl1c00888.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -277,6 +288,19 @@ public class SectionEActivity extends Activity {
                     mpl1c01288.setChecked(false);
                     mpl1c01288x.setText(null);
                     mpl1c013.clearCheck();
+                }
+            }
+        });
+
+        mpl1c009.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1c009a.isChecked()) {
+                    fldGrpmpl1c010.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmpl1c010.setVisibility(View.GONE);
+                    mpl1c010.setText(null);
                 }
             }
         });
@@ -378,6 +402,8 @@ public class SectionEActivity extends Activity {
         se.put("mpl1c008e", mpl1c008e.isChecked() ? "5" : "0");
         se.put("mpl1c008f", mpl1c008f.isChecked() ? "6" : "0");
         se.put("mpl1c008g", mpl1c008g.isChecked() ? "7" : "0");
+        se.put("mpl1c008h", mpl1c008h.isChecked() ? "8" : "0");
+        se.put("mpl1c008i", mpl1c008i.isChecked() ? "9" : "0");
         se.put("mpl1c00888", mpl1c00888.isChecked() ? "88" : "0");
         se.put("mpl1c00888x", mpl1c00888x.getText().toString());
         se.put("mpl1c009", mpl1c009a.isChecked() ? "1" : mpl1c009b.isChecked() ? "2" : "0");
@@ -518,10 +544,12 @@ public class SectionEActivity extends Activity {
                 }
 
 
-                if (mpl1c007e.isChecked()) {
+                //if (mpl1c007e.isChecked()) {
                     // ====================== mpl1c008 ===================
                     if (!(mpl1c008a.isChecked() || mpl1c008b.isChecked() || mpl1c008c.isChecked() || mpl1c008d.isChecked()
-                            || mpl1c008e.isChecked() || mpl1c008f.isChecked() || mpl1c008g.isChecked() || mpl1c00888.isChecked())) {
+                            || mpl1c008e.isChecked() || mpl1c008f.isChecked() || mpl1c008g.isChecked() || mpl1c008h.isChecked()
+                            || mpl1c008i.isChecked()
+                            || mpl1c00888.isChecked())) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mpl1c008), Toast.LENGTH_LONG).show();
                         mpl1c00888.setError("This data is Required!");    // Set Error on last check box
                         Log.i(TAG, "mpl1c008: This data is Required!");
@@ -538,7 +566,7 @@ public class SectionEActivity extends Activity {
                     } else {
                         mpl1c00888x.setError(null);
                     }
-                }
+                //}
                 //=================== mpl1c009 ==============
                 if (mpl1c009.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c009), Toast.LENGTH_SHORT).show();

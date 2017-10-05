@@ -230,6 +230,15 @@
                         android:layout_marginBottom="1dp"
                         android:text="@string/mpl1c007c" />
 
+                    <EditText
+                        android:id="@+id/mpl1c007x"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/day"
+                        android:inputType="textCapWords"
+                        android:visibility="gone"/>
+
                     <RadioButton
                         android:id="@+id/mpl1c007d"
                         android:layout_width="match_parent"
@@ -261,14 +270,7 @@
 
                 </RadioGroup>
 
-                <EditText
-                    android:id="@+id/mpl1c007x"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    android:hint="@string/day"
-                    android:inputType="textCapWords"
-                    android:visibility="gone" />
+
 
                 <LinearLayout
                     android:id="@+id/fldGrp007"
@@ -336,6 +338,20 @@
                         android:text="@string/mpl1c008g" />
 
                     <CheckBox
+                        android:id="@+id/mpl1c008h"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:text="@string/mpl1c008h"/>
+
+                    <CheckBox
+                        android:id="@+id/mpl1c008i"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:text="@string/mpl1c008i"/>
+
+                    <CheckBox
                         android:id="@+id/mpl1c00888"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -386,6 +402,12 @@
 
                 </RadioGroup>
 
+                <LinearLayout
+                    android:id="@+id/fldGrpmpl1c010"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -402,6 +424,8 @@
                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/mpl1c010"
                     android:inputType="textCapWords" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

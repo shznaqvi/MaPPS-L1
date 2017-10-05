@@ -245,10 +245,11 @@
             android:id="@+id/mpl1bc001fx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
             android:hint="@string/day"
             android:inputType="number"
             android:maxLength="3"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -353,10 +354,11 @@
             android:id="@+id/mpl1bc001ix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
             android:hint="@string/day"
             android:inputType="number"
             android:maxLength="3"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -399,14 +401,17 @@
             android:visibility="gone">
 
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001jdays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001jx"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
+
 
             <RadioGroup
                 android:id="@+id/mpl1bc001jx"
@@ -417,6 +422,7 @@
                     android:id="@+id/mpl1bc001jxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001jxa" />
@@ -425,6 +431,7 @@
                     android:id="@+id/mpl1bc001jxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001jxb" />
@@ -433,6 +440,7 @@
                     android:id="@+id/mpl1bc001jxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001jxc" />
@@ -514,14 +522,16 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001ldays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001lx"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
 
             <RadioGroup
                 android:id="@+id/mpl1bc001lx"
@@ -532,6 +542,7 @@
                     android:id="@+id/mpl1bc001lxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001lxa" />
@@ -540,6 +551,7 @@
                     android:id="@+id/mpl1bc001lxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001lxb" />
@@ -548,6 +560,7 @@
                     android:id="@+id/mpl1bc001lxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001lxc" />
@@ -596,14 +609,17 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001mdays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001mx"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
+
 
             <RadioGroup
                 android:id="@+id/mpl1bc001mx"
@@ -614,6 +630,7 @@
                     android:id="@+id/mpl1bc001mxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001mxa" />
@@ -622,6 +639,7 @@
                     android:id="@+id/mpl1bc001mxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001mxb" />
@@ -630,6 +648,7 @@
                     android:id="@+id/mpl1bc001mxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001mxc" />
@@ -678,14 +697,17 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001ndays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001nx"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
+
 
             <RadioGroup
                 android:id="@+id/mpl1bc001nx"
@@ -696,6 +718,7 @@
                     android:id="@+id/mpl1bc001nxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001nxa" />
@@ -704,6 +727,7 @@
                     android:id="@+id/mpl1bc001nxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001nxb" />
@@ -712,6 +736,7 @@
                     android:id="@+id/mpl1bc001nxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001nxc" />
@@ -760,14 +785,17 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001odays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001ox"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
+
 
             <RadioGroup
                 android:id="@+id/mpl1bc001ox"
@@ -778,6 +806,7 @@
                     android:id="@+id/mpl1bc001oxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001oxa" />
@@ -786,6 +815,7 @@
                     android:id="@+id/mpl1bc001oxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001oxb" />
@@ -794,6 +824,7 @@
                     android:id="@+id/mpl1bc001oxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001oxc" />
@@ -875,14 +906,17 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001qdays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001qx"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
+
 
             <RadioGroup
                 android:id="@+id/mpl1bc001qx"
@@ -893,6 +927,7 @@
                     android:id="@+id/mpl1bc001qxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001qxa" />
@@ -901,6 +936,7 @@
                     android:id="@+id/mpl1bc001qxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001qxb" />
@@ -909,6 +945,7 @@
                     android:id="@+id/mpl1bc001qxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001qxc" />
@@ -959,14 +996,16 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
+            <EditText
+                android:id="@+id/mpl1bc001rdays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1bc001rx"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:hint="@string/day"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="visible"/>
 
             <RadioGroup
                 android:id="@+id/mpl1bc001rx"
@@ -977,6 +1016,7 @@
                     android:id="@+id/mpl1bc001rxa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001rxa" />
@@ -985,6 +1025,7 @@
                     android:id="@+id/mpl1bc001rxb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001rxb" />
@@ -993,6 +1034,7 @@
                     android:id="@+id/mpl1bc001rxc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/mpl1bc001rxc" />
@@ -1739,13 +1781,13 @@
             android:textColor="@android:color/white" />
 
         <RadioGroup
-            android:id="@+id/mpl1bc002rx"
+            android:id="@+id/mpl1bc002r"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/mpl1bc002rxa"
+                android:id="@+id/mpl1bc002ra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1753,7 +1795,7 @@
                 android:text="@string/yes" />
 
             <RadioButton
-                android:id="@+id/mpl1bc002rxb"
+                android:id="@+id/mpl1bc002rb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1761,6 +1803,15 @@
                 android:text="@string/no" />
 
         </RadioGroup>
+
+        <EditText
+            android:id="@+id/mpl1bc002rx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="@string/other"/>
 
         <TextView
 
@@ -2305,10 +2356,11 @@
             android:id="@+id/mpl1bc003px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:hint="@string/other"
             android:inputType="textCapWords"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
 
         <!--  = = = = =  END OF FORM FIELDS  = = = = = -->

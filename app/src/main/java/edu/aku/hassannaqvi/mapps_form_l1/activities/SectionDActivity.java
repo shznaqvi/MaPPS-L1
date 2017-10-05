@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -27,6 +28,8 @@ public class SectionDActivity extends Activity {
 
     private static final String TAG = SectionDActivity.class.getSimpleName();
 
+    @BindView(R.id.textView)
+    TextView textView;
     @BindView(R.id.mpl1bc001a)
     RadioGroup mpl1bc001a;
     @BindView(R.id.mpl1bc001aa)
@@ -91,6 +94,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001ja;
     @BindView(R.id.mpl1bc001jb)
     RadioButton mpl1bc001jb;
+    @BindView(R.id.fldGrp001jsub)
+    LinearLayout fldGrp001jsub;
+    @BindView(R.id.mpl1bc001jdays)
+    EditText mpl1bc001jdays;
     @BindView(R.id.mpl1bc001jx)
     RadioGroup mpl1bc001jx;
     @BindView(R.id.mpl1bc001jxa)
@@ -111,6 +118,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001la;
     @BindView(R.id.mpl1bc001lb)
     RadioButton mpl1bc001lb;
+    @BindView(R.id.fldGrp001lsub)
+    LinearLayout fldGrp001lsub;
+    @BindView(R.id.mpl1bc001ldays)
+    EditText mpl1bc001ldays;
     @BindView(R.id.mpl1bc001lx)
     RadioGroup mpl1bc001lx;
     @BindView(R.id.mpl1bc001lxa)
@@ -125,6 +136,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001ma;
     @BindView(R.id.mpl1bc001mb)
     RadioButton mpl1bc001mb;
+    @BindView(R.id.fldGrp001msub)
+    LinearLayout fldGrp001msub;
+    @BindView(R.id.mpl1bc001mdays)
+    EditText mpl1bc001mdays;
     @BindView(R.id.mpl1bc001mx)
     RadioGroup mpl1bc001mx;
     @BindView(R.id.mpl1bc001mxa)
@@ -139,6 +154,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001na;
     @BindView(R.id.mpl1bc001nb)
     RadioButton mpl1bc001nb;
+    @BindView(R.id.fldGrp001nsub)
+    LinearLayout fldGrp001nsub;
+    @BindView(R.id.mpl1bc001ndays)
+    EditText mpl1bc001ndays;
     @BindView(R.id.mpl1bc001nx)
     RadioGroup mpl1bc001nx;
     @BindView(R.id.mpl1bc001nxa)
@@ -153,6 +172,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001oa;
     @BindView(R.id.mpl1bc001ob)
     RadioButton mpl1bc001ob;
+    @BindView(R.id.fldGrp001osub)
+    LinearLayout fldGrp001osub;
+    @BindView(R.id.mpl1bc001odays)
+    EditText mpl1bc001odays;
     @BindView(R.id.mpl1bc001ox)
     RadioGroup mpl1bc001ox;
     @BindView(R.id.mpl1bc001oxa)
@@ -173,6 +196,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001qa;
     @BindView(R.id.mpl1bc001qb)
     RadioButton mpl1bc001qb;
+    @BindView(R.id.fldGrp001qsub)
+    LinearLayout fldGrp001qsub;
+    @BindView(R.id.mpl1bc001qdays)
+    EditText mpl1bc001qdays;
     @BindView(R.id.mpl1bc001qx)
     RadioGroup mpl1bc001qx;
     @BindView(R.id.mpl1bc001qxa)
@@ -187,6 +214,10 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc001ra;
     @BindView(R.id.mpl1bc001rb)
     RadioButton mpl1bc001rb;
+    @BindView(R.id.fldGrp001rsub)
+    LinearLayout fldGrp001rsub;
+    @BindView(R.id.mpl1bc001rdays)
+    EditText mpl1bc001rdays;
     @BindView(R.id.mpl1bc001rx)
     RadioGroup mpl1bc001rx;
     @BindView(R.id.mpl1bc001rxa)
@@ -331,12 +362,14 @@ public class SectionDActivity extends Activity {
     RadioButton mpl1bc002qa;
     @BindView(R.id.mpl1bc002qb)
     RadioButton mpl1bc002qb;
+    @BindView(R.id.mpl1bc002r)
+    RadioGroup mpl1bc002r;
+    @BindView(R.id.mpl1bc002ra)
+    RadioButton mpl1bc002ra;
+    @BindView(R.id.mpl1bc002rb)
+    RadioButton mpl1bc002rb;
     @BindView(R.id.mpl1bc002rx)
-    RadioGroup mpl1bc002rx;
-    @BindView(R.id.mpl1bc002rxa)
-    RadioButton mpl1bc002rxa;
-    @BindView(R.id.mpl1bc002rxb)
-    RadioButton mpl1bc002rxb;
+    EditText mpl1bc002rx;
     @BindView(R.id.mpl1bc003a)
     RadioGroup mpl1bc003a;
     @BindView(R.id.mpl1bc003aa)
@@ -436,21 +469,6 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mpl1bc003px)
     EditText mpl1bc003px;
 
-    @BindView(R.id.fldGrp001jsub)
-    LinearLayout fldGrp001jsub;
-    @BindView(R.id.fldGrp001lsub)
-    LinearLayout fldGrp001lsub;
-    @BindView(R.id.fldGrp001msub)
-    LinearLayout fldGrp001msub;
-    @BindView(R.id.fldGrp001nsub)
-    LinearLayout fldGrp001nsub;
-    @BindView(R.id.fldGrp001osub)
-    LinearLayout fldGrp001osub;
-    @BindView(R.id.fldGrp001qsub)
-    LinearLayout fldGrp001qsub;
-    @BindView(R.id.fldGrp001rsub)
-    LinearLayout fldGrp001rsub;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -488,6 +506,7 @@ public class SectionDActivity extends Activity {
                     fldGrp001jsub.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001jsub.setVisibility(View.GONE);
+                    mpl1bc001jdays.setText(null);
                     mpl1bc001jx.clearCheck();
                 }
             }
@@ -500,6 +519,7 @@ public class SectionDActivity extends Activity {
                     fldGrp001lsub.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001lsub.setVisibility(View.GONE);
+                    mpl1bc001ldays.setText(null);
                     mpl1bc001lx.clearCheck();
                 }
             }
@@ -512,6 +532,7 @@ public class SectionDActivity extends Activity {
                     fldGrp001msub.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001msub.setVisibility(View.GONE);
+                    mpl1bc001mdays.setText(null);
                     mpl1bc001mx.clearCheck();
                 }
             }
@@ -524,6 +545,7 @@ public class SectionDActivity extends Activity {
                     fldGrp001nsub.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001nsub.setVisibility(View.GONE);
+                    mpl1bc001ndays.setText(null);
                     mpl1bc001nx.clearCheck();
                 }
             }
@@ -536,6 +558,7 @@ public class SectionDActivity extends Activity {
                     fldGrp001osub.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001osub.setVisibility(View.GONE);
+                    mpl1bc001odays.setText(null);
                     mpl1bc001ox.clearCheck();
                 }
             }
@@ -548,19 +571,8 @@ public class SectionDActivity extends Activity {
                     fldGrp001qsub.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp001qsub.setVisibility(View.GONE);
+                    mpl1bc001qdays.setText(null);
                     mpl1bc001qx.clearCheck();
-                }
-            }
-        });
-
-        mpl1bc001ra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    fldGrp001rsub.setVisibility(View.VISIBLE);
-                } else {
-                    fldGrp001rsub.setVisibility(View.GONE);
-                    mpl1bc001rx.clearCheck();
                 }
             }
         });
@@ -570,7 +582,11 @@ public class SectionDActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mpl1bc001ra.isChecked()) {
                     fldGrp001r.setVisibility(View.VISIBLE);
+                    fldGrp001rsub.setVisibility(View.VISIBLE);
                 } else {
+                    fldGrp001rsub.setVisibility(View.GONE);
+                    mpl1bc001rdays.setText(null);
+                    mpl1bc001rx.clearCheck();
                     fldGrp001r.setVisibility(View.GONE);
                     mpl1bc001rx.clearCheck();
                     mpl1bc001r1.clearCheck();
@@ -590,6 +606,19 @@ public class SectionDActivity extends Activity {
                 } else {
                     mpl1bc003px.setVisibility(View.GONE);
                     mpl1bc003px.setText(null);
+                }
+            }
+        });
+
+        mpl1bc002r.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mpl1bc002ra.isChecked()) {
+                    mpl1bc002rx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1bc002rx.setVisibility(View.GONE);
+                    mpl1bc002rx.setText(null);
                 }
             }
         });
@@ -674,20 +703,27 @@ public class SectionDActivity extends Activity {
         sd.put("mpl1bc001i", mpl1bc001ia.isChecked() ? "1" : mpl1bc001ib.isChecked() ? "2" : "0");
         sd.put("mpl1bc001ix", mpl1bc001ix.getText().toString());
         sd.put("mpl1bc001j", mpl1bc001ja.isChecked() ? "1" : mpl1bc001jb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001jdays", mpl1bc001jdays.getText().toString());
         sd.put("mpl1bc001jx", mpl1bc001jxa.isChecked() ? "1" : mpl1bc001jxb.isChecked() ? "2" : mpl1bc001jxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001k", mpl1bc001ka.isChecked() ? "1" : mpl1bc001kb.isChecked() ? "2" : "0");
         sd.put("mpl1bc001l", mpl1bc001la.isChecked() ? "1" : mpl1bc001lb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001ldays", mpl1bc001ldays.getText().toString());
         sd.put("mpl1bc001lx", mpl1bc001lxa.isChecked() ? "1" : mpl1bc001lxb.isChecked() ? "2" : mpl1bc001lxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001m", mpl1bc001ma.isChecked() ? "1" : mpl1bc001mb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001mdays", mpl1bc001mdays.getText().toString());
         sd.put("mpl1bc001mx", mpl1bc001mxa.isChecked() ? "1" : mpl1bc001mxb.isChecked() ? "2" : mpl1bc001mxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001n", mpl1bc001na.isChecked() ? "1" : mpl1bc001nb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001ndays", mpl1bc001ndays.getText().toString());
         sd.put("mpl1bc001nx", mpl1bc001nxa.isChecked() ? "1" : mpl1bc001nxb.isChecked() ? "2" : mpl1bc001nxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001o", mpl1bc001oa.isChecked() ? "1" : mpl1bc001ob.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001odays", mpl1bc001odays.getText().toString());
         sd.put("mpl1bc001ox", mpl1bc001oxa.isChecked() ? "1" : mpl1bc001oxb.isChecked() ? "2" : mpl1bc001oxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001p", mpl1bc001pa.isChecked() ? "1" : mpl1bc001pb.isChecked() ? "2" : "0");
         sd.put("mpl1bc001q", mpl1bc001qa.isChecked() ? "1" : mpl1bc001qb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001qdays", mpl1bc001qdays.getText().toString());
         sd.put("mpl1bc001qx", mpl1bc001qxa.isChecked() ? "1" : mpl1bc001qxb.isChecked() ? "2" : mpl1bc001qxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001r", mpl1bc001ra.isChecked() ? "1" : mpl1bc001rb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc001rdays", mpl1bc001rdays.getText().toString());
         sd.put("mpl1bc001rx", mpl1bc001rxa.isChecked() ? "1" : mpl1bc001rxb.isChecked() ? "2" : mpl1bc001rxc.isChecked() ? "3" : "0");
         sd.put("mpl1bc001r1", mpl1bc001r1a.isChecked() ? "1" : mpl1bc001r1b.isChecked() ? "2" : mpl1bc001r199.isChecked() ? "99" : "0");
         sd.put("mpl1bc001r2", mpl1bc001r2a.isChecked() ? "1" : mpl1bc001r2b.isChecked() ? "2" : mpl1bc001r299.isChecked() ? "99" : "0");
@@ -710,7 +746,8 @@ public class SectionDActivity extends Activity {
         sd.put("mpl1bc002o", mpl1bc002oa.isChecked() ? "1" : mpl1bc002ob.isChecked() ? "2" : "0");
         sd.put("mpl1bc002p", mpl1bc002pa.isChecked() ? "1" : mpl1bc002pb.isChecked() ? "2" : "0");
         sd.put("mpl1bc002q", mpl1bc002qa.isChecked() ? "1" : mpl1bc002qb.isChecked() ? "2" : "0");
-        sd.put("mpl1bc002rx", mpl1bc002rxa.isChecked() ? "1" : mpl1bc002rxb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc002r", mpl1bc002ra.isChecked() ? "1" : mpl1bc002rb.isChecked() ? "2" : "0");
+        sd.put("mpl1bc002rx", mpl1bc002rx.getText().toString());
         sd.put("mpl1bc003a", mpl1bc003aa.isChecked() ? "1" : mpl1bc003ab.isChecked() ? "2" : "0");
         sd.put("mpl1bc003b", mpl1bc003ba.isChecked() ? "1" : mpl1bc003bb.isChecked() ? "2" : "0");
         sd.put("mpl1bc003c", mpl1bc003ca.isChecked() ? "1" : mpl1bc003cb.isChecked() ? "2" : "0");
@@ -855,6 +892,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001ja.isChecked()) {
+
+            if (mpl1bc001jdays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001jx), Toast.LENGTH_SHORT).show();
+                mpl1bc001jdays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001jdays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001jdays.setError(null);
+            }
             if (mpl1bc001jx.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001jx), Toast.LENGTH_SHORT).show();
                 mpl1bc001jxc.setError("This data is Required!");
@@ -885,6 +931,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001la.isChecked()) {
+
+            if (mpl1bc001ldays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001lx), Toast.LENGTH_SHORT).show();
+                mpl1bc001ldays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001ldays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001ldays.setError(null);
+            }
             if (mpl1bc001lx.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001lx), Toast.LENGTH_SHORT).show();
                 mpl1bc001lxc.setError("This data is Required!");
@@ -905,6 +960,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001ma.isChecked()) {
+
+            if (mpl1bc001mdays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001mx), Toast.LENGTH_SHORT).show();
+                mpl1bc001mdays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001mdays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001mdays.setError(null);
+            }
             if (mpl1bc001mx.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001mx), Toast.LENGTH_SHORT).show();
                 mpl1bc001mxc.setError("This data is Required!");
@@ -925,6 +989,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001na.isChecked()) {
+
+            if (mpl1bc001ndays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001nx), Toast.LENGTH_SHORT).show();
+                mpl1bc001ndays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001ndays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001ndays.setError(null);
+            }
             if (mpl1bc001nx.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001nx), Toast.LENGTH_SHORT).show();
                 mpl1bc001nxc.setError("This data is Required!");
@@ -945,6 +1018,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001oa.isChecked()) {
+
+            if (mpl1bc001odays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001ox), Toast.LENGTH_SHORT).show();
+                mpl1bc001odays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001odays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001odays.setError(null);
+            }
             if (mpl1bc001ox.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001ox), Toast.LENGTH_SHORT).show();
                 mpl1bc001oxc.setError("This data is Required!");
@@ -975,6 +1057,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001qa.isChecked()) {
+
+            if (mpl1bc001qdays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001qx), Toast.LENGTH_SHORT).show();
+                mpl1bc001qdays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001qdays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001qdays.setError(null);
+            }
             if (mpl1bc001qx.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001qx), Toast.LENGTH_SHORT).show();
                 mpl1bc001qxc.setError("This data is Required!");
@@ -995,6 +1086,15 @@ public class SectionDActivity extends Activity {
         }
 
         if (mpl1bc001ra.isChecked()) {
+
+            if (mpl1bc001rdays.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001rx), Toast.LENGTH_SHORT).show();
+                mpl1bc001rdays.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc001rdays: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc001rdays.setError(null);
+            }
             if (mpl1bc001rx.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc001rx), Toast.LENGTH_SHORT).show();
                 mpl1bc001rxc.setError("This data is Required!");
@@ -1219,13 +1319,24 @@ public class SectionDActivity extends Activity {
         }
 
         //=================== mpl1bc002r ==============
-        if (mpl1bc002rx.getCheckedRadioButtonId() == -1) {
+        if (mpl1bc002r.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc002rx), Toast.LENGTH_SHORT).show();
-            mpl1bc002rxb.setError("This data is Required!");
-            Log.i(TAG, "mpl1bc002rx: This Data is Required!");
+            mpl1bc002rb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bc002r: This Data is Required!");
             return false;
         } else {
-            mpl1bc002rxb.setError(null);
+            mpl1bc002rb.setError(null);
+        }
+
+        if (mpl1bc002ra.isChecked()) {
+            if (mpl1bc002rx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bc002rx), Toast.LENGTH_SHORT).show();
+                mpl1bc002rx.setError("This data is Required!");
+                Log.i(TAG, "mpl1bc002rx: This Data is Required!");
+                return false;
+            } else {
+                mpl1bc002rx.setError(null);
+            }
         }
 
         //=================== mpl1bc003a ==============

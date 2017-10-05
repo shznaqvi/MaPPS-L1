@@ -175,6 +175,15 @@
                     android:layout_marginBottom="1dp"
                     android:text="@string/mpl1d006c" />
 
+                <EditText
+                    android:id="@+id/mpl1d006x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/day"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:visibility="gone"/>
+
                 <RadioButton
                     android:id="@+id/mpl1d006d"
                     android:layout_width="match_parent"
@@ -191,14 +200,7 @@
 
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/mpl1d006x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/day"
-                android:inputType="number"
-                android:maxLength="3"
-                android:visibility="gone" />
+
 
             <LinearLayout
                 android:id="@+id/fldGrp006"
@@ -264,6 +266,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:text="@string/mpl1d007g" />
+
+                <CheckBox
+                    android:id="@+id/mpl1d007h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="@string/mpl1d007h"/>
+
+                <CheckBox
+                    android:id="@+id/mpl1d007i"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="@string/mpl1d007i"/>
 
                 <CheckBox
                     android:id="@+id/mpl1d00788"

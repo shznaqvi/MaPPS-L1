@@ -74,6 +74,10 @@ public class SectionFActivity extends Activity {
     CheckBox mpl1d007f;
     @BindView(R.id.mpl1d007g)
     CheckBox mpl1d007g;
+    @BindView(R.id.mpl1d007h)
+    CheckBox mpl1d007h;
+    @BindView(R.id.mpl1d007i)
+    CheckBox mpl1d007i;
     @BindView(R.id.mpl1d00788)
     CheckBox mpl1d00788;
     @BindView(R.id.mpl1d00788x)
@@ -113,6 +117,8 @@ public class SectionFActivity extends Activity {
                     mpl1d007e.setChecked(false);
                     mpl1d007f.setChecked(false);
                     mpl1d007g.setChecked(false);
+                    mpl1d007h.setChecked(false);
+                    mpl1d007i.setChecked(false);
                     mpl1d00788.setChecked(false);
                     mpl1d00788x.setText(null);
                     mpl1d008.clearCheck();
@@ -138,7 +144,7 @@ public class SectionFActivity extends Activity {
         });
 
 
-        mpl1d006.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* mpl1d006.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mpl1d006e.isChecked()) {
@@ -157,7 +163,7 @@ public class SectionFActivity extends Activity {
                     mpl1d00788x.setText(null);
                 }
             }
-        });
+        });*/
 
         mpl1d00788.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -269,6 +275,8 @@ public class SectionFActivity extends Activity {
         sf.put("mpl1d007e", mpl1d007e.isChecked() ? "5" : "0");
         sf.put("mpl1d007f", mpl1d007f.isChecked() ? "6" : "0");
         sf.put("mpl1d007g", mpl1d007g.isChecked() ? "7" : "0");
+        sf.put("mpl1d007h", mpl1d007h.isChecked() ? "8" : "0");
+        sf.put("mpl1d007i", mpl1d007i.isChecked() ? "9" : "0");
         sf.put("mpl1d00788", mpl1d00788.isChecked() ? "88" : "0");
         sf.put("mpl1d00788x", mpl1d00788x.getText().toString());
         sf.put("mpl1d008", mpl1d008a.isChecked() ? "1" : mpl1d008b.isChecked() ? "2" : "0");
@@ -389,10 +397,12 @@ public class SectionFActivity extends Activity {
                 mpl1d006x.setError(null);
             }
 
-            if (mpl1d006e.isChecked()) {
+            //if (mpl1d006e.isChecked()) {
                 // ====================== mpl1c008 ===================
                 if (!(mpl1d007a.isChecked() || mpl1d007b.isChecked() || mpl1d007c.isChecked() || mpl1d007d.isChecked()
-                        || mpl1d007e.isChecked() || mpl1d007f.isChecked() || mpl1d007g.isChecked() || mpl1d00788.isChecked())) {
+                        || mpl1d007e.isChecked() || mpl1d007f.isChecked() || mpl1d007g.isChecked()
+                        || mpl1d007h.isChecked() || mpl1d007i.isChecked()
+                        || mpl1d00788.isChecked())) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mpl1c007), Toast.LENGTH_LONG).show();
                     mpl1d00788.setError("This data is Required!");    // Set Error on last check box
                     Log.i(TAG, "mpl1d007: This data is Required!");
@@ -409,7 +419,7 @@ public class SectionFActivity extends Activity {
                 } else {
                     mpl1d00788x.setError(null);
                 }
-            }
+            //}
 
             //=================== mpl1d008 ==============
             if (mpl1d008.getCheckedRadioButtonId() == -1) {
