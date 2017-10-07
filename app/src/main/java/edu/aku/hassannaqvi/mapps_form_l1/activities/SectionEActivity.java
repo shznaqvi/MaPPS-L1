@@ -593,14 +593,16 @@ public class SectionEActivity extends Activity {
                     mpl1c009b.setError(null);
                 }
 
-                //=================== mpl1c010 ==============
-                if (mpl1c010.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c010), Toast.LENGTH_SHORT).show();
-                    mpl1c010.setError("This data is required");
-                    Log.d(TAG, " mpl1c010 :empty ");
-                    return false;
-                } else {
-                    mpl1c010.setError(null);
+                if  (mpl1c009a.isChecked()) {
+                    //=================== mpl1c010 ==============
+                    if (mpl1c010.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c010), Toast.LENGTH_SHORT).show();
+                        mpl1c010.setError("This data is required");
+                        Log.d(TAG, " mpl1c010 :empty ");
+                        return false;
+                    } else {
+                        mpl1c010.setError(null);
+                    }
                 }
             }
             //=================== mpl1c011 ==============
