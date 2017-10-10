@@ -316,36 +316,29 @@ public class MainActivity extends Activity {
         }
 
     }*/
+  public void syncServer(View view) {
 
-    public void syncServer(View view) {
-        Log.e(TAG, "syncServer: 1");
-        // Require permissions INTERNET & ACCESS_NETWORK_STATE
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        Log.e(TAG, "syncServer: 2");
-        if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this).execute();
+      // Require permissions INTERNET & ACCESS_NETWORK_STATE
+      ConnectivityManager connMgr = (ConnectivityManager)
+              getSystemService(Context.CONNECTIVITY_SERVICE);
+      NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+      if (networkInfo != null && networkInfo.isConnected()) {
+          Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
+          new SyncForms(this).execute();
 
-           /* Toast.makeText(getApplicationContext(), "Syncing Participants", Toast.LENGTH_SHORT).show();
-            new SyncParticipants(this).execute();*/
 
-            /*Toast.makeText(getApplicationContext(), "Syncing Eligibles", Toast.LENGTH_SHORT).show();
-            new SyncEligibles(this).execute();*/
+          SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+          SharedPreferences.Editor editor = syncPref.edit();
 
-            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = syncPref.edit();
+          editor.putString("LastSyncServer", dtToday);
 
-            editor.putString("LastUpSyncServer", dtToday);
+          editor.apply();
 
-            editor.apply();
+      } else {
+          Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+      }
 
-        } else {
-            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
-        }
-
-    }
+  }
 
     public void syncDevice(View view) {
 

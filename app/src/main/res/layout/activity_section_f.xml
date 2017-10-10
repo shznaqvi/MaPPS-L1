@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mpl1d002"
                 android:inputType="number"
-                android:maxLength="3" />
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mpl1d003"
                 android:inputType="number"
-                android:maxLength="3" />
+                android:maxLength="2" />
 
             <!--<TextView
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mpl1d005"
                 android:inputType="number"
-                android:maxLength="3" />
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -179,6 +179,7 @@
                     android:id="@+id/mpl1d006x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:hint="@string/day"
                     android:inputType="number"
                     android:maxLength="3"
@@ -292,6 +293,7 @@
                     android:id="@+id/mpl1d00788x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="@string/other"
                     android:inputType="textCapWords"
@@ -369,6 +371,15 @@
             android:paddingTop="32dp">
 
             <Button
+                android:id="@+id/btn_Continue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="startInterview"
+                android:text="@string/nextSection"
+                android:textColor="#1ed61e" />
+
+            <Button
                 android:id="@+id/btn_End"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -379,14 +390,7 @@
 
             <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
-            <Button
-                android:id="@+id/btn_Continue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="startInterview"
-                android:text="@string/nextSection"
-                android:textColor="#1ed61e" />
+
             <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
         </LinearLayout>
