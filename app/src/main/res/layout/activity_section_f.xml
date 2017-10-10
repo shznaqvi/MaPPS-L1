@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mpl1d002"
                 android:inputType="number"
-                android:maxLength="3" />
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mpl1d003"
                 android:inputType="number"
-                android:maxLength="3" />
+                android:maxLength="2" />
 
             <!--<TextView
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mpl1d005"
                 android:inputType="number"
-                android:maxLength="3" />
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"

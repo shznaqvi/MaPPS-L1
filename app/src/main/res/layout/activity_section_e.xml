@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mpl1c003"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    android:maxLength="2" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mpl1c005"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    android:maxLength="2" />
 
                 </LinearLayout>
 
@@ -215,7 +215,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mpl1c006"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    android:maxLength="2" />
 
                 <TextView
                     android:layout_width="match_parent"

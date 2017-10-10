@@ -443,7 +443,7 @@ public class SectionBActivity extends Activity {
                 mpl1ba004b.setError(null);
             }
 
-            if (mpl1ba004b.isChecked()) {
+            if (mpl1ba004a.isChecked()) {
                 //=================== mpl1ba005 ==============
                 if (mpl1ba005.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba005), Toast.LENGTH_SHORT).show();
