@@ -59,7 +59,10 @@
             android:layout_marginBottom="1dp"
             android:hint="@string/mpl1a001"
             android:inputType="number"
-            android:maxLength="3"/>
+            android:maxLength="3">
+
+            <requestFocus/>
+        </EditText>
 
         <TextView
             android:layout_width="match_parent"
@@ -77,7 +80,7 @@
             android:layout_marginBottom="1dp"
             android:hint="@string/mpl1a002"
             android:inputType="number"
-            android:maxLength="7" />
+            android:maxLength="2"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -228,9 +231,8 @@
             android:id="@+id/mpl1a008"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
             android:hint="@string/mpl1a008"
-            android:inputType="textCapWords"
+            android:inputType="number"
             android:maxLength="12" />
 
         <TextView
