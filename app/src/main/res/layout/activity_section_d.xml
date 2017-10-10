@@ -1811,7 +1811,8 @@
             android:layout_marginTop="1dp"
             android:layout_weight="1"
             android:gravity="right"
-            android:hint="@string/other"/>
+            android:hint="@string/other"
+            android:visibility="gone" />
 
         <TextView
 
@@ -2373,6 +2374,15 @@
             android:paddingTop="32dp">
 
             <Button
+                android:id="@+id/btn_Continue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="startInterview"
+                android:text="@string/nextSection"
+                android:textColor="#1ed61e" />
+
+            <Button
                 android:id="@+id/btn_End"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -2383,14 +2393,7 @@
 
             <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
-            <Button
-                android:id="@+id/btn_Continue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="startInterview"
-                android:text="@string/nextSection"
-                android:textColor="#1ed61e" />
+
             <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
         </LinearLayout>

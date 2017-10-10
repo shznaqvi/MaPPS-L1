@@ -559,6 +559,15 @@ public class SectionEActivity extends Activity {
                     mpl1c007x.setError(null);
                 }
 
+                if ((Integer.parseInt(mpl1c007x.getText().toString()) == 0)) {
+                    Toast.makeText(this, "ERROR: " + getString(R.string.mpl1c007) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                    mpl1c007x.setError("Days cannnot be zero");
+                    Log.i(TAG, "mpl1c007x: days cannot not be zero");
+                    return false;
+                } else {
+                    mpl1c007x.setError(null);
+                }
+
 
                 //if (mpl1c007e.isChecked()) {
                     // ====================== mpl1c008 ===================
