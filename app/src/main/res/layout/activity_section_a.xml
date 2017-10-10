@@ -52,17 +52,38 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white" />
 
-        <EditText
-            android:id="@+id/mpl1a001"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
-            android:hint="@string/mpl1a001"
-            android:inputType="number"
-            android:maxLength="3">
+            android:orientation="horizontal">
 
-            <requestFocus/>
-        </EditText>
+            <Button
+                android:id="@+id/checkParticipants"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="2"
+                android:background="@color/colorAccent"
+                android:elevation="1dp"
+                android:padding="2dp"
+                android:text="CHECK"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+
+                />
+
+            <EditText
+                android:id="@+id/mpl1a001"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/mpl1a001"
+                android:inputType="number"
+                android:maxLength="3" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -209,14 +230,12 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"/>
 
-        <EditText
-            android:id="@+id/mpl1a008a"
+        <Spinner
+            android:id="@+id/mpl1aLHWs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            android:hint="@string/mpl1a008a"
-            android:inputType="textCapWords"/>
+            android:gravity="center"
+            android:popupBackground="#ffffff" />
 
         <TextView
             android:layout_width="match_parent"
