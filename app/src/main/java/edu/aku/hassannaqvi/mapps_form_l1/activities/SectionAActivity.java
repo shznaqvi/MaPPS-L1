@@ -214,7 +214,7 @@ public class SectionAActivity extends Activity {
             mpl1a001.setError(null);
         }
 
-        if (Integer.valueOf(mpl1a001.getText().toString()) == 0) {
+        if (Integer.valueOf(mpl1a001.getText().toString().isEmpty() ? "0" : mpl1a001.getText().toString()) == 0) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a001), Toast.LENGTH_SHORT).show();
             mpl1a001.setError("Invalid: Data cannot be Zero");
             Log.i(TAG, "mpl1a001: Invalid data is 0");
@@ -233,7 +233,7 @@ public class SectionAActivity extends Activity {
             mpl1a002.setError(null);
         }
 
-        if (Integer.valueOf(mpl1a002.getText().toString()) == 0) {
+        if (Integer.valueOf(mpl1a002.getText().toString().isEmpty() ? "0" : mpl1a002.getText().toString()) == 0) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
             mpl1a002.setError("Invalid: Data cannot be Zero");
             Log.i(TAG, "mpl1a002: Invalid data is 0");
@@ -273,7 +273,7 @@ public class SectionAActivity extends Activity {
                 mpl1a005.setError(null);
             }
 
-            if (Integer.valueOf(mpl1a005.getText().toString()) == 0) {
+            if (Integer.valueOf(mpl1a005.getText().toString().isEmpty() ? "0" : mpl1a005.getText().toString()) == 0) {
                 Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a005), Toast.LENGTH_SHORT).show();
                 mpl1a005.setError("Invalid: Data cannot be Zero");
                 Log.i(TAG, "mpl1a005: Invalid data is 0");

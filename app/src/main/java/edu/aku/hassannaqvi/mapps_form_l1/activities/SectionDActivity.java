@@ -842,7 +842,7 @@ public class SectionDActivity extends Activity {
             mpl1bc001fx.setError(null);
         }
 
-        if ((Integer.parseInt(mpl1bc001fx.getText().toString()) == 0)) {
+        if ((Integer.parseInt(mpl1bc001fx.getText().toString().isEmpty() ? "0" : mpl1bc001fx.getText().toString()) == 0)) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001f) + getString(R.string.day), Toast.LENGTH_LONG).show();
             mpl1bc001fx.setError("Days cannnot be zero");
             Log.i(TAG, "mpl1bc001fx: days cannot not be zero");
@@ -891,7 +891,7 @@ public class SectionDActivity extends Activity {
             mpl1bc001ix.setError(null);
         }
 
-        if ((Integer.parseInt(mpl1bc001ix.getText().toString()) == 0)) {
+        if ((Integer.parseInt(mpl1bc001ix.getText().toString().isEmpty() ? "0" : mpl1bc001ix.getText().toString()) == 0)) {
             Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001i) + getString(R.string.day), Toast.LENGTH_LONG).show();
             mpl1bc001ix.setError("Days cannnot be zero");
             Log.i(TAG, "mpl1bc001ix: days cannot not be zero");
@@ -930,7 +930,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001jxc.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001jdays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001jdays.getText().toString().isEmpty() ? "0" : mpl1bc001jdays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001jx) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001jdays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001jdays: days cannot not be zero");
@@ -979,7 +979,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001lxc.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001ldays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001ldays.getText().toString().isEmpty() ? "0" : mpl1bc001ldays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001lx) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001ldays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001ldays: days cannot not be zero");
@@ -1017,7 +1017,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001mxc.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001mdays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001mdays.getText().toString().isEmpty() ? "0" : mpl1bc001mdays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001mx) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001mdays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001mdays: days cannot not be zero");
@@ -1055,7 +1055,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001nxc.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001ndays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001ndays.getText().toString().isEmpty() ? "0" : mpl1bc001ndays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001nx) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001ndays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001ndays: days cannot not be zero");
@@ -1085,7 +1085,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001odays.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001odays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001odays.getText().toString().isEmpty() ? "0" : mpl1bc001odays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001ox) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001odays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001odays: days cannot not be zero");
@@ -1134,7 +1134,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001qdays.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001qdays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001qdays.getText().toString().isEmpty() ? "0" : mpl1bc001qdays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001qx) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001qdays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001qdays: days cannot not be zero");
@@ -1173,7 +1173,7 @@ public class SectionDActivity extends Activity {
                 mpl1bc001rdays.setError(null);
             }
 
-            if ((Integer.parseInt(mpl1bc001rdays.getText().toString()) == 0)) {
+            if ((Integer.parseInt(mpl1bc001rdays.getText().toString().isEmpty() ? "0" : mpl1bc001rdays.getText().toString()) == 0)) {
                 Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bc001rx) + getString(R.string.day), Toast.LENGTH_LONG).show();
                 mpl1bc001rdays.setError("Days cannnot be zero");
                 Log.i(TAG, "mpl1bc001rdays: days cannot not be zero");

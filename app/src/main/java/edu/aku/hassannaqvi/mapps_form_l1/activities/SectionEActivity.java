@@ -481,7 +481,7 @@ public class SectionEActivity extends Activity {
                     mpl1c003.setError(null);
                 }
 
-                if (Integer.valueOf(mpl1c003.getText().toString()) == 0) {
+                if (Integer.valueOf(mpl1c003.getText().toString().isEmpty() ? "0" : mpl1c003.getText().toString()) == 0) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1c003), Toast.LENGTH_SHORT).show();
                     mpl1c003.setError("Invalid: Data cannot be Zero");
                     Log.i(TAG, "mpl1c003: Invalid data is 0");
@@ -511,7 +511,7 @@ public class SectionEActivity extends Activity {
                         mpl1c005.setError(null);
                     }
 
-                    if (Integer.valueOf(mpl1c005.getText().toString()) == 0) {
+                    if (Integer.valueOf(mpl1c005.getText().toString().isEmpty() ? "0" : mpl1c005.getText().toString()) == 0) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1c005), Toast.LENGTH_SHORT).show();
                         mpl1c005.setError("Invalid: Data cannot be Zero");
                         Log.i(TAG, "mpl1c005: Invalid data is 0");
@@ -531,7 +531,7 @@ public class SectionEActivity extends Activity {
                     mpl1c006.setError(null);
                 }
 
-                if (Integer.valueOf(mpl1c006.getText().toString()) == 0) {
+                if (Integer.valueOf(mpl1c006.getText().toString().isEmpty() ? "0" : mpl1c006.getText().toString()) == 0) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1c006), Toast.LENGTH_SHORT).show();
                     mpl1c006.setError("Invalid: Data cannot be Zero");
                     Log.i(TAG, "mpl1c006: Invalid data is 0");
@@ -559,7 +559,7 @@ public class SectionEActivity extends Activity {
                     mpl1c007x.setError(null);
                 }
 
-                if ((Integer.parseInt(mpl1c007x.getText().toString()) == 0)) {
+                if ((Integer.parseInt(mpl1c007x.getText().toString().isEmpty() ? "0" : mpl1c007x.getText().toString()) == 0)) {
                     Toast.makeText(this, "ERROR: " + getString(R.string.mpl1c007) + getString(R.string.day), Toast.LENGTH_LONG).show();
                     mpl1c007x.setError("Days cannnot be zero");
                     Log.i(TAG, "mpl1c007x: days cannot not be zero");
