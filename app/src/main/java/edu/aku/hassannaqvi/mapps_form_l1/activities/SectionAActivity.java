@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -57,7 +58,7 @@ public class SectionAActivity extends Activity {
     EditText mpl1a007;
     @BindView(R.id.mpl1a008)
     EditText mpl1a008;
-    @BindView(R.id.mpl1a008a)
+    //  @BindView(R.id.mpl1a008a)
     EditText mpl1a008a;
     @BindView(R.id.mpl1a009)
     RadioGroup mpl1a009;
@@ -67,6 +68,8 @@ public class SectionAActivity extends Activity {
     RadioButton mpl1a009b;
     @BindView(R.id.mpl1a009c)
     RadioButton mpl1a009c;
+    @BindView(R.id.mpl1aLHWs)
+    Spinner mpl1aLHWs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

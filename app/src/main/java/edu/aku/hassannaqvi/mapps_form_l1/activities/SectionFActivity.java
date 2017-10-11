@@ -397,6 +397,15 @@ public class SectionFActivity extends Activity {
                 mpl1d006x.setError(null);
             }
 
+            if ((Integer.parseInt(mpl1d006x.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1d006) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1d006x.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1d006x: days cannot not be zero");
+                return false;
+            } else {
+                mpl1d006x.setError(null);
+            }
+
             //if (mpl1d006e.isChecked()) {
                 // ====================== mpl1c008 ===================
                 if (!(mpl1d007a.isChecked() || mpl1d007b.isChecked() || mpl1d007c.isChecked() || mpl1d007d.isChecked()

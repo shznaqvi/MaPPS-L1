@@ -332,7 +332,6 @@ public class FormsContract {
         this.sF = sF;
     }
 
-
     public String getGpsLat() {
         return gpsLat;
     }
