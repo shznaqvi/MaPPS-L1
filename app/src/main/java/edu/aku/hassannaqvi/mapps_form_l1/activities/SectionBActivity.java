@@ -575,7 +575,7 @@ public class SectionBActivity extends Activity {
             mpl1ba006lb.setError(null);
         }
 
-        //=================== mpl1ba006 ==============
+        /*//=================== mpl1ba006 ==============
         if (mpl1ba006a.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba006a), Toast.LENGTH_SHORT).show();
             mpl1ba006ab.setError("This data is Required!");
@@ -583,7 +583,7 @@ public class SectionBActivity extends Activity {
             return false;
         } else {
             mpl1ba006ab.setError(null);
-        }
+        }*/
 
         //=================== mpl1ba007a ==============
         if (mpl1ba007a.getCheckedRadioButtonId() == -1) {

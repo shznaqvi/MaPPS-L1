@@ -639,22 +639,24 @@ public class SectionCActivity extends Activity {
             mpl1bb001fb.setError(null);
         }
 
-        if (mpl1bb001fa.isChecked() && mpl1bb001fx.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001f) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mpl1bb001fx.setError("This data is required");
-            Log.d(TAG, " mpl1bb001fx :empty ");
-            return false;
-        } else {
-            mpl1bb001fx.setError(null);
-        }
+        if (mpl1bb001fa.isChecked()) {
+            if (mpl1bb001fx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001f) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mpl1bb001fx.setError("This data is required");
+                Log.d(TAG, " mpl1bb001fx :empty ");
+                return false;
+            } else {
+                mpl1bb001fx.setError(null);
+            }
 
-        if ((Integer.parseInt(mpl1bb001fx.getText().toString().isEmpty() ? "0" : mpl1bb001fx.getText().toString()) == 0)) {
-            Toast.makeText(this, "ERROR: " + getString(R.string.day), Toast.LENGTH_LONG).show();
-            mpl1bb001fx.setError("Days cannnot be zero");
-            Log.i(TAG, "mpl1bb001fx: days cannot not be zero");
-            return false;
-        } else {
-            mpl1bb001fx.setError(null);
+            if ((Integer.parseInt(mpl1bb001fx.getText().toString().isEmpty() ? "0" : mpl1bb001fx.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1bb001fx.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1bb001fx: days cannot not be zero");
+                return false;
+            } else {
+                mpl1bb001fx.setError(null);
+            }
         }
 
         //=================== mpl1bb001g ==============
@@ -667,22 +669,24 @@ public class SectionCActivity extends Activity {
             mpl1bb001gb.setError(null);
         }
 
-        if (mpl1bb001ga.isChecked() && mpl1bb001gx.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001g) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mpl1bb001gx.setError("This data is required");
-            Log.d(TAG, " mpl1bb001gx :empty ");
-            return false;
-        } else {
-            mpl1bb001gx.setError(null);
-        }
+        if (mpl1bb001ga.isChecked()) {
+            if (mpl1bb001gx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001g) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mpl1bb001gx.setError("This data is required");
+                Log.d(TAG, " mpl1bb001gx :empty ");
+                return false;
+            } else {
+                mpl1bb001gx.setError(null);
+            }
 
-        if ((Integer.parseInt(mpl1bb001gx.getText().toString().isEmpty() ? "0" : mpl1bb001gx.getText().toString()) == 0)) {
-            Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001g) + getString(R.string.day), Toast.LENGTH_LONG).show();
-            mpl1bb001gx.setError("Days cannnot be zero");
-            Log.i(TAG, "mpl1bb001gx: days cannot not be zero");
-            return false;
-        } else {
-            mpl1bb001gx.setError(null);
+            if ((Integer.parseInt(mpl1bb001gx.getText().toString().isEmpty() ? "0" : mpl1bb001gx.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001g) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1bb001gx.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1bb001gx: days cannot not be zero");
+                return false;
+            } else {
+                mpl1bb001gx.setError(null);
+            }
         }
 
         //=================== mpl1bb001h ==============
@@ -735,22 +739,24 @@ public class SectionCActivity extends Activity {
             mpl1bb001lb.setError(null);
         }
 
-        if (mpl1bb001la.isChecked() && mpl1bb001lx.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001l) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mpl1bb001lx.setError("This data is required");
-            Log.d(TAG, " mpl1bb001lx :empty ");
-            return false;
-        } else {
-            mpl1bb001lx.setError(null);
-        }
+        if (mpl1bb001la.isChecked()) {
+            if (mpl1bb001lx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001l) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mpl1bb001lx.setError("This data is required");
+                Log.d(TAG, " mpl1bb001lx :empty ");
+                return false;
+            } else {
+                mpl1bb001lx.setError(null);
+            }
 
-        if ((Integer.parseInt(mpl1bb001lx.getText().toString().isEmpty() ? "0" : mpl1bb001lx.getText().toString()) == 0)) {
-            Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001l) + getString(R.string.day), Toast.LENGTH_LONG).show();
-            mpl1bb001lx.setError("Days cannnot be zero");
-            Log.i(TAG, "mpl1bb001lx: days cannot not be zero");
-            return false;
-        } else {
-            mpl1bb001lx.setError(null);
+            if ((Integer.parseInt(mpl1bb001lx.getText().toString().isEmpty() ? "0" : mpl1bb001lx.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001l) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1bb001lx.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1bb001lx: days cannot not be zero");
+                return false;
+            } else {
+                mpl1bb001lx.setError(null);
+            }
         }
 
 
@@ -765,22 +771,24 @@ public class SectionCActivity extends Activity {
             mpl1bb001mb.setError(null);
         }
 
-        if (mpl1bb001ma.isChecked() && mpl1bb001mx.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001m) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mpl1bb001mx.setError("This data is required");
-            Log.d(TAG, " mpl1bb001mx :empty ");
-            return false;
-        } else {
-            mpl1bb001mx.setError(null);
-        }
+        if (mpl1bb001ma.isChecked()) {
+            if (mpl1bb001mx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001m) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mpl1bb001mx.setError("This data is required");
+                Log.d(TAG, " mpl1bb001mx :empty ");
+                return false;
+            } else {
+                mpl1bb001mx.setError(null);
+            }
 
-        if ((Integer.parseInt(mpl1bb001mx.getText().toString().isEmpty() ? "0" : mpl1bb001mx.getText().toString()) == 0)) {
-            Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001m) + getString(R.string.day), Toast.LENGTH_LONG).show();
-            mpl1bb001mx.setError("Days cannnot be zero");
-            Log.i(TAG, "mpl1bb001mx: days cannot not be zero");
-            return false;
-        } else {
-            mpl1bb001mx.setError(null);
+            if ((Integer.parseInt(mpl1bb001mx.getText().toString().isEmpty() ? "0" : mpl1bb001mx.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001m) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1bb001mx.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1bb001mx: days cannot not be zero");
+                return false;
+            } else {
+                mpl1bb001mx.setError(null);
+            }
         }
 
 
@@ -794,22 +802,24 @@ public class SectionCActivity extends Activity {
             mpl1bb001nb.setError(null);
         }
 
-        if (mpl1bb001na.isChecked() && mpl1bb001nx.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001n) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mpl1bb001nx.setError("This data is required");
-            Log.d(TAG, " mpl1bb001nx :empty ");
-            return false;
-        } else {
-            mpl1bb001nx.setError(null);
-        }
+        if (mpl1bb001na.isChecked()) {
+            if (mpl1bb001nx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001n) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mpl1bb001nx.setError("This data is required");
+                Log.d(TAG, " mpl1bb001nx :empty ");
+                return false;
+            } else {
+                mpl1bb001nx.setError(null);
+            }
 
-        if ((Integer.parseInt(mpl1bb001nx.getText().toString().isEmpty() ? "0" : mpl1bb001nx.getText().toString()) == 0)) {
-            Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001n) + getString(R.string.day), Toast.LENGTH_LONG).show();
-            mpl1bb001nx.setError("Days cannnot be zero");
-            Log.i(TAG, "mpl1bb001nx: days cannot not be zero");
-            return false;
-        } else {
-            mpl1bb001nx.setError(null);
+            if ((Integer.parseInt(mpl1bb001nx.getText().toString().isEmpty() ? "0" : mpl1bb001nx.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001n) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1bb001nx.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1bb001nx: days cannot not be zero");
+                return false;
+            } else {
+                mpl1bb001nx.setError(null);
+            }
         }
 
 
@@ -833,26 +843,27 @@ public class SectionCActivity extends Activity {
             mpl1bb001pb.setError(null);
         }
 
-        if (mpl1bb001pa.isChecked() && mpl1bb001px.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-            mpl1bb001px.setError("This data is required");
-            Log.d(TAG, " mpl1bb001px :empty ");
-            return false;
-        } else {
-            mpl1bb001px.setError(null);
-        }
-
-        if ((Integer.parseInt(mpl1bb001px.getText().toString().isEmpty() ? "0" : mpl1bb001px.getText().toString()) == 0)) {
-            Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001p) + getString(R.string.day), Toast.LENGTH_LONG).show();
-            mpl1bb001px.setError("Days cannnot be zero");
-            Log.i(TAG, "mpl1bb001px: days cannot not be zero");
-            return false;
-        } else {
-            mpl1bb001px.setError(null);
-        }
-
-
         if (mpl1bb001pa.isChecked()) {
+            if (mpl1bb001px.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                mpl1bb001px.setError("This data is required");
+                Log.d(TAG, " mpl1bb001px :empty ");
+                return false;
+            } else {
+                mpl1bb001px.setError(null);
+            }
+
+            if ((Integer.parseInt(mpl1bb001px.getText().toString().isEmpty() ? "0" : mpl1bb001px.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1bb001p) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                mpl1bb001px.setError("Days cannnot be zero");
+                Log.i(TAG, "mpl1bb001px: days cannot not be zero");
+                return false;
+            } else {
+                mpl1bb001px.setError(null);
+            }
+
+
+            // if (mpl1bb001pa.isChecked()) {
             //=================== mpl1bb001p1 ==============
             if (mpl1bb001p1.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb001p1), Toast.LENGTH_SHORT).show();
@@ -903,6 +914,7 @@ public class SectionCActivity extends Activity {
                 mpl1bb001qb.setError(null);
             }
         }
+        //}
 
         //=================== mpl1bb002a ==============
         if (mpl1bb002a.getCheckedRadioButtonId() == -1) {
@@ -1092,6 +1104,15 @@ public class SectionCActivity extends Activity {
             return false;
         } else {
             mpl1bb002sb.setError(null);
+        }
+
+        if (mpl1bb002t.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1bb002t), Toast.LENGTH_SHORT).show();
+            mpl1bb002tb.setError("This data is Required!");
+            Log.i(TAG, "mpl1bb002t: This Data is Required!");
+            return false;
+        } else {
+            mpl1bb002tb.setError(null);
         }
 
         //=================== mpl1bb002u ==============

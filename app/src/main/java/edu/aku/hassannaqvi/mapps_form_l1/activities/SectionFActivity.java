@@ -303,7 +303,7 @@ public class SectionFActivity extends Activity {
         if (mpl1d001a.isChecked()) {
             //=================== mpl1d002 ==============
             if (mpl1d002.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c002), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1d002), Toast.LENGTH_SHORT).show();
                 mpl1d002.setError("This data is required");
                 Log.d(TAG, " mpl1d002 :empty ");
                 return false;
@@ -361,7 +361,7 @@ public class SectionFActivity extends Activity {
 
             //=================== mpl1d005 ==============
             if (mpl1d005.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c005), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1d005), Toast.LENGTH_SHORT).show();
                 mpl1d005.setError("This data is required");
                 Log.d(TAG, " mpl1d005 :empty ");
                 return false;
@@ -389,22 +389,25 @@ public class SectionFActivity extends Activity {
                 mpl1d006e.setError(null);
             }
 
-            if (mpl1d006c.isChecked() && mpl1d006x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c006) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-                mpl1d006x.setError("This data is required");
-                Log.d(TAG, " mpl1d006x :empty ");
-                return false;
-            } else {
-                mpl1d006x.setError(null);
-            }
+            if (mpl1d006c.isChecked()) {
 
-            if ((Integer.parseInt(mpl1d006x.getText().toString().isEmpty() ? "0" : mpl1d006x.getText().toString()) == 0)) {
-                Toast.makeText(this, "ERROR: " + getString(R.string.mpl1d006) + getString(R.string.day), Toast.LENGTH_LONG).show();
-                mpl1d006x.setError("Days cannnot be zero");
-                Log.i(TAG, "mpl1d006x: days cannot not be zero");
-                return false;
-            } else {
-                mpl1d006x.setError(null);
+                if (mpl1d006x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1d006) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                    mpl1d006x.setError("This data is required");
+                    Log.d(TAG, " mpl1d006x :empty ");
+                    return false;
+                } else {
+                    mpl1d006x.setError(null);
+                }
+
+                if ((Integer.parseInt(mpl1d006x.getText().toString().isEmpty() ? "0" : mpl1d006x.getText().toString()) == 0)) {
+                    Toast.makeText(this, "ERROR: " + getString(R.string.mpl1d006) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                    mpl1d006x.setError("Days cannnot be zero");
+                    Log.i(TAG, "mpl1d006x: days cannot not be zero");
+                    return false;
+                } else {
+                    mpl1d006x.setError(null);
+                }
             }
 
             //if (mpl1d006e.isChecked()) {
@@ -413,7 +416,7 @@ public class SectionFActivity extends Activity {
                         || mpl1d007e.isChecked() || mpl1d007f.isChecked() || mpl1d007g.isChecked()
                         || mpl1d007h.isChecked() || mpl1d007i.isChecked()
                         || mpl1d00788.isChecked())) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mpl1c007), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mpl1d007), Toast.LENGTH_LONG).show();
                     mpl1d00788.setError("This data is Required!");    // Set Error on last check box
                     Log.i(TAG, "mpl1d007: This data is Required!");
                     return false;
@@ -422,7 +425,7 @@ public class SectionFActivity extends Activity {
                 }
 
                 if (mpl1d00788.isChecked() && mpl1d00788x.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c008) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1d007) + " - " + getString(R.string.other), Toast.LENGTH_SHORT).show();
                     mpl1d00788x.setError("This data is required");
                     Log.d(TAG, " mpl1d00788x :empty ");
                     return false;

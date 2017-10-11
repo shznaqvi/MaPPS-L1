@@ -531,14 +531,14 @@ public class SectionEActivity extends Activity {
                     mpl1c006.setError(null);
                 }
 
-                if (Integer.valueOf(mpl1c006.getText().toString().isEmpty() ? "0" : mpl1c006.getText().toString()) == 0) {
+                /*if (Integer.valueOf(mpl1c006.getText().toString().isEmpty() ? "0" : mpl1c006.getText().toString()) == 0) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1c006), Toast.LENGTH_SHORT).show();
                     mpl1c006.setError("Invalid: Data cannot be Zero");
                     Log.i(TAG, "mpl1c006: Invalid data is 0");
                     return false;
                 } else {
                     mpl1c006.setError(null);
-                }
+                }*/
 
                 //=================== mpl1c007 ==============
                 if (mpl1c007.getCheckedRadioButtonId() == -1) {
@@ -550,22 +550,24 @@ public class SectionEActivity extends Activity {
                     mpl1c007e.setError(null);
                 }
 
-                if (mpl1c007c.isChecked() && mpl1c007x.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c007) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
-                    mpl1c007x.setError("This data is required");
-                    Log.d(TAG, " mpl1c007x :empty ");
-                    return false;
-                } else {
-                    mpl1c007x.setError(null);
-                }
+                if (mpl1c007c.isChecked()) {
+                    if (mpl1c007x.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1c007) + " - " + getString(R.string.day), Toast.LENGTH_SHORT).show();
+                        mpl1c007x.setError("This data is required");
+                        Log.d(TAG, " mpl1c007x :empty ");
+                        return false;
+                    } else {
+                        mpl1c007x.setError(null);
+                    }
 
-                if ((Integer.parseInt(mpl1c007x.getText().toString().isEmpty() ? "0" : mpl1c007x.getText().toString()) == 0)) {
-                    Toast.makeText(this, "ERROR: " + getString(R.string.mpl1c007) + getString(R.string.day), Toast.LENGTH_LONG).show();
-                    mpl1c007x.setError("Days cannnot be zero");
-                    Log.i(TAG, "mpl1c007x: days cannot not be zero");
-                    return false;
-                } else {
-                    mpl1c007x.setError(null);
+                    if ((Integer.parseInt(mpl1c007x.getText().toString().isEmpty() ? "0" : mpl1c007x.getText().toString()) == 0)) {
+                        Toast.makeText(this, "ERROR: " + getString(R.string.mpl1c007) + getString(R.string.day), Toast.LENGTH_LONG).show();
+                        mpl1c007x.setError("Days cannnot be zero");
+                        Log.i(TAG, "mpl1c007x: days cannot not be zero");
+                        return false;
+                    } else {
+                        mpl1c007x.setError(null);
+                    }
                 }
 
 
