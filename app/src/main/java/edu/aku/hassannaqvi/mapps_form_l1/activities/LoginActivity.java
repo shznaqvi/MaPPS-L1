@@ -49,7 +49,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -57,6 +59,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 import edu.aku.hassannaqvi.mapps_form_l1.get.GetClusters;
@@ -92,8 +95,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     TextView txtinstalldate;
     @BindView(R.id.email_sign_in_button)
     Button mEmailSignInButton;
-    @BindView(R.id.spUC)
-    Spinner spUC;
 
     @BindView(R.id.syncData)
     Button syncData;
@@ -171,36 +172,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         values.add("03");
         values.add("04");
 
-
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_spinner_item, lables);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spUC.setAdapter(dataAdapter);
-        spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-
-        //spUC.setOnItemSelectedListener(this);
-        spUC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //    MainApp.areaCode = values.get(position);
-
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-                Toast.makeText(LoginActivity.this, values.get(position), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
 //        DB backup
 
         dbBackup();
@@ -208,7 +179,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     public void dbBackup() {
 
-        sharedPref = getSharedPreferences("dss01", MODE_PRIVATE);
+        sharedPref = getSharedPreferences("mappsl2", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         if (sharedPref.getBoolean("flag", false)) {
@@ -221,7 +192,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 editor.commit();
             }
 
-            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-DSSCENSUS");
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-MAPPS");
             boolean success = true;
             if (!folder.exists()) {
                 success = folder.mkdirs();

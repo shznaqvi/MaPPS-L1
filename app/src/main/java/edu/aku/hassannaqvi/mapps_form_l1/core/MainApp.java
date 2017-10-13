@@ -14,10 +14,12 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.mapps_form_l1.activities.EndingActivity;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
 
 /**
@@ -84,6 +86,8 @@ public class MainApp extends Application {
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;
+
+    public static ArrayList<EnrolledContract> Eparticipant;
 
     public static int monthsBetweenDates(Date startDate, Date endDate) {
 
