@@ -137,6 +137,11 @@ public class SectionAActivity extends Activity {
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
                 Log.d("Selected LHWs", LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
 
+                if (!mpl1a001.getText().toString().trim().isEmpty()) {
+                    fldGrpmpl1a002.setVisibility(View.GONE);
+                    mpl1a001.setText(null);
+                }
+
             }
 
             @Override
@@ -392,14 +397,14 @@ public class SectionAActivity extends Activity {
             mpl1a003.setError(null);
         }
 
-        if (Integer.valueOf(mpl1a003.getText().toString().isEmpty() ? "0" : mpl1a003.getText().toString()) == 0) {
+/*        if (Integer.valueOf(mpl1a003.getText().toString().isEmpty() ? "0" : mpl1a003.getText().toString()) == 0) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
             mpl1a003.setError("Invalid: Data cannot be Zero");
             Log.i(TAG, "mpl1a003: Invalid data is 0");
             return false;
         } else {
             mpl1a003.setError(null);
-        }
+        }*/
 
         // =================== mpl1a002 ====================
         /*if (mpl1a002.getText().toString().isEmpty()) {
