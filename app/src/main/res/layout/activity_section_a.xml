@@ -128,15 +128,17 @@
                 android:background="@color/colorPrimary"
                 android:text="@string/mpl1a003"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/mpl1a003"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
+                android:enabled="false"
                 android:hint="@string/mpl1a003"
-                android:enabled="false" />
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="match_parent"
