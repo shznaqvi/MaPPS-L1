@@ -103,7 +103,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
@@ -200,7 +201,7 @@
                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:hint="@string/mpl1a005"
                     android:inputType="number"
-                    android:maxLength="5" />
+                    android:maxLength="2"/>
 
             </LinearLayout>
 
@@ -221,42 +222,6 @@
                 android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="@string/mpl1a006"
                 android:inputType="textCapWords" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1a007"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mpl1a007"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                android:hint="@string/mpl1a007"
-                android:inputType="textCapWords" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/mpl1a008"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <EditText
-                android:id="@+id/mpl1a008"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mpl1a008"
-                android:inputType="number"
-                android:maxLength="12" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
