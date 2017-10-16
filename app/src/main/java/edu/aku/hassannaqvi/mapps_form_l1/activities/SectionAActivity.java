@@ -350,6 +350,7 @@ public class SectionAActivity extends Activity {
         MainApp.fc.setClustercode(MainApp.curCluster);
         MainApp.fc.setLhwCode(LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
         MainApp.fc.setHousehold(mpl1a001.getText().toString());
+        MainApp.fc.setSno(mpl1a003.getText().toString());
 
         JSONObject sa = new JSONObject();
 
@@ -392,8 +393,25 @@ public class SectionAActivity extends Activity {
             mpl1a001.setError(null);
         }
 
+        if (mpl1a002.getSelectedItem().equals("Select Participant..")) {
+
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
+
+            ((TextView) mpl1a002.getSelectedView()).setError("This Data is Required");
+
+
+            Log.i(TAG, "mpl1a002: This Data is Required!");
+
+            return false;
+
+        } else {
+
+            ((TextView) mpl1a002.getSelectedView()).setError(null);
+
+        }
+
         // =================== mpl1a003 ====================
-        if (mpl1a003.getText().toString().isEmpty()) {
+        /*if (mpl1a003.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
             mpl1a003.setError("This data is required");
             mpl1a003.requestFocus();
@@ -401,7 +419,7 @@ public class SectionAActivity extends Activity {
             return false;
         } else {
             mpl1a003.setError(null);
-        }
+        }*/
 
 /*        if (Integer.valueOf(mpl1a003.getText().toString().isEmpty() ? "0" : mpl1a003.getText().toString()) == 0) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();

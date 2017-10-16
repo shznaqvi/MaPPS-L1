@@ -402,8 +402,8 @@ public class SectionBActivity extends Activity {
         if (mpl1ba001.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba001), Toast.LENGTH_SHORT).show();
             mpl1ba001b.setError("This data is Required!");
-            mpl1ba001b.setFocusableInTouchMode(true);
             mpl1ba001b.setFocusable(true);
+            mpl1ba001b.setFocusableInTouchMode(true);
             mpl1ba001b.requestFocus();
 
             Log.i(TAG, "mpl1ba001: This Data is Required!");
