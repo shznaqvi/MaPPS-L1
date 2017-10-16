@@ -346,11 +346,16 @@ public class SectionAActivity extends Activity {
                 Settings.Secure.ANDROID_ID));
         MainApp.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
         MainApp.fc.setTagId(sharedPref.getString("tagName", ""));
+
+        MainApp.fc.setClustercode(MainApp.curCluster);
+        MainApp.fc.setLhwCode(LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
+        MainApp.fc.setHousehold(mpl1a001.getText().toString());
+
         JSONObject sa = new JSONObject();
 
         sa.put("mpl1a001", mpl1a001.getText().toString());
-        sa.put("mpl1a003", mpl1a003.getText().toString());
         sa.put("mpl1a002", mpl1a002.getSelectedItem().toString());
+        sa.put("mpl1a003", mpl1a003.getText().toString());
         sa.put("mpl1a004", mpl1a004a.isChecked() ? "1" : mpl1a004b.isChecked() ? "2" : mpl1a004c.isChecked() ? "3" : "0");
         sa.put("mpl1a005", mpl1a005.getText().toString());
         sa.put("mpl1a006", mpl1a006.getText().toString());

@@ -197,7 +197,7 @@ public class MotherContract {
         this.synced_date = jsonObject.getString(MotherTB.COLUMN_SYNCED_DATE);
 
         this.childID = jsonObject.getString(MotherTB.COLUMN_CHILDID);
-        this.dssID = jsonObject.getString(MotherTB.COLUMN_DSSID);
+        this.dssID = jsonObject.getString(MotherTB.COLUMN_SNO);
         this.motherID = jsonObject.getString(MotherTB.COLUMN_MOTHERID);
         this.istatus = jsonObject.getString(MotherTB.COLUMN_ISTATUS);
 
@@ -222,7 +222,7 @@ public class MotherContract {
         this.deviceID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DEVICEID));
 
         this.childID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_CHILDID));
-        this.dssID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DSSID));
+        this.dssID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SNO));
         this.motherID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_MOTHERID));
         this.istatus = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_ISTATUS));
 
@@ -250,7 +250,7 @@ public class MotherContract {
         json.put(MotherTB.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
 
         json.put(MotherTB.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
-        json.put(MotherTB.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
+        json.put(MotherTB.COLUMN_SNO, this.dssID == null ? JSONObject.NULL : this.dssID);
         json.put(MotherTB.COLUMN_MOTHERID, this.motherID == null ? JSONObject.NULL : this.motherID);
         json.put(MotherTB.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
 
@@ -279,7 +279,7 @@ public class MotherContract {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
 
         public static final String COLUMN_CHILDID = "childid";
-        public static final String COLUMN_DSSID = "dssid";
+        public static final String COLUMN_SNO = "dssid";
         public static final String COLUMN_MOTHERID = "motherid";
         public static final String COLUMN_ISTATUS = "istatus";
 
