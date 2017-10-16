@@ -6,27 +6,38 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
@@ -36,10 +47,10 @@ public class SectionAActivity extends Activity {
 
     @BindView(R.id.mpl1a001)
     EditText mpl1a001;
-    @BindView(R.id.mpl1a002)
-    EditText mpl1a002;
     @BindView(R.id.mpl1a003)
     EditText mpl1a003;
+    @BindView(R.id.mpl1a002)
+    Spinner mpl1a002;
     @BindView(R.id.mpl1a004)
     RadioGroup mpl1a004;
     @BindView(R.id.mpl1a004a)
@@ -70,6 +81,19 @@ public class SectionAActivity extends Activity {
     RadioButton mpl1a009c;
     @BindView(R.id.mpl1aLHWs)
     Spinner mpl1aLHWs;
+    @BindView(R.id.fldGrpmpl1a002)
+    LinearLayout fldGrpmpl1a002;
+
+    List<String> LHWsName;
+    DatabaseHelper db;
+    HashMap<String, String> LHWs;
+
+    List<String> ParticipantsName;
+    HashMap<String, EnrolledContract> ParticipantsMap;
+    Boolean flag = false;
+    Boolean checked = false;
+
+    Collection<EnrolledContract> Econtract;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +114,147 @@ public class SectionAActivity extends Activity {
             }
         });
 
+//        Fill spinners
+
+        db = new DatabaseHelper(this);
+
+        LHWsName = new ArrayList<>();
+
+        LHWs = new HashMap<>();
+
+        Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(MainApp.curCluster);
+
+        for (LHWsContract lhws : collectionLHWs) {
+            LHWsName.add(lhws.getLhwName());
+            LHWs.put(lhws.getLhwName(), lhws.getLhwId());
+        }
+        mpl1aLHWs.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, LHWsName));
+
+        mpl1aLHWs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
+                Log.d("Selected LHWs", LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
+
+                if (!mpl1a001.getText().toString().trim().isEmpty()) {
+                    fldGrpmpl1a002.setVisibility(View.GONE);
+                    mpl1a001.setText(null);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        mpl1a001.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                checked = false;
+
+                if (!checked) {
+                    fldGrpmpl1a002.setVisibility(View.GONE);
+                    mpl1a001.setError("Please check household number first");
+
+                } else {
+                    checked = true;
+                    mpl1a001.setError(null);
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        });
+
+        mpl1a002.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (mpl1a002.getSelectedItemPosition()!=0){
+
+                    mpl1a003.setText(ParticipantsMap.get(mpl1a002.getSelectedItem().toString())
+                            .getLUID());
+
+                }else {
+                    mpl1a003.setText(null);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
+
+    @OnClick(R.id.checkParticipants)
+    void onCheckParticipantsClick() {
+        //TODO implement
+
+        checked = true;
+
+        if (!mpl1a001.getText().toString().isEmpty()) {
+
+            mpl1a001.setError(null);
+
+            ParticipantsName = new ArrayList<>();
+
+            ParticipantsMap = new HashMap<>();
+
+            ParticipantsName.add("Select Participant..");
+
+            Econtract = db.getEnrollByHousehold(MainApp.curCluster, LHWs.get(mpl1aLHWs.getSelectedItem().toString()), mpl1a001.getText().toString());
+
+            Toast.makeText(this,"Eligible Women found = " + Econtract.size(),Toast.LENGTH_SHORT).show();
+
+            if (Econtract.size() != 0) {
+
+                MainApp.Eparticipant = new ArrayList<>();
+
+                for (EnrolledContract ec : Econtract) {
+
+                    ParticipantsName.add(ec.getWomen_name().toUpperCase());
+                    ParticipantsMap.put(ec.getWomen_name().toUpperCase(),new EnrolledContract(ec));
+
+                    MainApp.Eparticipant.add(new EnrolledContract(ec));
+                }
+
+                Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
+
+                fldGrpmpl1a002.setVisibility(View.VISIBLE);
+
+                flag = true;
+
+                mpl1a002.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,ParticipantsName));
+
+
+            } else {
+
+                fldGrpmpl1a002.setVisibility(View.GONE);
+
+                flag = false;
+
+                Toast.makeText(this, "No Participant Found", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            mpl1a001.setError("This data is Required!");
+        }
+    }
+
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
@@ -185,8 +349,8 @@ public class SectionAActivity extends Activity {
         JSONObject sa = new JSONObject();
 
         sa.put("mpl1a001", mpl1a001.getText().toString());
-        sa.put("mpl1a002", mpl1a002.getText().toString());
         sa.put("mpl1a003", mpl1a003.getText().toString());
+        sa.put("mpl1a002", mpl1a002.getSelectedItem().toString());
         sa.put("mpl1a004", mpl1a004a.isChecked() ? "1" : mpl1a004b.isChecked() ? "2" : mpl1a004c.isChecked() ? "3" : "0");
         sa.put("mpl1a005", mpl1a005.getText().toString());
         sa.put("mpl1a006", mpl1a006.getText().toString());
@@ -223,25 +387,6 @@ public class SectionAActivity extends Activity {
             mpl1a001.setError(null);
         }
 
-        // =================== mpl1a002 ====================
-        if (mpl1a002.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
-            mpl1a002.setError("This data is required");
-            Log.d(TAG, " mpl1a002 :empty ");
-            return false;
-        } else {
-            mpl1a002.setError(null);
-        }
-
-        if (Integer.valueOf(mpl1a002.getText().toString().isEmpty() ? "0" : mpl1a002.getText().toString()) == 0) {
-            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
-            mpl1a002.setError("Invalid: Data cannot be Zero");
-            Log.i(TAG, "mpl1a002: Invalid data is 0");
-            return false;
-        } else {
-            mpl1a002.setError(null);
-        }
-
         // =================== mpl1a003 ====================
         if (mpl1a003.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
@@ -251,6 +396,25 @@ public class SectionAActivity extends Activity {
         } else {
             mpl1a003.setError(null);
         }
+
+/*        if (Integer.valueOf(mpl1a003.getText().toString().isEmpty() ? "0" : mpl1a003.getText().toString()) == 0) {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
+            mpl1a003.setError("Invalid: Data cannot be Zero");
+            Log.i(TAG, "mpl1a003: Invalid data is 0");
+            return false;
+        } else {
+            mpl1a003.setError(null);
+        }*/
+
+        // =================== mpl1a002 ====================
+        /*if (mpl1a002.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
+            mpl1a002.setError("This data is required");
+            Log.d(TAG, " mpl1a002 :empty ");
+            return false;
+        } else {
+            mpl1a002.setError(null);
+        }*/
 
         //=================== mpl1a004 ==============
         if (mpl1a004.getCheckedRadioButtonId() == -1) {

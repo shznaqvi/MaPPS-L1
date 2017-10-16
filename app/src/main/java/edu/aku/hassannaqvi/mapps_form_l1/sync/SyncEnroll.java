@@ -19,7 +19,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrollContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
@@ -60,7 +60,7 @@ public class SyncEnroll extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            String url = MainApp._HOST_URL + EnrollContract.EnrollTable._URI;
+            String url = MainApp._HOST_URL + EnrolledContract.EnrollTable._URI;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {
@@ -104,7 +104,7 @@ public class SyncEnroll extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<EnrollContract> enroll = db.getUnsyncedEnroll();
+        Collection<EnrolledContract> enroll = db.getUnsyncedEnroll();
         Log.d(TAG, String.valueOf(enroll.size()));
         if (enroll.size() > 0) {
             try {
@@ -124,7 +124,7 @@ public class SyncEnroll extends AsyncTask<Void, Void, String> {
                 try {
                     DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
 
-                    for (EnrollContract fc : enroll) {
+                    for (EnrolledContract fc : enroll) {
 
                         jsonSync.put(fc.toJSONObject());
 

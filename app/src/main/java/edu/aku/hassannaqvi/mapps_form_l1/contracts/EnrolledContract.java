@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by sidra.nizam on 9/8/2017.
  */
 
-public class EnrollContract {
+public class EnrolledContract {
     private static final String TAG = "ENROLLED_CONTRACT";
 
     private Long _ID;
@@ -23,7 +23,18 @@ public class EnrollContract {
     private String houseHold;  // Structure
     private String women_name;
 
-    public EnrollContract Sync(JSONObject jsonObject) throws JSONException {
+    public EnrolledContract() {
+    }
+
+    public EnrolledContract (EnrolledContract en) {
+        this.LUID = en.LUID;
+        this.subAreaCode = en.subAreaCode;
+        this.lhwCode = en.lhwCode;
+        this.houseHold = en.houseHold;
+        this.women_name = en.women_name;
+    }
+
+    public EnrolledContract Sync(JSONObject jsonObject) throws JSONException {
         this.LUID = jsonObject.getString(EnrollTable.COLUMN_NAME_LUID);
         this.subAreaCode = jsonObject.getString(EnrollTable.COLUMN_NAME_SUBAREACODE);
         this.lhwCode = jsonObject.getString(EnrollTable.COLUMN_NAME_LHWCODE);
@@ -33,7 +44,7 @@ public class EnrollContract {
 
     }
 
-    public EnrollContract Hydrate(Cursor cursor) {
+    public EnrolledContract Hydrate(Cursor cursor) {
         this.LUID = cursor.getString(cursor.getColumnIndex(EnrollTable.COLUMN_NAME_LUID));
         this.subAreaCode = cursor.getString(cursor.getColumnIndex(EnrollTable.COLUMN_NAME_SUBAREACODE));
         this.lhwCode = cursor.getString(cursor.getColumnIndex(EnrollTable.COLUMN_NAME_LHWCODE));
@@ -120,6 +131,6 @@ public class EnrollContract {
 
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
-        public static final String _URIGET = "getenroll.php";
+        public static final String _URIGET = "getenrolled.php";
     }
 }

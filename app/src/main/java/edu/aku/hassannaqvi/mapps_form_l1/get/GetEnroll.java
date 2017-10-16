@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrollContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
@@ -61,7 +61,7 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            return downloadUrl(MainApp._HOST_URL + EnrollContract.EnrollTable._URIGET);
+            return downloadUrl(MainApp._HOST_URL + EnrolledContract.EnrollTable._URIGET);
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
