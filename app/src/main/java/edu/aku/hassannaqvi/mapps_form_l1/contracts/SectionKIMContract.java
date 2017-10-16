@@ -157,7 +157,7 @@ public class SectionKIMContract {
         this.user = jsonObject.getString(singleIm.COLUMN_USER);
         //this.childID = jsonObject.getString(singleIm.COLUMN_CHILDID);
         this.mm = jsonObject.getString(singleIm.COLUMN_MM);
-        this.dssID = jsonObject.getString(singleIm.COLUMN_DSSID);
+        this.dssID = jsonObject.getString(singleIm.COLUMN_SNO);
         this.deviceID = jsonObject.getString(singleIm.COLUMN_DEVICEID);
         this.synced = jsonObject.getString(singleIm.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(singleIm.COLUMN_SYNCED_DATE);
@@ -177,7 +177,7 @@ public class SectionKIMContract {
         this.user = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_USER));
         //this.childID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_CHILDID));
         this.mm = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_MM));
-        this.dssID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DSSID));
+        this.dssID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_SNO));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICEID));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_ISTATUS));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICETAGID));
@@ -198,7 +198,7 @@ public class SectionKIMContract {
         json.put(singleIm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         //json.put(singleIm.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
         json.put(singleIm.COLUMN_MM, this.mm == null ? JSONObject.NULL : this.mm);
-        json.put(singleIm.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
+        json.put(singleIm.COLUMN_SNO, this.dssID == null ? JSONObject.NULL : this.dssID);
         json.put(singleIm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(singleIm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(singleIm.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
@@ -220,7 +220,7 @@ public class SectionKIMContract {
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_CHILDID = "childid";
         public static final String COLUMN_MM = "mm";
-        public static final String COLUMN_DSSID = "dssid";
+        public static final String COLUMN_SNO = "dssid";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
