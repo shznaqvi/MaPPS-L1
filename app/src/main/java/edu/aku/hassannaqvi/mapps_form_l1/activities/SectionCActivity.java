@@ -454,7 +454,7 @@ public class SectionCActivity extends Activity {
                 if (isChecked) {
                     mpl1bb002cccx.setVisibility(View.VISIBLE);
                 } else {
-                    mpl1bb002ccc.setVisibility(View.GONE);
+                    mpl1bb002cccx.setVisibility(View.GONE);
                     mpl1bb002cccx.setText(null);
                 }
             }
