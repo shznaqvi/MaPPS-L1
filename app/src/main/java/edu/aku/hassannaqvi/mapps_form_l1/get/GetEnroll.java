@@ -30,7 +30,7 @@ import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 
 public class GetEnroll extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "GetEligibles";
+    private static final String TAG = "GetEnroll";
     private Context mContext;
     private ProgressDialog pd;
 
@@ -50,7 +50,7 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Please wait... Processing Eligibles");
+        pd.setTitle("Please wait... Processing Enroll");
         pd.show();
 
     }
@@ -77,17 +77,17 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
             db.syncEnroll(json);
-            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Eligibles", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Enroll", Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(json.length() + " eligibles synced.");
-            pd.setTitle("Eligibles: Done");
+            pd.setMessage(json.length() + " Enroll synced.");
+            pd.setTitle("Enroll: Done");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(result);
-            pd.setTitle("Eligibles Sync Failed");
+            pd.setTitle("Enroll Sync Failed");
             pd.show();
 
         }

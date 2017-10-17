@@ -17,7 +17,7 @@ public class FormsContract {
     private String _ID = "";
     private String _UID = "";
     //    private String ISNEW = "";
-    // private String DSSID = "";
+    private String sno = "";
     private String formDate = ""; // Date
     private String user = ""; // Interviewer
     private String istatus = ""; // Interview Status
@@ -28,7 +28,7 @@ public class FormsContract {
     private String sE = "";
     private String sF = "";
 
-    private String clustercode = "0000"; // Area Code
+    private String clustercode = ""; // Area Code
     //   private String villageacode = ""; // Sub-Area Code
     private String household = ""; // Household number
     private String lhwCode = ""; // lhwcode
@@ -50,7 +50,7 @@ public class FormsContract {
         this._ID = jsonObject.getString(FormsTable.COLUMN_ID);
         this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
 //        this.ISNEW = jsonObject.getString(FormsTable.COLUMN_IS_NEW);
-        //    this.DSSID = jsonObject.getString(FormsTable.COLUMN_DSSID);
+        this.sno = jsonObject.getString(FormsTable.COLUMN_SNO);
         this.formDate = jsonObject.getString(FormsTable.COLUMN_FORMDATE);
         this.user = jsonObject.getString(FormsTable.COLUMN_USER);
         this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
@@ -83,7 +83,7 @@ public class FormsContract {
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
 //        this.ISNEW = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_IS_NEW));
-        //    this.DSSID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DSSID));
+        this.sno = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SNO));
         this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
         this.user = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
         this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
@@ -121,7 +121,7 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
 //        json.put(FormsTable.COLUMN_IS_NEW, this.ISNEW == null ? JSONObject.NULL : this.ISNEW);
-        //  json.put(FormsTable.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
+        json.put(FormsTable.COLUMN_SNO, this.sno == null ? JSONObject.NULL : this.sno);
         json.put(FormsTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(FormsTable.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
@@ -217,15 +217,15 @@ public class FormsContract {
 
     public void setISNEW(String ISNEW) {
         this.ISNEW = ISNEW;
-    }
-
-    public String getDSSID() {
-        return DSSID;
-    }
-
-    public void setDSSID(String DSSID) {
-        this.DSSID = DSSID;
     }*/
+
+    public String getSno() {
+        return sno;
+    }
+
+    public void setSno(String sno) {
+        this.sno = sno;
+    }
 
     public String getFormDate() {
         return formDate;
@@ -398,7 +398,6 @@ public class FormsContract {
     }
 
 
-
     public static abstract class FormsTable implements BaseColumns {
 
         public static final String TABLE_NAME = "forms";
@@ -406,8 +405,8 @@ public class FormsContract {
         public static final String COLUMN_PROJECT_NAME = "projectname";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        /* public static final String COLUMN_IS_NEW = "isnew";
-         public static final String COLUMN_DSSID = "dssid";*/
+        /* public static final String COLUMN_IS_NEW = "isnew";*/
+
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_ISTATUS = "istatus";
@@ -422,6 +421,7 @@ public class FormsContract {
         //  public static final String COLUMN_VILLAGEACODE = "villageacode";
         public static final String COLUMN_HOUSEHOLD = "household";
         public static final String COLUMN_LHWCODE = "lhwcode";
+        public static final String COLUMN_SNO = "sno";
 
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";

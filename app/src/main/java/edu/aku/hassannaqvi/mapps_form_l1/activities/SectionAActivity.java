@@ -65,10 +65,10 @@ public class SectionAActivity extends Activity {
     EditText mpl1a005;
     @BindView(R.id.mpl1a006)
     EditText mpl1a006;
-    @BindView(R.id.mpl1a007)
+    /*@BindView(R.id.mpl1a007)
     EditText mpl1a007;
     @BindView(R.id.mpl1a008)
-    EditText mpl1a008;
+    EditText mpl1a008;*/
     //  @BindView(R.id.mpl1a008a)
     //EditText mpl1a008a;
     @BindView(R.id.mpl1a009)
@@ -346,17 +346,21 @@ public class SectionAActivity extends Activity {
                 Settings.Secure.ANDROID_ID));
         MainApp.fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
         MainApp.fc.setTagId(sharedPref.getString("tagName", ""));
+
+        MainApp.fc.setClustercode(MainApp.curCluster);
+        MainApp.fc.setLhwCode(LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
+        MainApp.fc.setHousehold(mpl1a001.getText().toString());
+        MainApp.fc.setSno(mpl1a003.getText().toString());
+
         JSONObject sa = new JSONObject();
 
         sa.put("mpl1a001", mpl1a001.getText().toString());
-        sa.put("mpl1a003", mpl1a003.getText().toString());
         sa.put("mpl1a002", mpl1a002.getSelectedItem().toString());
+        sa.put("mpl1a003", mpl1a003.getText().toString());
         sa.put("mpl1a004", mpl1a004a.isChecked() ? "1" : mpl1a004b.isChecked() ? "2" : mpl1a004c.isChecked() ? "3" : "0");
         sa.put("mpl1a005", mpl1a005.getText().toString());
         sa.put("mpl1a006", mpl1a006.getText().toString());
-        sa.put("mpl1a007", mpl1a007.getText().toString());
         //sa.put("mpl1a008a", mpl1a008a.getText().toString());
-        sa.put("mpl1a008", mpl1a008.getText().toString());
         sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
 
         setGPS();
@@ -372,6 +376,7 @@ public class SectionAActivity extends Activity {
         if (mpl1a001.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a001), Toast.LENGTH_SHORT).show();
             mpl1a001.setError("This data is required");
+            mpl1a001.requestFocus();
             Log.d(TAG, " mpl1a001 :empty ");
             return false;
         } else {
@@ -381,21 +386,40 @@ public class SectionAActivity extends Activity {
         if (Integer.valueOf(mpl1a001.getText().toString().isEmpty() ? "0" : mpl1a001.getText().toString()) == 0) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a001), Toast.LENGTH_SHORT).show();
             mpl1a001.setError("Invalid: Data cannot be Zero");
+            mpl1a001.requestFocus();
             Log.i(TAG, "mpl1a001: Invalid data is 0");
             return false;
         } else {
             mpl1a001.setError(null);
         }
 
+        if (mpl1a002.getSelectedItem().equals("Select Participant..")) {
+
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a002), Toast.LENGTH_SHORT).show();
+
+            ((TextView) mpl1a002.getSelectedView()).setError("This Data is Required");
+
+
+            Log.i(TAG, "mpl1a002: This Data is Required!");
+
+            return false;
+
+        } else {
+
+            ((TextView) mpl1a002.getSelectedView()).setError(null);
+
+        }
+
         // =================== mpl1a003 ====================
-        if (mpl1a003.getText().toString().isEmpty()) {
+        /*if (mpl1a003.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
             mpl1a003.setError("This data is required");
+            mpl1a003.requestFocus();
             Log.d(TAG, " mpl1a003 :empty ");
             return false;
         } else {
             mpl1a003.setError(null);
-        }
+        }*/
 
 /*        if (Integer.valueOf(mpl1a003.getText().toString().isEmpty() ? "0" : mpl1a003.getText().toString()) == 0) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a003), Toast.LENGTH_SHORT).show();
@@ -420,6 +444,10 @@ public class SectionAActivity extends Activity {
         if (mpl1a004.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a004), Toast.LENGTH_SHORT).show();
             mpl1a004c.setError("This data is Required!");
+
+            mpl1a004c.setFocusableInTouchMode(true);
+            mpl1a004c.setFocusable(true);
+            mpl1a004c.requestFocus();
             Log.i(TAG, "mpl1a004: This Data is Required!");
             return false;
         } else {
@@ -431,6 +459,7 @@ public class SectionAActivity extends Activity {
             if (mpl1a005.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a005), Toast.LENGTH_SHORT).show();
                 mpl1a005.setError("This data is required");
+                mpl1a005.requestFocus();
                 Log.d(TAG, " mpl1a005 :empty ");
                 return false;
             } else {
@@ -440,6 +469,7 @@ public class SectionAActivity extends Activity {
             if (Integer.valueOf(mpl1a005.getText().toString().isEmpty() ? "0" : mpl1a005.getText().toString()) == 0) {
                 Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1a005), Toast.LENGTH_SHORT).show();
                 mpl1a005.setError("Invalid: Data cannot be Zero");
+                mpl1a005.requestFocus();
                 Log.i(TAG, "mpl1a005: Invalid data is 0");
                 return false;
             } else {
@@ -451,6 +481,7 @@ public class SectionAActivity extends Activity {
         if (mpl1a006.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a006), Toast.LENGTH_SHORT).show();
             mpl1a006.setError("This data is required");
+            mpl1a006.requestFocus();
             Log.d(TAG, " mpl1a006 :empty ");
             return false;
         } else {
@@ -458,14 +489,14 @@ public class SectionAActivity extends Activity {
         }
 
         // =================== mpl1a007 ====================
-        if (mpl1a007.getText().toString().isEmpty()) {
+        /*if (mpl1a007.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a007), Toast.LENGTH_SHORT).show();
             mpl1a007.setError("This data is required");
             Log.d(TAG, " mpl1a007 :empty ");
             return false;
         } else {
             mpl1a007.setError(null);
-        }
+        }*/
 
         // =================== mpl1a007 ====================
         /*if (mpl1a008a.getText().toString().isEmpty()) {
@@ -478,7 +509,7 @@ public class SectionAActivity extends Activity {
         }
 */
         // =================== mpl1a008 ====================
-        if (mpl1a008.getText().toString().isEmpty()) {
+        /*if (mpl1a008.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a008), Toast.LENGTH_SHORT).show();
             mpl1a008.setError("This data is required");
             Log.d(TAG, " mpl1a008 :empty ");
@@ -486,11 +517,15 @@ public class SectionAActivity extends Activity {
         } else {
             mpl1a008.setError(null);
         }
-
+*/
         //=================== mpl1a009 ==============
         if (mpl1a009.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a009), Toast.LENGTH_SHORT).show();
             mpl1a009c.setError("This data is Required!");
+            mpl1a009c.setFocusableInTouchMode(true);
+            mpl1a009c.setFocusable(true);
+            mpl1a009c.requestFocus();
+
             Log.i(TAG, "mpl1a009: This Data is Required!");
             return false;
         } else {
