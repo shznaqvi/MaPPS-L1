@@ -350,7 +350,8 @@ public class SectionAActivity extends Activity {
         MainApp.fc.setClustercode(MainApp.curCluster);
         MainApp.fc.setLhwCode(LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
         MainApp.fc.setHousehold(mpl1a001.getText().toString());
-        MainApp.fc.setSno(mpl1a003.getText().toString());
+        MainApp.fc.setSno(ParticipantsMap.get(mpl1a002.getSelectedItem()).getSno());
+        MainApp.fc.setLUID(ParticipantsMap.get(mpl1a002.getSelectedItem()).getLUID());
 
         JSONObject sa = new JSONObject();
 

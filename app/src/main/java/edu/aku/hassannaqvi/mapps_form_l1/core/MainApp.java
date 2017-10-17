@@ -30,7 +30,7 @@ public class MainApp extends Application {
 
     public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _PROJECT_FOLDER = "mapps/formL1/api/";
+    public static final String _PROJECT_FOLDER = "mapps/forml1/api/";
     public static final String _HOST_URL =
             "http://" + _IP
                     + ":" + _PORT
@@ -83,11 +83,10 @@ public class MainApp extends Application {
     public static long installedOn;
     public static Integer versionCode;
     public static String versionName;
+    public static ArrayList<EnrolledContract> Eparticipant;
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;
-
-    public static ArrayList<EnrolledContract> Eparticipant;
 
     public static int monthsBetweenDates(Date startDate, Date endDate) {
 

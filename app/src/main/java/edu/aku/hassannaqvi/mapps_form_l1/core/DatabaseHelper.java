@@ -48,6 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsTable.COLUMN_UID + " TEXT," +
+            FormsTable.COLUMN_LUID + " TEXT," +
             // FormsTable.COLUMN_IS_NEW + " TEXT," +
 
             FormsTable.COLUMN_FORMDATE + " TEXT," +
@@ -78,6 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + EnrolledContract.EnrollTable.TABLE_NAME + "(" +
             EnrolledContract.EnrollTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_LUID + " TEXT," +
+            EnrolledContract.EnrollTable.COLUMN_NAME_SNO + " TEXT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE + " TEXT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE + " TEXT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
@@ -218,6 +220,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ContentValues values = new ContentValues();
 
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_LUID, ec.getLUID());
+                values.put(EnrolledContract.EnrollTable.COLUMN_NAME_SNO, ec.getSno());
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE, ec.getSubAreaCode());
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
@@ -271,6 +274,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_PROJECT_NAME, fc.getProjectName());
        /* values.put(FormsTable.COLUMN_ID, fc.getFormDate());*/
         values.put(FormsTable.COLUMN_UID, fc.get_UID());
+        values.put(FormsTable.COLUMN_LUID, fc.getLUID());
 
 
         values.put(FormsTable.COLUMN_CLUSTERCODE, fc.getClustercode());
@@ -428,6 +432,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_PROJECT_NAME,
                 FormsTable.COLUMN_ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_SNO,
                 FormsTable.COLUMN_USER,
@@ -494,6 +499,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_PROJECT_NAME,
                 FormsTable.COLUMN_ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_SNO,
                 FormsTable.COLUMN_USER,
@@ -503,6 +509,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_HOUSEHOLD,
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_SNO,
 
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SB,
@@ -767,6 +774,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 EnrolledContract.EnrollTable.COLUMN_NAME_LUID,
+                EnrolledContract.EnrollTable.COLUMN_NAME_SNO,
                 EnrolledContract.EnrollTable.COLUMN_NAME_WOMEN_NAME,
                 EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE,
@@ -815,6 +823,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 EnrolledContract.EnrollTable._ID,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LUID,
+                EnrolledContract.EnrollTable.COLUMN_NAME_SNO,
                 EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD,
@@ -861,6 +870,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 EnrolledContract.EnrollTable._ID,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LUID,
+                EnrolledContract.EnrollTable.COLUMN_NAME_SNO,
                 EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD,
