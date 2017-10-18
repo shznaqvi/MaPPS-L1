@@ -12,8 +12,8 @@ import org.json.JSONObject;
 
 public class FormsContract {
 
-    private final String projectName = "MAPPS-L1";
     private final String surveyType = "SN";
+    private String projectName = "MAPPS-L1";
     private String _ID = "";
     private String _UID = "";
     private String LUID = "";
@@ -48,6 +48,7 @@ public class FormsContract {
 
 
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
+        this.projectName = jsonObject.getString(FormsTable.COLUMN_PROJECT_NAME);
         this._ID = jsonObject.getString(FormsTable.COLUMN_ID);
         this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
         this.LUID = jsonObject.getString(FormsTable.COLUMN_LUID);
@@ -83,6 +84,8 @@ public class FormsContract {
     }
 
     public FormsContract Hydrate(Cursor cursor) {
+
+        this.projectName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_PROJECT_NAME));
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
         this.LUID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_LUID));
@@ -123,6 +126,7 @@ public class FormsContract {
 
         JSONObject json = new JSONObject();
 
+        json.put(FormsTable.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(FormsTable.COLUMN_LUID, this.LUID == null ? JSONObject.NULL : this.LUID);
