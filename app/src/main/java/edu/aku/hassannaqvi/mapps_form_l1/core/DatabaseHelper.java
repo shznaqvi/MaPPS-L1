@@ -59,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_SD + " TEXT," +
             FormsTable.COLUMN_SE + " TEXT," +
             FormsTable.COLUMN_SF + " TEXT," +
+            FormsTable.COLUMN_ENDINGDATETIME + " TEXT," +
 
             FormsTable.COLUMN_CLUSTERCODE + " TEXT," +
             //   FormsTable.COLUMN_VILLAGEACODE + " TEXT," +
@@ -290,6 +291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SD, fc.getsD());
         values.put(FormsTable.COLUMN_SE, fc.getsE());
         values.put(FormsTable.COLUMN_SF, fc.getsF());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingDateTime());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(FormsTable.COLUMN_GPSTIME, fc.getGpsTime());
@@ -448,6 +450,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
                 FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_ENDINGDATETIME,
 
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -510,6 +513,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SNO,
+                FormsTable.COLUMN_ENDINGDATETIME,
 
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SB,
@@ -1019,6 +1023,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, MainApp.fc.getEndingDateTime());
 
 // Which row to update, based on the ID
         String selection = " _ID = " + MainApp.fc.get_ID();
