@@ -33,7 +33,7 @@ public class FormsContract {
     //   private String villageacode = ""; // Sub-Area Code
     private String household = ""; // Household number
     private String lhwCode = ""; // lhwcode
-
+    private String endingDateTime = "";
     private String gpsLat = "";
     private String gpsLng = "";
     private String gpsTime = "";
@@ -68,6 +68,7 @@ public class FormsContract {
         this.household = jsonObject.getString(FormsTable.COLUMN_HOUSEHOLD);
         this.lhwCode = jsonObject.getString(FormsTable.COLUMN_LHWCODE);
 
+        this.endingDateTime = jsonObject.getString(FormsTable.COLUMN_ENDINGDATETIME);
         this.tagId = jsonObject.getString(FormsTable.COLUMN_DEVICETAGID);
         this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(FormsTable.COLUMN_GPSLNG);
@@ -101,6 +102,7 @@ public class FormsContract {
         //  this.villageacode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_VILLAGEACODE));
         this.household = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HOUSEHOLD));
         this.lhwCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_LHWCODE));
+        this.endingDateTime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ENDINGDATETIME));
 
         this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
@@ -182,7 +184,7 @@ public class FormsContract {
         //  json.put(FormsTable.COLUMN_VILLAGEACODE, this.villageacode == null ? JSONObject.NULL : this.villageacode);
         json.put(FormsTable.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(FormsTable.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
-
+        json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endingDateTime == null ? JSONObject.NULL : this.endingDateTime);
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -278,6 +280,14 @@ public class FormsContract {
     public void setVillageacode(String villageacode) {
         this.villageacode = villageacode;
     }*/
+
+    public String getEndingDateTime() {
+        return endingDateTime;
+    }
+
+    public void setEndingDateTime(String endingDateTime) {
+        this.endingDateTime = endingDateTime;
+    }
 
     public String getHousehold() {
         return household;
@@ -417,7 +427,7 @@ public class FormsContract {
         public static final String COLUMN_PROJECT_NAME = "projectname";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_LUID = "uid";
+        public static final String COLUMN_LUID = "luid";
         /* public static final String COLUMN_IS_NEW = "isnew";*/
 
         public static final String COLUMN_FORMDATE = "formdate";
@@ -436,6 +446,7 @@ public class FormsContract {
         public static final String COLUMN_LHWCODE = "lhwcode";
         public static final String COLUMN_SNO = "sno";
 
+        public static final String COLUMN_ENDINGDATETIME = "endingdatetime";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
         public static final String COLUMN_GPSTIME = "gpstime";
