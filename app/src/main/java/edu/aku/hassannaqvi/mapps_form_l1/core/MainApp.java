@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -30,7 +31,7 @@ public class MainApp extends Application {
 
     public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _PROJECT_FOLDER = "mapps/formL1/api/";
+    public static final String _PROJECT_FOLDER = "mapps/forml1/api/";
     public static final String _HOST_URL =
             "http://" + _IP
                     + ":" + _PORT
@@ -83,11 +84,10 @@ public class MainApp extends Application {
     public static long installedOn;
     public static Integer versionCode;
     public static String versionName;
+    public static ArrayList<EnrolledContract> Eparticipant;
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;
-
-    public static ArrayList<EnrolledContract> Eparticipant;
 
     public static int monthsBetweenDates(Date startDate, Date endDate) {
 
@@ -228,6 +228,23 @@ public class MainApp extends Application {
 
 //        Initialize Dead Member List
 //        deadMembers = new ArrayList<String>();
+
+        try {
+            installedOn = this
+                    .getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .lastUpdateTime;
+            versionCode = this
+                    .getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .versionCode;
+            versionName = this
+                    .getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 

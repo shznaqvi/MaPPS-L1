@@ -48,6 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsTable.COLUMN_UID + " TEXT," +
+            FormsTable.COLUMN_LUID + " TEXT," +
             // FormsTable.COLUMN_IS_NEW + " TEXT," +
 
             FormsTable.COLUMN_FORMDATE + " TEXT," +
@@ -58,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_SD + " TEXT," +
             FormsTable.COLUMN_SE + " TEXT," +
             FormsTable.COLUMN_SF + " TEXT," +
+            FormsTable.COLUMN_ENDINGDATETIME + " TEXT," +
 
             FormsTable.COLUMN_CLUSTERCODE + " TEXT," +
             //   FormsTable.COLUMN_VILLAGEACODE + " TEXT," +
@@ -78,6 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + EnrolledContract.EnrollTable.TABLE_NAME + "(" +
             EnrolledContract.EnrollTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_LUID + " TEXT," +
+            EnrolledContract.EnrollTable.COLUMN_NAME_SNO + " TEXT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE + " TEXT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE + " TEXT," +
             EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD + " TEXT," +
@@ -218,6 +221,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ContentValues values = new ContentValues();
 
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_LUID, ec.getLUID());
+                values.put(EnrolledContract.EnrollTable.COLUMN_NAME_SNO, ec.getSno());
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE, ec.getSubAreaCode());
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE, ec.getLhwCode());
                 values.put(EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD, ec.getHouseHold());
@@ -271,6 +275,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_PROJECT_NAME, fc.getProjectName());
        /* values.put(FormsTable.COLUMN_ID, fc.getFormDate());*/
         values.put(FormsTable.COLUMN_UID, fc.get_UID());
+        values.put(FormsTable.COLUMN_LUID, fc.getLUID());
 
 
         values.put(FormsTable.COLUMN_CLUSTERCODE, fc.getClustercode());
@@ -286,6 +291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SD, fc.getsD());
         values.put(FormsTable.COLUMN_SE, fc.getsE());
         values.put(FormsTable.COLUMN_SF, fc.getsF());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingDateTime());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(FormsTable.COLUMN_GPSTIME, fc.getGpsTime());
@@ -428,6 +434,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_PROJECT_NAME,
                 FormsTable.COLUMN_ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_SNO,
                 FormsTable.COLUMN_USER,
@@ -443,6 +450,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
                 FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_ENDINGDATETIME,
 
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -494,6 +502,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_PROJECT_NAME,
                 FormsTable.COLUMN_ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_SNO,
                 FormsTable.COLUMN_USER,
@@ -503,6 +512,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_HOUSEHOLD,
                 FormsTable.COLUMN_LHWCODE,
                 FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_SNO,
+                FormsTable.COLUMN_ENDINGDATETIME,
 
                 FormsTable.COLUMN_SA,
                 FormsTable.COLUMN_SB,
@@ -767,6 +778,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 EnrolledContract.EnrollTable.COLUMN_NAME_LUID,
+                EnrolledContract.EnrollTable.COLUMN_NAME_SNO,
                 EnrolledContract.EnrollTable.COLUMN_NAME_WOMEN_NAME,
                 EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE,
@@ -815,6 +827,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 EnrolledContract.EnrollTable._ID,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LUID,
+                EnrolledContract.EnrollTable.COLUMN_NAME_SNO,
                 EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD,
@@ -861,6 +874,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 EnrolledContract.EnrollTable._ID,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LUID,
+                EnrolledContract.EnrollTable.COLUMN_NAME_SNO,
                 EnrolledContract.EnrollTable.COLUMN_NAME_SUBAREACODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_LHWCODE,
                 EnrolledContract.EnrollTable.COLUMN_NAME_HOUSEHOLD,
@@ -962,6 +976,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public void syncUser(JSONArray userlist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = userlist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+
+                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
+
+                UsersContract user = new UsersContract();
+                user.Sync(jsonObjectUser);
+                ContentValues values = new ContentValues();
+
+                values.put(UsersContract.singleUser.ROW_USERNAME, user.getUserName());
+                values.put(UsersContract.singleUser.ROW_PASSWORD, user.getPassword());
+                db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncUsers(e): " + e);
+        } finally {
+            db.close();
+        }
+    }
+
+
     public int updateSE() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1009,6 +1050,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, MainApp.fc.getEndingDateTime());
 
 // Which row to update, based on the ID
         String selection = " _ID = " + MainApp.fc.get_ID();

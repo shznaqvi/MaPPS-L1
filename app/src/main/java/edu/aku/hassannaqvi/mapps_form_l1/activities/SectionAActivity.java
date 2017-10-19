@@ -350,7 +350,8 @@ public class SectionAActivity extends Activity {
         MainApp.fc.setClustercode(MainApp.curCluster);
         MainApp.fc.setLhwCode(LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
         MainApp.fc.setHousehold(mpl1a001.getText().toString());
-        MainApp.fc.setSno(mpl1a003.getText().toString());
+        MainApp.fc.setSno(ParticipantsMap.get(mpl1a002.getSelectedItem()).getSno());
+        MainApp.fc.setLUID(ParticipantsMap.get(mpl1a002.getSelectedItem()).getLUID());
 
         JSONObject sa = new JSONObject();
 
@@ -362,6 +363,7 @@ public class SectionAActivity extends Activity {
         sa.put("mpl1a006", mpl1a006.getText().toString());
         //sa.put("mpl1a008a", mpl1a008a.getText().toString());
         sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
+        sa.put("appver", MainApp.versionName + "." + MainApp.versionCode);
 
         setGPS();
 

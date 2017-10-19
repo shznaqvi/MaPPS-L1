@@ -1,10 +1,31 @@
 package edu.aku.hassannaqvi.mapps_form_l1.get;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.UsersContract;
+import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
+import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
+
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class GetUsers {/*extends AsyncTask<String, String, String> {
+public class GetUsers extends AsyncTask<String, String, String>
+{
 
     private final String TAG = "GetUsers()";
     HttpURLConnection urlConnection;
@@ -31,7 +52,8 @@ public class GetUsers {/*extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(MainApp._HOST_URL + singleUser._URI);
+
+            URL url = new URL(MainApp._HOST_URL + UsersContract.singleUser._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -82,5 +104,5 @@ public class GetUsers {/*extends AsyncTask<String, String, String> {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();
         }
-    }*/
+    }
 }

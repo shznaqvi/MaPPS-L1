@@ -3,11 +3,14 @@ package edu.aku.hassannaqvi.mapps_form_l1.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONException;
+
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,6 +87,7 @@ public class EndingActivity extends Activity {
 
 
         MainApp.fc.setIstatus(istatus01.isChecked() ? "1" : istatus02.isChecked() ? "2" : istatus03.isChecked() ? "3" : istatus04.isChecked() ? "4" : istatus05.isChecked() ? "5" : "0");
+        MainApp.fc.setEndingDateTime((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
