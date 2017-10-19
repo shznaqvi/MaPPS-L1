@@ -31,14 +31,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,9 +45,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -59,11 +53,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
 import edu.aku.hassannaqvi.mapps_form_l1.get.GetClusters;
 import edu.aku.hassannaqvi.mapps_form_l1.get.GetLHWs;
+import edu.aku.hassannaqvi.mapps_form_l1.get.GetUsers;
 
 
 /**
@@ -536,8 +530,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 public void run() {
                     Toast.makeText(getApplicationContext(), "Getting Clusters", Toast.LENGTH_SHORT).show();
                     new GetClusters(mContext).execute();
-                    /*Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
-                    new GetUsers(mContext).execute();*/
+                    Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+                    new GetUsers(mContext).execute();
                     Toast.makeText(getApplicationContext(), "Getting LHW's", Toast.LENGTH_SHORT).show();
                     new GetLHWs(mContext).execute();
                 }

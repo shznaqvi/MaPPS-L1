@@ -363,6 +363,7 @@ public class SectionAActivity extends Activity {
         sa.put("mpl1a006", mpl1a006.getText().toString());
         //sa.put("mpl1a008a", mpl1a008a.getText().toString());
         sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
+        sa.put("appver", MainApp.versionName + "." + MainApp.versionCode);
 
         setGPS();
 

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -227,6 +228,23 @@ public class MainApp extends Application {
 
 //        Initialize Dead Member List
 //        deadMembers = new ArrayList<String>();
+
+        try {
+            installedOn = this
+                    .getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .lastUpdateTime;
+            versionCode = this
+                    .getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .versionCode;
+            versionName = this
+                    .getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 

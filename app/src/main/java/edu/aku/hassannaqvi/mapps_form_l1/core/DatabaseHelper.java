@@ -976,6 +976,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public void syncUser(JSONArray userlist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = userlist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+
+                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
+
+                UsersContract user = new UsersContract();
+                user.Sync(jsonObjectUser);
+                ContentValues values = new ContentValues();
+
+                values.put(UsersContract.singleUser.ROW_USERNAME, user.getUserName());
+                values.put(UsersContract.singleUser.ROW_PASSWORD, user.getPassword());
+                db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncUsers(e): " + e);
+        } finally {
+            db.close();
+        }
+    }
+
+
     public int updateSE() {
         SQLiteDatabase db = this.getReadableDatabase();
 
