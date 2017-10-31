@@ -377,11 +377,11 @@ public class SectionFActivity extends Activity {
                 mpl1d005.setError(null);
             }
 
-            if (Integer.valueOf(mpl1d005.getText().toString().isEmpty() ? "0" : mpl1d005.getText().toString()) == 0) {
+            if (Integer.valueOf(mpl1d005.getText().toString().isEmpty() ? "0" : mpl1d005.getText().toString()) > 100) {
                 Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1d005), Toast.LENGTH_SHORT).show();
-                mpl1d005.setError("Invalid: Data cannot be Zero");
+                mpl1d005.setError("Invalid: Range is 0 to 100");
                 mpl1d005.requestFocus();
-                Log.i(TAG, "mpl1d005: Invalid data is 0");
+                Log.i(TAG, "mpl1d005: Range is 0 to 100");
                 return false;
             } else {
                 mpl1d005.setError(null);

@@ -199,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mpl1c005"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="3"/>
 
                 </LinearLayout>
 

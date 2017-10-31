@@ -488,11 +488,11 @@ public class SectionEActivity extends Activity {
                     mpl1c003.setError(null);
                 }
 
-                if (Integer.valueOf(mpl1c003.getText().toString().isEmpty() ? "0" : mpl1c003.getText().toString()) == 0) {
+                if (Integer.valueOf(mpl1c003.getText().toString().isEmpty() ? "0" : mpl1c003.getText().toString()) > 99) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1c003), Toast.LENGTH_SHORT).show();
-                    mpl1c003.setError("Invalid: Data cannot be Zero");
+                    mpl1c003.setError("Invalid: Range is 0 to 99");
                     mpl1c003.requestFocus();
-                    Log.i(TAG, "mpl1c003: Invalid data is 0");
+                    Log.i(TAG, "mpl1c003: Range is 0 to 99");
                     return false;
                 } else {
                     mpl1c003.setError(null);
@@ -523,11 +523,11 @@ public class SectionEActivity extends Activity {
                         mpl1c005.setError(null);
                     }
 
-                    if (Integer.valueOf(mpl1c005.getText().toString().isEmpty() ? "0" : mpl1c005.getText().toString()) == 0) {
+                    if (Integer.valueOf(mpl1c005.getText().toString().isEmpty() ? "0" : mpl1c005.getText().toString()) > 100) {
                         Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1c005), Toast.LENGTH_SHORT).show();
-                        mpl1c005.setError("Invalid: Data cannot be Zero");
+                        mpl1c005.setError("Invalid: Range is 0 to 100");
                         mpl1c005.requestFocus();
-                        Log.i(TAG, "mpl1c005: Invalid data is 0");
+                        Log.i(TAG, "mpl1c005: Range is 0 to 100");
                         return false;
                     } else {
                         mpl1c005.setError(null);
