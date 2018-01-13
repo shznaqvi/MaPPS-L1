@@ -79,6 +79,8 @@ public class SectionAActivity extends Activity {
     RadioButton mpl1a009b;
     @BindView(R.id.mpl1a009c)
     RadioButton mpl1a009c;
+    @BindView(R.id.mpl1a009d)
+    RadioButton mpl1a009d;
     @BindView(R.id.mpl1aLHWs)
     Spinner mpl1aLHWs;
     @BindView(R.id.fldGrpmpl1a002)
@@ -362,7 +364,8 @@ public class SectionAActivity extends Activity {
         sa.put("mpl1a005", mpl1a005.getText().toString());
         sa.put("mpl1a006", mpl1a006.getText().toString());
         //sa.put("mpl1a008a", mpl1a008a.getText().toString());
-        sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" : "0");
+        sa.put("mpl1a009", mpl1a009a.isChecked() ? "1" : mpl1a009b.isChecked() ? "2" : mpl1a009c.isChecked() ? "3" :
+                mpl1a009d.isChecked() ? "4" : "0");
         sa.put("appver", MainApp.versionName + "." + MainApp.versionCode);
 
         setGPS();
@@ -523,15 +526,15 @@ public class SectionAActivity extends Activity {
         //=================== mpl1a009 ==============
         if (mpl1a009.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a009), Toast.LENGTH_SHORT).show();
-            mpl1a009c.setError("This data is Required!");
-            mpl1a009c.setFocusableInTouchMode(true);
-            mpl1a009c.setFocusable(true);
-            mpl1a009c.requestFocus();
+            mpl1a009a.setError("This data is Required!");
+            mpl1a009a.setFocusableInTouchMode(true);
+            mpl1a009a.setFocusable(true);
+            mpl1a009a.requestFocus();
 
             Log.i(TAG, "mpl1a009: This Data is Required!");
             return false;
         } else {
-            mpl1a009c.setError(null);
+            mpl1a009a.setError(null);
         }
 
 

@@ -71,8 +71,8 @@ public class UsersContract {
     public UsersContract Sync(JSONObject jsonObject) throws JSONException {
         this.ROW_USERNAME = jsonObject.getString(singleUser.ROW_USERNAME);
         this.ROW_PASSWORD = jsonObject.getString(singleUser.ROW_PASSWORD);
-        this.FULL_NAME = jsonObject.getString(singleUser.FULL_NAME);
-        this.REGION_DSS = jsonObject.getString(singleUser.REGION_DSS);
+        //this.FULL_NAME = jsonObject.getString(singleUser.FULL_NAME);
+        //this.REGION_DSS = jsonObject.getString(singleUser.REGION_DSS);
         return this;
 
     }
@@ -81,8 +81,8 @@ public class UsersContract {
         this._ID = cursor.getLong(cursor.getColumnIndex(singleUser._ID));
         this.ROW_USERNAME = cursor.getString(cursor.getColumnIndex(singleUser.ROW_USERNAME));
         this.ROW_PASSWORD = cursor.getString(cursor.getColumnIndex(singleUser.ROW_PASSWORD));
-        this.FULL_NAME = cursor.getString(cursor.getColumnIndex(singleUser.FULL_NAME));
-        this.REGION_DSS = cursor.getString(cursor.getColumnIndex(singleUser.REGION_DSS));
+        //this.FULL_NAME = cursor.getString(cursor.getColumnIndex(singleUser.FULL_NAME));
+        //this.REGION_DSS = cursor.getString(cursor.getColumnIndex(singleUser.REGION_DSS));
         return this;
 
     }
@@ -94,8 +94,8 @@ public class UsersContract {
         json.put(singleUser._ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(singleUser.ROW_USERNAME, this.ROW_USERNAME == null ? JSONObject.NULL : this.ROW_USERNAME);
         json.put(singleUser.ROW_PASSWORD, this.ROW_PASSWORD == null ? JSONObject.NULL : this.ROW_PASSWORD);
-        json.put(singleUser.FULL_NAME, this.FULL_NAME == null ? JSONObject.NULL : this.FULL_NAME);
-        json.put(singleUser.REGION_DSS, this.REGION_DSS == null ? JSONObject.NULL : this.REGION_DSS);
+        //json.put(singleUser.FULL_NAME, this.FULL_NAME == null ? JSONObject.NULL : this.FULL_NAME);
+        //json.put(singleUser.REGION_DSS, this.REGION_DSS == null ? JSONObject.NULL : this.REGION_DSS);
         return json;
     }
 
