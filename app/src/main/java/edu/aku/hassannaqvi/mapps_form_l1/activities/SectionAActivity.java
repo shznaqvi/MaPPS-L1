@@ -49,6 +49,32 @@ public class SectionAActivity extends Activity {
     EditText mpl1a001;
     @BindView(R.id.mpl1a003)
     EditText mpl1a003;
+    @BindView(R.id.mpl1a00301)
+    RadioGroup mpl1a00301;
+    @BindView(R.id.mpl1a00301a)
+    RadioButton mpl1a00301a;
+    @BindView(R.id.mpl1a00301b)
+    RadioButton mpl1a00301b;
+    @BindView(R.id.mpl1a00301c)
+    RadioButton mpl1a00301c;
+    @BindView(R.id.mpl1a00301d)
+    RadioButton mpl1a00301d;
+    @BindView(R.id.mpl1a00301e)
+    RadioButton mpl1a00301e;
+    @BindView(R.id.mpl1a00301f)
+    RadioButton mpl1a00301f;
+    @BindView(R.id.mpl1a00301g)
+    RadioButton mpl1a00301g;
+    @BindView(R.id.mpl1a00301h)
+    RadioButton mpl1a00301h;
+    @BindView(R.id.mpl1a00301i)
+    RadioButton mpl1a00301i;
+    @BindView(R.id.mpl1a00301j)
+    RadioButton mpl1a00301j;
+    @BindView(R.id.mpl1a00301k)
+    RadioButton mpl1a00301k;
+    @BindView(R.id.mpl1a00301l)
+    RadioButton mpl1a00301l;
     @BindView(R.id.mpl1a002)
     Spinner mpl1a002;
     @BindView(R.id.mpl1a004)
@@ -360,6 +386,19 @@ public class SectionAActivity extends Activity {
         sa.put("mpl1a001", mpl1a001.getText().toString());
         sa.put("mpl1a002", mpl1a002.getSelectedItem().toString());
         sa.put("mpl1a003", mpl1a003.getText().toString());
+        sa.put("mpl1a00301", mpl1a00301a.isChecked() ? "1"
+                : mpl1a00301b.isChecked() ? "2"
+                : mpl1a00301c.isChecked() ? "3"
+                : mpl1a00301d.isChecked() ? "4"
+                : mpl1a00301e.isChecked() ? "5"
+                : mpl1a00301f.isChecked() ? "6"
+                : mpl1a00301g.isChecked() ? "7"
+                : mpl1a00301h.isChecked() ? "8"
+                : mpl1a00301i.isChecked() ? "9"
+                : mpl1a00301j.isChecked() ? "10"
+                : mpl1a00301k.isChecked() ? "11"
+                : mpl1a00301l.isChecked() ? "12" : "0");
+
         sa.put("mpl1a004", mpl1a004a.isChecked() ? "1" : mpl1a004b.isChecked() ? "2" : mpl1a004c.isChecked() ? "3" : "0");
         sa.put("mpl1a005", mpl1a005.getText().toString());
         sa.put("mpl1a006", mpl1a006.getText().toString());
@@ -444,6 +483,19 @@ public class SectionAActivity extends Activity {
         } else {
             mpl1a002.setError(null);
         }*/
+
+        if (mpl1a00301.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a00301), Toast.LENGTH_SHORT).show();
+            mpl1a00301a.setError("This data is Required!");
+
+            mpl1a00301a.setFocusableInTouchMode(true);
+            mpl1a00301a.setFocusable(true);
+            mpl1a00301a.requestFocus();
+            Log.i(TAG, "mpl1a00301: This Data is Required!");
+            return false;
+        } else {
+            mpl1a00301a.setError(null);
+        }
 
         //=================== mpl1a004 ==============
         if (mpl1a004.getCheckedRadioButtonId() == -1) {

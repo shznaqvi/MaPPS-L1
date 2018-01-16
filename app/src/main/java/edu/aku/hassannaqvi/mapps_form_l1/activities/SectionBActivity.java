@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -231,6 +233,40 @@ public class SectionBActivity extends Activity {
     @BindView(R.id.mpl1ba007ob)
     RadioButton mpl1ba007ob;
 
+    @BindView(R.id.mpl1ba007p)
+    RadioGroup mpl1ba007p;
+    @BindView(R.id.mpl1ba007pa)
+    RadioButton mpl1ba007pa;
+    @BindView(R.id.mpl1ba007pb)
+    RadioButton mpl1ba007pb;
+
+    @BindView(R.id.mpl1ba007q)
+    RadioGroup mpl1ba007q;
+    @BindView(R.id.mpl1ba007qa)
+    RadioButton mpl1ba007qa;
+    @BindView(R.id.mpl1ba007qb)
+    RadioButton mpl1ba007qb;
+
+    @BindView(R.id.mpl1ba007r)
+    RadioGroup mpl1ba007r;
+    @BindView(R.id.mpl1ba007ra)
+    RadioButton mpl1ba007ra;
+    @BindView(R.id.mpl1ba007rb)
+    RadioButton mpl1ba007rb;
+
+    @BindView(R.id.mpl1ba007s)
+    RadioGroup mpl1ba007s;
+    @BindView(R.id.mpl1ba007sa)
+    RadioButton mpl1ba007sa;
+    @BindView(R.id.mpl1ba007sb)
+    RadioButton mpl1ba007sb;
+    @BindView(R.id.mpl1ba007sx)
+    EditText mpl1ba007sx;
+
+
+
+
+
     @BindView(R.id.fldGrp001)
     LinearLayout fldGrp001;
     @BindView(R.id.fldGrp003)
@@ -281,6 +317,18 @@ public class SectionBActivity extends Activity {
                 } else {
                     fldGrp004.setVisibility(View.GONE);
                     mpl1ba005.clearCheck();
+                }
+            }
+        });
+
+        mpl1ba007sa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mpl1ba007sx.setVisibility(View.VISIBLE);
+                } else {
+                    mpl1ba007sx.setVisibility(View.GONE);
+                    mpl1ba007sx.setText(null);
                 }
             }
         });
@@ -389,6 +437,11 @@ public class SectionBActivity extends Activity {
         sb.put("mpl1ba007m", mpl1ba007ma.isChecked() ? "1" : mpl1ba007mb.isChecked() ? "2" : "0");
         sb.put("mpl1ba007n", mpl1ba007na.isChecked() ? "1" : mpl1ba007nb.isChecked() ? "2" : "0");
         sb.put("mpl1ba007o", mpl1ba007oa.isChecked() ? "1" : mpl1ba007ob.isChecked() ? "2" : "0");
+        sb.put("mpl1ba007p", mpl1ba007pa.isChecked() ? "1" : mpl1ba007pb.isChecked() ? "2" : "0");
+        sb.put("mpl1ba007q", mpl1ba007qa.isChecked() ? "1" : mpl1ba007qb.isChecked() ? "2" : "0");
+        sb.put("mpl1ba007r", mpl1ba007ra.isChecked() ? "1" : mpl1ba007rb.isChecked() ? "2" : "0");
+        sb.put("mpl1ba007s", mpl1ba007sa.isChecked() ? "1" : mpl1ba007sb.isChecked() ? "2" : "0");
+        sb.put("mpl1ba007sx", mpl1ba007sx.getText().toString());
 
 
         MainApp.fc.setsB(String.valueOf(sb));
@@ -830,6 +883,68 @@ public class SectionBActivity extends Activity {
             return false;
         } else {
             mpl1ba007ob.setError(null);
+        }
+
+        if (mpl1ba007p.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba007p), Toast.LENGTH_SHORT).show();
+            mpl1ba007pb.setError("This data is Required!");
+            mpl1ba007pb.setFocusableInTouchMode(true);
+            mpl1ba007pb.setFocusable(true);
+            mpl1ba007pb.requestFocus();
+            Log.i(TAG, "mpl1ba007o: This Data is Required!");
+            return false;
+        } else {
+            mpl1ba007pb.setError(null);
+        }
+
+        if (mpl1ba007q.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba007q), Toast.LENGTH_SHORT).show();
+            mpl1ba007qb.setError("This data is Required!");
+            mpl1ba007qb.setFocusableInTouchMode(true);
+            mpl1ba007qb.setFocusable(true);
+            mpl1ba007qb.requestFocus();
+            Log.i(TAG, "mpl1ba007o: This Data is Required!");
+            return false;
+        } else {
+            mpl1ba007qb.setError(null);
+        }
+
+        if (mpl1ba007r.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba007r), Toast.LENGTH_SHORT).show();
+            mpl1ba007rb.setError("This data is Required!");
+            mpl1ba007rb.setFocusableInTouchMode(true);
+            mpl1ba007rb.setFocusable(true);
+            mpl1ba007rb.requestFocus();
+            Log.i(TAG, "mpl1ba007r: This Data is Required!");
+            return false;
+        } else {
+            mpl1ba007rb.setError(null);
+        }
+
+        if (mpl1ba007s.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba007s), Toast.LENGTH_SHORT).show();
+            mpl1ba007sb.setError("This data is Required!");
+            mpl1ba007sb.setFocusableInTouchMode(true);
+            mpl1ba007sb.setFocusable(true);
+            mpl1ba007sb.requestFocus();
+            Log.i(TAG, "mpl1ba007s: This Data is Required!");
+            return false;
+        } else {
+            mpl1ba007sb.setError(null);
+        }
+
+        if (mpl1ba007sa.isChecked()) {
+
+            if (mpl1ba007sx.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1ba007s), Toast.LENGTH_SHORT).show();
+                mpl1ba007sx.setError("This data is Required!");
+
+                mpl1ba007sx.requestFocus();
+                Log.i(TAG, "mpl1ba007sx: This Data is Required!");
+                return false;
+            } else {
+                mpl1ba007sx.setError(null);
+            }
         }
 
         return true;
