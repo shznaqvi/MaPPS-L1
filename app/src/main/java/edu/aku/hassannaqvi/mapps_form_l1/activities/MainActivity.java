@@ -37,6 +37,7 @@ import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
@@ -57,6 +58,8 @@ public class MainActivity extends Activity {
 
     @BindView(R.id.spClusters)
     Spinner spClusters;
+    @BindView(R.id.mpl1aLHWs)
+    Spinner mpl1aLHWs;
 
     @BindView(R.id.syncDevice)
     Button syncDevice;
@@ -64,14 +67,14 @@ public class MainActivity extends Activity {
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
     String m_Text = "";
-    private ProgressDialog pd;
-    private Boolean exit = false;
-    private String rSumText = "";
-
-
     DatabaseHelper db;
     List<String> clustersName;
     HashMap<String, String> cluster;
+    List<String> LHWsName;
+    HashMap<String, String> LHWs;
+    private ProgressDialog pd;
+    private Boolean exit = false;
+    private String rSumText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,7 +195,12 @@ public class MainActivity extends Activity {
 
         fillSpinners(this);
 
+
+        //pl1aLHWs.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, MainApp.LHWsName));
+
+
     }
+
 
     public void fillSpinners(Context mContext) {
         Collection<ClustersContract> clusterCollection = db.getAllClusters();
@@ -200,6 +208,9 @@ public class MainActivity extends Activity {
         clustersName = new ArrayList<>();
 
         cluster = new HashMap<>();
+
+        LHWsName = new ArrayList<>();
+        LHWs = new HashMap<>();
 
         if (clusterCollection.size() != 0) {
             for (ClustersContract c : clusterCollection) {
@@ -220,10 +231,18 @@ public class MainActivity extends Activity {
 
                     //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
                     MainApp.curCluster = cluster.get(spClusters.getSelectedItem().toString());
-
                     Log.d("Selected Cluster", MainApp.curCluster);
 
+                    Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(MainApp.curCluster);
+                    for (LHWsContract lhws : collectionLHWs) {
+                        LHWsName.add(lhws.getLhwName());
+                        LHWs.put(lhws.getLhwName(), lhws.getLhwId());
+                    }
 
+                    ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getBaseContext(),
+                            android.R.layout.simple_dropdown_item_1line, LHWsName);
+
+                    mpl1aLHWs.setAdapter(dataAdapter2);
                 }
 
                 @Override
@@ -231,7 +250,24 @@ public class MainActivity extends Activity {
 
                 }
             });
+
+
         }
+
+        mpl1aLHWs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
+                Log.d("Selected LHWs", LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
+                MainApp.selectedLhw = LHWs.get(mpl1aLHWs.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public void openForm(View v) {

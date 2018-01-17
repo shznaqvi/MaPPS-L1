@@ -34,13 +34,15 @@ public class EndingActivity extends Activity {
     @BindView(R.id.istatus05)
     RadioButton istatus05;
 
+    Boolean check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
-        Boolean check = getIntent().getExtras().getBoolean("complete");
+        check = getIntent().getExtras().getBoolean("complete");
 
         if (check || MainApp.endFlag) {
             istatus01.setEnabled(true);
@@ -72,11 +74,32 @@ public class EndingActivity extends Activity {
 
                 MainApp.partiFlag = 0;
 
-                finish();
-                Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, MainActivity.class);
-                endSec.putExtra("complete", false);
-                startActivity(endSec);
+                if (MainApp.wmCount < MainApp.totalWmCount && check) {
+                    finish();
+
+                    MainApp.wmCount++;
+                    MainApp.ParticipantsMap.remove(MainApp.position);
+                    MainApp.ParticipantsName.remove(MainApp.position);
+                    MainApp.checked = true;
+                    Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+                    Intent endSec = new Intent(this, SectionAActivity.class);
+                    endSec.putExtra("complete", false);
+                    startActivity(endSec);
+                } else {
+                    MainApp.wmCount = 1;
+                    MainApp.totalWmCount = 0;
+                    MainApp.ParticipantsName.clear();
+                    MainApp.ParticipantsMap.clear();
+                    MainApp.Eparticipant.clear();
+                    MainApp.flag = true;
+                    MainApp.checked = false;
+                    Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+                    Intent endSec = new Intent(this, MainActivity.class);
+                    endSec.putExtra("complete", false);
+                    startActivity(endSec);
+                }
+
+
             }
         }
     }

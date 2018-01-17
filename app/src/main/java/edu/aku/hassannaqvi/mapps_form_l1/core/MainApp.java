@@ -86,10 +86,20 @@ public class MainApp extends Application {
     public static long installedOn;
     public static Integer versionCode;
     public static String versionName;
-    public static ArrayList<EnrolledContract> Eparticipant;
+    public static ArrayList<EnrolledContract> Eparticipant = new ArrayList<>();
+
     // Gul Sanober
     public static List<String> ParticipantsName = new ArrayList<>();
     public static HashMap<String, EnrolledContract> ParticipantsMap = new HashMap<>();
+    public static int position = 0;
+    public static int wmCount = 1;
+    public static int totalWmCount = 0;
+    public static boolean flag = true;
+    public static boolean checked = false;
+    /*public static List<String> LHWsName = new ArrayList<>();
+    public static HashMap<String, String> LHWs = new HashMap<>();*/
+    public static String selectedLhw;
+    public static String hhno = "";
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;
