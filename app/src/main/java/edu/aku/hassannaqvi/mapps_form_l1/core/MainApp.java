@@ -18,6 +18,8 @@ import android.text.format.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import edu.aku.hassannaqvi.mapps_form_l1.activities.EndingActivity;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
@@ -85,6 +87,9 @@ public class MainApp extends Application {
     public static Integer versionCode;
     public static String versionName;
     public static ArrayList<EnrolledContract> Eparticipant;
+    // Gul Sanober
+    public static List<String> ParticipantsName = new ArrayList<>();
+    public static HashMap<String, EnrolledContract> ParticipantsMap = new HashMap<>();
     protected LocationManager locationManager;
     //    Login Members Array
     Location location;

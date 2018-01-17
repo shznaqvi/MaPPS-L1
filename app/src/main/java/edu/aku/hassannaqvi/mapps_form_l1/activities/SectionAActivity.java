@@ -116,18 +116,32 @@ public class SectionAActivity extends Activity {
     DatabaseHelper db;
     HashMap<String, String> LHWs;
 
-    List<String> ParticipantsName;
-    HashMap<String, EnrolledContract> ParticipantsMap;
+    /*List<String> ParticipantsName;
+    HashMap<String, EnrolledContract> ParticipantsMap;*/
     Boolean flag = false;
     Boolean checked = false;
 
     Collection<EnrolledContract> Econtract;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
+
+       /* MainApp.ParticipantsName = new ArrayList<>();
+
+        MainApp.ParticipantsMap = new HashMap<>();*/
+
+        MainApp.ParticipantsName.add("Select Participant..");
+
+        for (byte i = 0; i < MainApp.Eparticipant.size(); i++) {
+            MainApp.ParticipantsMap.put(MainApp.Eparticipant.get(i).getWomen_name(), new EnrolledContract(MainApp.Eparticipant.get(i)));
+            MainApp.ParticipantsName.add(MainApp.Eparticipant.get(i).getWomen_name());
+        }
+
+
 
 
         mpl1a004c.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -213,7 +227,7 @@ public class SectionAActivity extends Activity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (mpl1a002.getSelectedItemPosition()!=0){
 
-                    mpl1a003.setText(ParticipantsMap.get(mpl1a002.getSelectedItem().toString())
+                    mpl1a003.setText(MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem().toString())
                             .getLUID());
 
                 }else {
@@ -239,12 +253,6 @@ public class SectionAActivity extends Activity {
 
             mpl1a001.setError(null);
 
-            ParticipantsName = new ArrayList<>();
-
-            ParticipantsMap = new HashMap<>();
-
-            ParticipantsName.add("Select Participant..");
-
             Econtract = db.getEnrollByHousehold(MainApp.curCluster, LHWs.get(mpl1aLHWs.getSelectedItem().toString()), mpl1a001.getText().toString());
 
             Toast.makeText(this,"Eligible Women found = " + Econtract.size(),Toast.LENGTH_SHORT).show();
@@ -255,8 +263,8 @@ public class SectionAActivity extends Activity {
 
                 for (EnrolledContract ec : Econtract) {
 
-                    ParticipantsName.add(ec.getWomen_name().toUpperCase());
-                    ParticipantsMap.put(ec.getWomen_name().toUpperCase(),new EnrolledContract(ec));
+                    MainApp.ParticipantsName.add(ec.getWomen_name().toUpperCase());
+                    MainApp.ParticipantsMap.put(ec.getWomen_name().toUpperCase(), new EnrolledContract(ec));
 
                     MainApp.Eparticipant.add(new EnrolledContract(ec));
                 }
@@ -267,7 +275,7 @@ public class SectionAActivity extends Activity {
 
                 flag = true;
 
-                mpl1a002.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,ParticipantsName));
+                mpl1a002.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, MainApp.ParticipantsName));
 
 
             } else {
@@ -378,8 +386,8 @@ public class SectionAActivity extends Activity {
         MainApp.fc.setClustercode(MainApp.curCluster);
         MainApp.fc.setLhwCode(LHWs.get(mpl1aLHWs.getSelectedItem().toString()));
         MainApp.fc.setHousehold(mpl1a001.getText().toString());
-        MainApp.fc.setSno(ParticipantsMap.get(mpl1a002.getSelectedItem()).getSno());
-        MainApp.fc.setLUID(ParticipantsMap.get(mpl1a002.getSelectedItem()).getLUID());
+        MainApp.fc.setSno(MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getSno());
+        MainApp.fc.setLUID(MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getLUID());
 
         JSONObject sa = new JSONObject();
 
