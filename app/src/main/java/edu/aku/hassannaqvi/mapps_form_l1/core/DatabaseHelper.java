@@ -20,6 +20,7 @@ import java.util.List;
 
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.ClustersContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.LHWsContract;
@@ -42,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.REGION_DSS + " TEXT );";
     public static final String DATABASE_NAME = "mapps_l2.db";
     public static final String DB_NAME = "mapps_l2_copy.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -103,6 +104,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ClustersContract.ClustersTable.COLUMN_CLUSTERCODE + " TEXT" +
             " );";
 
+    private static final String SQL_CREATE_FOLLOWUP = "CREATE TABLE "
+            + FollowupsContract.followupTable.TABLE_NAME + "(" +
+            FollowupsContract.followupTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            FollowupsContract.followupTable.COLUMN_PUID + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_LUID + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_CLUSTERCODE + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_LHWCODE + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_HOUSEHOLD + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_SNO + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_FUPDT + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_FUPROUND + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_EPNAME + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_PHASETYPE + " TEXT," +
+            FollowupsContract.followupTable.COLUMN_SYNCED + " TEXT,"
+            + FollowupsContract.followupTable.COLUMN_SYNCED_DATE + " TEXT" +
+
+            " );";
+
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
@@ -138,18 +157,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ENROLL);
         db.execSQL(SQL_CREATE_LHWS);
         db.execSQL(SQL_CREATE_CLUSTERS);
+        db.execSQL(SQL_CREATE_FOLLOWUP);
 
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL(SQL_DELETE_USERS);
+
+        switch (i) {
+            case 1:
+                db.execSQL(SQL_CREATE_FOLLOWUP);
+            /*case 2:
+                db.execSQL(SQL_CREATE_ELIGIBLES1);*/
+
+        }
+
+       /* db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_ENROLL);
         db.execSQL(SQL_DELETE_LHWS);
         db.execSQL(SQL_DELETE_CLUSTERS);
-
+*/
     }
 
     public void syncClusters(JSONArray Clusterslist) {
@@ -206,6 +235,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+    public void syncFollowups(JSONArray eligibleslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(FollowupsContract.followupTable.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = eligibleslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectEC = jsonArray.getJSONObject(i);
+
+                FollowupsContract fc = new FollowupsContract();
+                fc.Sync(jsonObjectEC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(FollowupsContract.followupTable.COLUMN_PUID, fc.getPUID());
+                values.put(FollowupsContract.followupTable.COLUMN_LUID, fc.getLUID());
+                values.put(FollowupsContract.followupTable.COLUMN_CLUSTERCODE, fc.getClusterCode());
+                values.put(FollowupsContract.followupTable.COLUMN_LHWCODE, fc.getLhwCode());
+                values.put(FollowupsContract.followupTable.COLUMN_HOUSEHOLD, fc.getHousehold());
+                values.put(FollowupsContract.followupTable.COLUMN_SNO, fc.getSno());
+                values.put(FollowupsContract.followupTable.COLUMN_FUPDT, fc.getFupdt());
+                values.put(FollowupsContract.followupTable.COLUMN_FUPROUND, fc.getFupround());
+                values.put(FollowupsContract.followupTable.COLUMN_EPNAME, fc.getEpname());
+                values.put(FollowupsContract.followupTable.COLUMN_PHASETYPE, fc.getPhasetype());
+
+
+                db.insert(FollowupsContract.followupTable.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+        } finally {
+            db.close();
+        }
+    }
+
 
     public void syncEnroll(JSONArray eligibleslist) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -773,6 +838,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allCC;
     }
 
+    public Collection<FollowupsContract> getFollowupsByHousehold(String clusterCode, String lhwCode, String hhno) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FollowupsContract.followupTable.COLUMN_PUID,
+                FollowupsContract.followupTable.COLUMN_LUID,
+                FollowupsContract.followupTable.COLUMN_CLUSTERCODE,
+                FollowupsContract.followupTable.COLUMN_LHWCODE,
+                FollowupsContract.followupTable.COLUMN_HOUSEHOLD,
+                FollowupsContract.followupTable.COLUMN_SNO,
+                FollowupsContract.followupTable.COLUMN_FUPDT,
+                FollowupsContract.followupTable.COLUMN_FUPROUND,
+                FollowupsContract.followupTable.COLUMN_EPNAME,
+                FollowupsContract.followupTable.COLUMN_PHASETYPE
+
+        };
+
+        String whereClause = FollowupsContract.followupTable.COLUMN_CLUSTERCODE + " = ? AND " +
+                FollowupsContract.followupTable.COLUMN_LHWCODE + " = ? AND " +
+                FollowupsContract.followupTable.COLUMN_HOUSEHOLD + " = ?";
+        String[] whereArgs = new String[]{clusterCode, lhwCode, hhno};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FollowupsContract.followupTable.COLUMN_EPNAME + " ASC";
+
+        Collection<FollowupsContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FollowupsContract.followupTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FollowupsContract ec = new FollowupsContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
+
     public Collection<EnrolledContract> getEnrollByHousehold(String clusterCode, String lhwCode, String hhno) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -867,6 +986,111 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allEC;
     }
+
+
+    public Collection<FollowupsContract> getAllFollowups() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FollowupsContract.followupTable._ID,
+                FollowupsContract.followupTable.COLUMN_PUID,
+                FollowupsContract.followupTable.COLUMN_LUID,
+                FollowupsContract.followupTable.COLUMN_CLUSTERCODE,
+                FollowupsContract.followupTable.COLUMN_LHWCODE,
+                FollowupsContract.followupTable.COLUMN_HOUSEHOLD,
+                FollowupsContract.followupTable.COLUMN_SNO,
+                FollowupsContract.followupTable.COLUMN_FUPDT,
+                FollowupsContract.followupTable.COLUMN_FUPROUND,
+                FollowupsContract.followupTable.COLUMN_EPNAME,
+                FollowupsContract.followupTable.COLUMN_PHASETYPE
+
+        };
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FollowupsContract.followupTable._ID + " ASC";
+
+        Collection<FollowupsContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FollowupsContract.followupTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FollowupsContract fc = new FollowupsContract();
+                allEC.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
+    public Collection<FollowupsContract> getUnsyncedFollowups() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FollowupsContract.followupTable._ID,
+                FollowupsContract.followupTable.COLUMN_PUID,
+                FollowupsContract.followupTable.COLUMN_LUID,
+                FollowupsContract.followupTable.COLUMN_CLUSTERCODE,
+                FollowupsContract.followupTable.COLUMN_LHWCODE,
+                FollowupsContract.followupTable.COLUMN_HOUSEHOLD,
+                FollowupsContract.followupTable.COLUMN_SNO,
+                FollowupsContract.followupTable.COLUMN_FUPDT,
+                FollowupsContract.followupTable.COLUMN_FUPROUND,
+                FollowupsContract.followupTable.COLUMN_EPNAME,
+                FollowupsContract.followupTable.COLUMN_PHASETYPE
+        };
+
+        String whereClause = FollowupsContract.followupTable.COLUMN_SYNCED + " is null OR " + FollowupsContract.followupTable.COLUMN_SYNCED + " = ''";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FollowupsContract.followupTable._ID + " ASC";
+
+        Collection<FollowupsContract> allEC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FollowupsContract.followupTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FollowupsContract ec = new FollowupsContract();
+                allEC.add(ec.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEC;
+    }
+
 
     public Collection<EnrolledContract> getUnsyncedEnroll() {
         SQLiteDatabase db = this.getReadableDatabase();

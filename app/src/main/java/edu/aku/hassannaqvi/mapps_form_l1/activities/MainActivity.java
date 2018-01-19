@@ -41,7 +41,7 @@ import edu.aku.hassannaqvi.mapps_form_l1.contracts.LHWsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
-import edu.aku.hassannaqvi.mapps_form_l1.get.GetEnroll;
+import edu.aku.hassannaqvi.mapps_form_l1.get.GetFollowups;
 import edu.aku.hassannaqvi.mapps_form_l1.sync.SyncForms;
 
 public class MainActivity extends Activity {
@@ -447,8 +447,11 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Randomization
-            Toast.makeText(getApplicationContext(), "Getting Enrollomization", Toast.LENGTH_SHORT).show();
-            new GetEnroll(this).execute();
+            /*Toast.makeText(getApplicationContext(), "Getting Enrollomization", Toast.LENGTH_SHORT).show();
+            new GetEnroll(this).execute();*/
+
+            Toast.makeText(getApplicationContext(), "Getting Followups", Toast.LENGTH_SHORT).show();
+            new GetFollowups(this).execute();
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

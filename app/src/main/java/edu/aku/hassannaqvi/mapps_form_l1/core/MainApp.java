@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import edu.aku.hassannaqvi.mapps_form_l1.activities.EndingActivity;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
 
 /**
@@ -86,11 +86,11 @@ public class MainApp extends Application {
     public static long installedOn;
     public static Integer versionCode;
     public static String versionName;
-    public static ArrayList<EnrolledContract> Eparticipant = new ArrayList<>();
+    public static ArrayList<FollowupsContract> Eparticipant = new ArrayList<>();
 
     // Gul Sanober
     public static List<String> ParticipantsName = new ArrayList<>();
-    public static HashMap<String, EnrolledContract> ParticipantsMap = new HashMap<>();
+    public static HashMap<String, FollowupsContract> ParticipantsMap = new HashMap<>();
     public static int position = 0;
     public static int wmCount = 1;
     public static int totalWmCount = 0;

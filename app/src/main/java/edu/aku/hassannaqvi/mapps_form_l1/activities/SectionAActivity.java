@@ -33,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mapps_form_l1.R;
-import edu.aku.hassannaqvi.mapps_form_l1.contracts.EnrolledContract;
+import edu.aku.hassannaqvi.mapps_form_l1.contracts.FollowupsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.contracts.FormsContract;
 import edu.aku.hassannaqvi.mapps_form_l1.core.DatabaseHelper;
 import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
@@ -46,7 +46,7 @@ public class SectionAActivity extends Activity {
     EditText mpl1a001;
     @BindView(R.id.mpl1a003)
     EditText mpl1a003;
-    @BindView(R.id.mpl1a00301)
+    /*@BindView(R.id.mpl1a00301)
     RadioGroup mpl1a00301;
     @BindView(R.id.mpl1a00301a)
     RadioButton mpl1a00301a;
@@ -72,6 +72,7 @@ public class SectionAActivity extends Activity {
     RadioButton mpl1a00301k;
     @BindView(R.id.mpl1a00301l)
     RadioButton mpl1a00301l;
+    */
     @BindView(R.id.mpl1a002)
     Spinner mpl1a002;
     @BindView(R.id.mpl1a004)
@@ -121,7 +122,7 @@ public class SectionAActivity extends Activity {
     Boolean end = false;
     //Boolean checked = false;
 
-    Collection<EnrolledContract> Econtract;
+    Collection<FollowupsContract> Econtract;
 
 
     @Override
@@ -159,6 +160,24 @@ public class SectionAActivity extends Activity {
                 }
             }
         });
+
+        if (mpl1a002.getSelectedItemPosition() > 0) {
+            if (MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype().equals("p1")) {
+                mpl1a004a.setEnabled(true);
+                mpl1a004b.setEnabled(false);
+                mpl1a004c.setEnabled(false);
+            } else if (MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype().equals("p2")) {
+                mpl1a004a.setEnabled(false);
+                mpl1a004b.setEnabled(true);
+                mpl1a004c.setEnabled(true);
+            } else if (MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype().equals("p3")) {
+                mpl1a004a.setEnabled(false);
+                mpl1a004b.setEnabled(false);
+                mpl1a004c.setEnabled(true);
+            }
+        }
+
+
 
 //        Fill spinners
 
@@ -212,6 +231,20 @@ public class SectionAActivity extends Activity {
                             .getLUID());
                     MainApp.position = i;
 
+                    if (MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype().equals("p1")) {
+                        mpl1a004a.setEnabled(true);
+                        mpl1a004b.setEnabled(true);
+                        mpl1a004c.setEnabled(false);
+                    } else if (MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype().equals("p2")) {
+                        mpl1a004a.setEnabled(false);
+                        mpl1a004b.setEnabled(true);
+                        mpl1a004c.setEnabled(true);
+                    } else if (MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype().equals("p3")) {
+                        mpl1a004a.setEnabled(false);
+                        mpl1a004b.setEnabled(false);
+                        mpl1a004c.setEnabled(true);
+                    }
+
                 }else {
                     mpl1a003.setText(null);
                 }
@@ -238,7 +271,7 @@ public class SectionAActivity extends Activity {
 
             MainApp.ParticipantsName.add("Select Participant..");
 
-            Econtract = db.getEnrollByHousehold(MainApp.curCluster, MainApp.selectedLhw, mpl1a001.getText().toString());
+            Econtract = db.getFollowupsByHousehold(MainApp.curCluster, MainApp.selectedLhw, mpl1a001.getText().toString());
 
             Toast.makeText(this,"Eligible Women found = " + Econtract.size(),Toast.LENGTH_SHORT).show();
 
@@ -248,12 +281,12 @@ public class SectionAActivity extends Activity {
 
                 //MainApp.Eparticipant = new ArrayList<>();
 
-                for (EnrolledContract ec : Econtract) {
+                for (FollowupsContract ec : Econtract) {
 
-                    MainApp.ParticipantsName.add(ec.getWomen_name().toUpperCase());
-                    MainApp.ParticipantsMap.put(ec.getWomen_name().toUpperCase(), new EnrolledContract(ec));
+                    MainApp.ParticipantsName.add(ec.getEpname().toUpperCase());
+                    MainApp.ParticipantsMap.put(ec.getEpname().toUpperCase(), new FollowupsContract(ec));
 
-                    MainApp.Eparticipant.add(new EnrolledContract(ec));
+                    MainApp.Eparticipant.add(new FollowupsContract(ec));
                 }
 
                 Toast.makeText(this, "Participant Found", Toast.LENGTH_LONG).show();
@@ -369,6 +402,7 @@ public class SectionAActivity extends Activity {
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
         MainApp.fc = new FormsContract();
+        JSONObject sa = new JSONObject();
 
         MainApp.fc.setUser(MainApp.username);
         MainApp.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
@@ -383,14 +417,19 @@ public class SectionAActivity extends Activity {
         if (mpl1a002.getSelectedItemPosition() != 0) {
             MainApp.fc.setSno(MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getSno());
             MainApp.fc.setLUID(MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getLUID());
+            sa.put("puid", MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPUID());
+            sa.put("fupdt", MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getFupdt());
+            sa.put("mpl1a00301", MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getFupround());
+            sa.put("phasetype", MainApp.ParticipantsMap.get(mpl1a002.getSelectedItem()).getPhasetype());
+
         }
 
-        JSONObject sa = new JSONObject();
+
 
         sa.put("mpl1a001", mpl1a001.getText().toString());
         sa.put("mpl1a002", mpl1a002.getSelectedItem().toString());
         sa.put("mpl1a003", mpl1a003.getText().toString());
-        sa.put("mpl1a00301", mpl1a00301a.isChecked() ? "1"
+        /*sa.put("mpl1a00301", mpl1a00301a.isChecked() ? "1"
                 : mpl1a00301b.isChecked() ? "2"
                 : mpl1a00301c.isChecked() ? "3"
                 : mpl1a00301d.isChecked() ? "4"
@@ -401,7 +440,7 @@ public class SectionAActivity extends Activity {
                 : mpl1a00301i.isChecked() ? "9"
                 : mpl1a00301j.isChecked() ? "10"
                 : mpl1a00301k.isChecked() ? "11"
-                : mpl1a00301l.isChecked() ? "12" : "0");
+                : mpl1a00301l.isChecked() ? "12" : "0");*/
 
         sa.put("mpl1a004", mpl1a004a.isChecked() ? "1" : mpl1a004b.isChecked() ? "2" : mpl1a004c.isChecked() ? "3" : "0");
         sa.put("mpl1a005", mpl1a005.getText().toString());
@@ -490,7 +529,7 @@ public class SectionAActivity extends Activity {
             mpl1a002.setError(null);
         }*/
 
-        if (mpl1a00301.getCheckedRadioButtonId() == -1) {
+        /*if (mpl1a00301.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mpl1a00301), Toast.LENGTH_SHORT).show();
             mpl1a00301a.setError("This data is Required!");
 
@@ -501,7 +540,7 @@ public class SectionAActivity extends Activity {
             return false;
         } else {
             mpl1a00301a.setError(null);
-        }
+        }*/
 
         //=================== mpl1a004 ==============
         if (mpl1a004.getCheckedRadioButtonId() == -1) {
