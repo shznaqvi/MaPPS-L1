@@ -209,9 +209,6 @@ public class MainActivity extends Activity {
 
         cluster = new HashMap<>();
 
-        LHWsName = new ArrayList<>();
-        LHWs = new HashMap<>();
-
         if (clusterCollection.size() != 0) {
             for (ClustersContract c : clusterCollection) {
                 clustersName.add(c.getClusterName());
@@ -232,6 +229,9 @@ public class MainActivity extends Activity {
                     //((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimary));
                     MainApp.curCluster = cluster.get(spClusters.getSelectedItem().toString());
                     Log.d("Selected Cluster", MainApp.curCluster);
+
+                    LHWsName = new ArrayList<>();
+                    LHWs = new HashMap<>();
 
                     Collection<LHWsContract> collectionLHWs = db.getLHWsByCluster(MainApp.curCluster);
                     for (LHWsContract lhws : collectionLHWs) {
