@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mapps_form_l1.get;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
  * Created by sidra.nizam on 9/8/2017.
  */
 
-public class GetEnroll extends AsyncTask<Void, Void, String> {
+public class GetEnroll extends AsyncTask<Void, String, String> {
 
     private static final String TAG = "GetEnroll";
     private Context mContext;
@@ -58,7 +59,17 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
+        new CountDownTimer(4000000, 4000000) {
 
+            public void onTick(long millisUntilFinished) {
+                publishProgress(String.valueOf(millisUntilFinished / 1000));
+            }
+
+            public void onFinish() {
+                // publishProgress(String.valueOf(millisUntilFinished / 1000));
+
+            }
+        }.start();
         String line = "No Response";
         try {
             return downloadUrl(MainApp._HOST_URL + EnrolledContract.EnrollTable._URIGET);
@@ -94,6 +105,11 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
 
     }
 
+    @Override
+    protected void onProgressUpdate(String... values) {
+        pd.setMessage("seconds remaining: " + values);
+    }
+
     private String downloadUrl(String myurl) throws IOException {
         String line = "No Response";
 
@@ -108,8 +124,8 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
             URL url = new URL(myurl);
             Log.d(TAG, "downloadUrl: " + myurl);
             conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(35000 /* milliseconds */);
-            conn.setConnectTimeout(40000 /* milliseconds */);
+            conn.setReadTimeout(3500000 /* milliseconds */);
+            conn.setConnectTimeout(4000000 /* milliseconds */);
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -149,6 +165,7 @@ public class GetEnroll extends AsyncTask<Void, Void, String> {
 
                 while ((line = br.readLine()) != null) {
                     sb.append(line + "\n");
+                    publishProgress(String.valueOf(sb.length()));
                 }
                 br.close();
 

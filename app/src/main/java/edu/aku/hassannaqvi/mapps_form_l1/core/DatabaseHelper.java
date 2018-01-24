@@ -242,6 +242,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             JSONArray jsonArray = eligibleslist;
             for (int i = 0; i < jsonArray.length(); i++) {
+
+
                 JSONObject jsonObjectEC = jsonArray.getJSONObject(i);
 
                 FollowupsContract fc = new FollowupsContract();

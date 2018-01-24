@@ -28,7 +28,7 @@ import edu.aku.hassannaqvi.mapps_form_l1.core.MainApp;
  * Created by gul.sanober on 1/19/2018.
  */
 
-public class GetFollowups extends AsyncTask<Void, Void, String> {
+public class GetFollowups extends AsyncTask<Void, Integer, String> {
 
     private static final String TAG = "GetFollowups";
     private Context mContext;
@@ -58,7 +58,6 @@ public class GetFollowups extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-
         String line = "No Response";
         try {
             return downloadUrl(MainApp._HOST_URL + FollowupsContract.followupTable._URI);
@@ -94,6 +93,11 @@ public class GetFollowups extends AsyncTask<Void, Void, String> {
 
     }
 
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        pd.setMessage("Receiving... " + String.valueOf(values[0]));
+
+    }
     private String downloadUrl(String myurl) throws IOException {
         String line = "No Response";
 
@@ -148,7 +152,9 @@ public class GetFollowups extends AsyncTask<Void, Void, String> {
                 StringBuffer sb = new StringBuffer();
 
                 while ((line = br.readLine()) != null) {
+
                     sb.append(line + "\n");
+                    // publishProgress(sb.length());
                 }
                 br.close();
 
