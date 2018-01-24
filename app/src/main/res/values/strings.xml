@@ -45,6 +45,21 @@
   <string name="mpl1a"> نشاندهي </string>
   <string name="mpl1a001"> خاندان نمبر </string>
   <string name="mpl1a003"> شرڪت ڪندڙ جو شناخت نمبر </string>
+  <string name="mpl1a00301">فالو اپ نمبر  </string>
+  <string name="mpl1a00301a"> ٽي  مهينا    </string>
+  <string name="mpl1a00301b"> ڇهه  مهينا    </string>
+  <string name="mpl1a00301c"> نو  مهينا    </string>
+  <string name="mpl1a00301d">ٻارنهن مهينا    </string>
+  <string name="mpl1a00301e">پندرنهن مهينا    </string>
+  <string name="mpl1a00301f"> ارڙنهن  مهينا    </string>
+  <string name="mpl1a00301g">ايڪيهه مهينا    </string>
+  <string name="mpl1a00301h">چوويهه مهينا    </string>
+  <string name="mpl1a00301i">ستاويهه مهينا    </string>
+  <string name="mpl1a00301j">ٽيهه مهينا    </string>
+  <string name="mpl1a00301k">ٽيٽيهه مهينا    </string>
+  <string name="mpl1a00301l">ڇٽيهه مهينا    </string>
+
+
   <string name="mpl1a002"> شرڪت ڪندڙ جو نالو </string>
   <string name="mpl1a004"> شرڪت ڪندڙ تحقيق جي ڪهڙي مرحلي ۾ آهي؟ </string>
   <string name="mpl1a004a"> حمل کان پهرين </string>
@@ -104,6 +119,10 @@
   <string name="mpl1ba007m"> پيشاب جي تڪليف يا انفيڪشن </string>
   <string name="mpl1ba007n"> ڪنهن ٻي انفيڪشن جي ڪري اينٽيبايوٽڪ لڳرايو </string>
   <string name="mpl1ba007o"> پئيخاني واري جڳهه جي آسپاس نشان </string>
+  <string name="mpl1ba007p"> آنڊي ۾ ڪيڙا </string>
+  <string name="mpl1ba007q"> ٻچيداني مان بدبوء دار پاڻي جو اچڻ</string>
+  <string name="mpl1ba007r"> ڪينسر</string>
+  <string name="mpl1ba007s">  ٻي ڪا بيماري يا جراهيء واري حالت</string>
   <string name="mpl1bb"> حمل واري مرحلي ۾ بيماري جي جانچ </string>
   <string name="mpl1bb001"> آخري دوري کان وٺي ڇا توهان کي هيٺ ڏنل ڪا پيچيدگي ٿي هئي ؟ </string>
   <string name="mpl1bb001a"> پيٽ جو سور </string>
