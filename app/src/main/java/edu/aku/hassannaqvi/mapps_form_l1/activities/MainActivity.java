@@ -27,6 +27,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -237,6 +238,7 @@ public class MainActivity extends Activity {
                     for (LHWsContract lhws : collectionLHWs) {
                         LHWsName.add(lhws.getLhwName());
                         LHWs.put(lhws.getLhwName(), lhws.getLhwId());
+                        Collections.sort(LHWsName);
                     }
 
                     ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getBaseContext(),
