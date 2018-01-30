@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -61,6 +62,8 @@ public class MainActivity extends Activity {
     Spinner spClusters;
     @BindView(R.id.mpl1aLHWs)
     Spinner mpl1aLHWs;
+    @BindView(R.id.testing)
+    TextView testing;
 
     @BindView(R.id.syncDevice)
     Button syncDevice;
@@ -85,7 +88,9 @@ public class MainActivity extends Activity {
         ButterKnife.bind(this);
 
         lblheader.setText("Welcome! You're assigned to block ' " + " '" + MainApp.username);
-
+        if (Integer.valueOf(Arrays.toString(MainApp.versionName.split(".", 0))) < 1) {
+            testing.setVisibility(View.VISIBLE);
+        }
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
         } else {

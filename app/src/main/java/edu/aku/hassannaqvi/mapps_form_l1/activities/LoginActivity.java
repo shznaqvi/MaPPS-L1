@@ -45,6 +45,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -89,7 +90,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     TextView txtinstalldate;
     @BindView(R.id.email_sign_in_button)
     Button mEmailSignInButton;
-
+    @BindView(R.id.testing)
+    TextView testing;
     @BindView(R.id.syncData)
     Button syncData;
 
@@ -123,12 +125,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
+        if (Integer.valueOf(Arrays.toString(MainApp.versionName.split(".", 0))) < 1) {
+            testing.setVisibility(View.VISIBLE);
+        }
         // Set up the login form.
-        mEmailView = (EditText) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
         populateAutoComplete();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
