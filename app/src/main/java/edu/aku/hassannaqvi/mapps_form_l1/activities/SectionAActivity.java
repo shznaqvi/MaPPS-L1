@@ -205,6 +205,8 @@ public class SectionAActivity extends Activity {
                 if (!MainApp.checked) {
                     fldGrpmpl1a002.setVisibility(View.GONE);
                     mpl1a001.setError("Please check household number first");
+                    MainApp.ParticipantsMap.clear();
+                    MainApp.ParticipantsName.clear();
 
                 } else {
                     MainApp.checked = true;
