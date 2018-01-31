@@ -88,9 +88,9 @@ public class MainActivity extends Activity {
         ButterKnife.bind(this);
 
         lblheader.setText("Welcome! You're assigned to block ' " + " '" + MainApp.username);
-        if (Integer.valueOf(Arrays.toString(MainApp.versionName.split(".", 0))) < 1) {
-            testing.setVisibility(View.VISIBLE);
-        }
+//        if (Integer.valueOf(Arrays.toString(MainApp.versionName.split(".", 0))) < 1) {
+//            testing.setVisibility(View.VISIBLE);
+//        }
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
         } else {

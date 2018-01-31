@@ -125,9 +125,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        if (Integer.valueOf(Arrays.toString(MainApp.versionName.split(".", 0))) < 1) {
+/*        if (Integer.valueOf(Arrays.toString(MainApp.versionName.split(".", 0))) < 1) {
             testing.setVisibility(View.VISIBLE);
-        }
+        }*/
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
         populateAutoComplete();
