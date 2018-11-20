@@ -315,8 +315,10 @@
   <string name="mpl1c014"> اضافي جمله </string>
   <string name="mpl1d"> BEP خوراڪ جي خبر وٺڻ </string>
   <string name="mpl1d001"> ڇا شرڪت ڪندڙ حمل واري مرحلي ۾ آهي ۽ BEP  جي خوراڪ کائي پئي ؟ </string>
+  <string name="mpl1d00101"> ڇا شرڪت ڪندڙ ٻار جي پيدا ٿيڻ کان پوء واري مرحلي ۾ آهي ۽ BEP  جي خوراڪ کائي پئي ؟ </string>
   <string name="mpl1d002"> شرڪت ڪندڙ وٽ  BEP  جون پوڙيون ڪيتريون موجود آهن؟</string>
   <string name="mpl1d003"> گذريل دوري کان وٺي   شرڪت ڪندڙکي ڪيتريون BEP  جون نيون پڙيون ليڊي هيلٿ ورڪر جي طرفان   مهياڪيون ويون ؟ </string>
+  <string name="mpl1d00302"> ها پر شرڪت ڪندڙ وٺڻ کان انڪار ڪيو </string>
   <string name="mpl1d004">شرڪت ڪندڙ وٽ هن وقت ڪل ڪيتريون BEP  جو پڙيون موجود آهن.؟</string>
   <string name="mpl1d005">آخري دوري کان وٺي ڪيتريون BEP  جو پڙيون استعمال ڪيون آهن؟</string>
   <string name="mpl1d006">اهي BEP  جون پڙيون توهان ڪيئن استعمال ڪريون پيا؟</string>
