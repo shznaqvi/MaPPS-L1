@@ -308,7 +308,8 @@ public class SectionFActivity extends Activity {
         sf.put("mpl1d001", mpl1d001a.isChecked() ? "1" : mpl1d001b.isChecked() ? "2" : "0");
         sf.put("mpl1d00101", mpl1d00101a.isChecked() ? "1" : mpl1d00101b.isChecked() ? "2" : "0");
         sf.put("mpl1d002", mpl1d002.getText().toString());
-        sf.put("mpl1d003", mpl1d00302.isChecked() ? "2" : mpl1d003.getText().toString());
+        sf.put("mpl1d003", mpl1d003.getText().toString());
+        sf.put("mpl1d00302", mpl1d00302.isChecked() ? "1" : "0");
         //sf.put("mpl1d004", mpl1d004.getText().toString());
         sf.put("mpl1d005", mpl1d005.getText().toString());
         sf.put("mpl1d006", mpl1d006a.isChecked() ? "1" : mpl1d006b.isChecked() ? "2" : mpl1d006c.isChecked() ? "3" : mpl1d006d.isChecked() ? "4" : mpl1d006e.isChecked() ? "5" : "0");
