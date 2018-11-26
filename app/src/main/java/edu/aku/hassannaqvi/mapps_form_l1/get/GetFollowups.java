@@ -69,26 +69,26 @@ public class GetFollowups extends AsyncTask<Void, Integer, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-
-        JSONArray json = null;
-        try {
-            json = new JSONArray(result);
-            DatabaseHelper db = new DatabaseHelper(mContext);
-            db.syncFollowups(json);
-            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Followups", Toast.LENGTH_SHORT).show();
-
-            pd.setMessage(json.length() + " Followups synced.");
-            pd.setTitle("Followups: Done");
+        if (result != null) {
+            String json = result;
+            if (json.length() > 0) {
+                DatabaseHelper db = new DatabaseHelper(mContext);
+                try {
+                    JSONArray jsonArray = new JSONArray(json);
+                    db.syncFollowups(jsonArray);
+                    pd.setMessage("Received: " + jsonArray.length());
+                    pd.show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                pd.setMessage("Received: " + json.length() + "");
+                pd.show();
+            }
+        } else {
+            pd.setTitle("Connection Error");
+            pd.setMessage("Server not found!");
             pd.show();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
-
-            pd.setMessage(result);
-            pd.setTitle("Followups Sync Failed");
-            pd.show();
-
         }
 
     }
@@ -112,8 +112,8 @@ public class GetFollowups extends AsyncTask<Void, Integer, String> {
             URL url = new URL(myurl);
             Log.d(TAG, "downloadUrl: " + myurl);
             conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(35000 /* milliseconds */);
-            conn.setConnectTimeout(40000 /* milliseconds */);
+            conn.setReadTimeout(300000 /* milliseconds */);
+            conn.setConnectTimeout(300000 /* milliseconds */);
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
             conn.setDoInput(true);
