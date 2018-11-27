@@ -58,6 +58,8 @@ public class SectionEActivity extends Activity {
     RadioButton mpl1c004a;
     @BindView(R.id.mpl1c004b)
     RadioButton mpl1c004b;
+    @BindView(R.id.mpl1c004c)
+    RadioButton mpl1c004c;
     @BindView(R.id.fldGrp005)
     LinearLayout fldGrp005;
     @BindView(R.id.mpl1c005)
@@ -413,7 +415,7 @@ public class SectionEActivity extends Activity {
         se.put("mpl1c001", mpl1c001a.isChecked() ? "1" : mpl1c001b.isChecked() ? "2" : mpl1c001c.isChecked() ? "3" : mpl1c001d.isChecked() ? "4" : "0");
         se.put("mpl1c002", mpl1c002a.isChecked() ? "1" : mpl1c002b.isChecked() ? "2" : mpl1c002c.isChecked() ? "3" : "0");
         se.put("mpl1c003", mpl1c003.getText().toString());
-        se.put("mpl1c004", mpl1c004a.isChecked() ? "1" : mpl1c004b.isChecked() ? "2" : "0");
+        se.put("mpl1c004", mpl1c004a.isChecked() ? "1" : mpl1c004b.isChecked() ? "2" : mpl1c004c.isChecked() ? "3" : "0");
         se.put("mpl1c005", mpl1c005.getText().toString());
         se.put("mpl1c006", mpl1c006.getText().toString());
         se.put("mpl1c007", mpl1c007a.isChecked() ? "1" : mpl1c007b.isChecked() ? "2" : mpl1c007c.isChecked() ? "3" : mpl1c007d.isChecked() ? "4" : mpl1c007e.isChecked() ? "5" : "0");
