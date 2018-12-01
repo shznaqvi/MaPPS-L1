@@ -26,7 +26,6 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -62,8 +61,7 @@ public class MainActivity extends Activity {
     Spinner spClusters;
     @BindView(R.id.mpl1aLHWs)
     Spinner mpl1aLHWs;
-    @BindView(R.id.testing)
-    TextView testing;
+
 
     @BindView(R.id.syncDevice)
     Button syncDevice;
