@@ -399,12 +399,11 @@ public class SectionFActivity extends Activity {
                     mpl1d003.setError(null);
                 }
 
-                if (Integer.valueOf(mpl1d003.getText().toString().isEmpty() ? "0" : mpl1d003.getText().toString()) < 0
-                        || Integer.valueOf(mpl1d003.getText().toString().isEmpty() ? "0" : mpl1d003.getText().toString()) > 60) {
+                if (Integer.valueOf(mpl1d003.getText().toString().isEmpty() ? "0" : mpl1d003.getText().toString()) > 200) {
                     Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mpl1d003), Toast.LENGTH_SHORT).show();
-                    mpl1d003.setError("Invalid: Range is 0 to 60");
+                    mpl1d003.setError("Invalid: Range is 0 to 200");
                     mpl1d003.requestFocus();
-                    Log.i(TAG, "mpl1d003: Range is 0 to 60");
+                    Log.i(TAG, "mpl1d003: Range is 0 to 200");
                     return false;
                 } else {
                     mpl1d003.setError(null);
